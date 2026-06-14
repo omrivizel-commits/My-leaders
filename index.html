@@ -18,6 +18,7 @@
     --bg1:#eef2ff; --bg2:#f8fafc; --ink:#0f172a; --muted:#64748b;
     --card:#ffffff; --line:#e2e8f0; --accent:#2563eb; --accent-soft:#dbeafe;
     --pm:#2563eb; --cos:#15803d; --pres:#b45309; --live:#16a34a;
+    --def:#7c3aed; --fin:#0369a1;
     --shadow:0 10px 30px -12px rgba(15,23,42,.25);
   }
   *{box-sizing:border-box}
@@ -190,6 +191,26 @@
   .cc-stat-key{color:var(--muted);font-weight:600}
   .cc-stat-val{font-weight:800}
 
+  /* ---------- Elections ---------- */
+  .elec-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-top:16px}
+  .elec-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+  .elec-num{font-size:11px;font-weight:700;color:var(--muted);margin-bottom:4px}
+  .elec-date{font-size:11px;color:var(--muted)}
+  .elec-winner{font-size:17px;font-weight:800;margin:4px 0 2px}
+  .elec-pm{font-size:12px;color:var(--muted);margin-bottom:10px}
+  .elec-bar-wrap{height:10px;background:var(--line);border-radius:999px;overflow:hidden;margin:6px 0 4px}
+  .elec-bar-fill{height:100%;background:var(--accent);border-radius:999px;transition:width .4s ease}
+  .elec-meta{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);font-weight:600}
+  .elec-bloc{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px;margin-top:6px}
+  .elec-bloc.right{background:#fee2e2;color:#991b1b}
+  .elec-bloc.left{background:#dbeafe;color:#1e40af}
+  .elec-bloc.center{background:#fef9c3;color:#713f12}
+  .elec-bloc.unity{background:#f0fdf4;color:#166534}
+  [data-theme=dark] .elec-bloc.right{background:#450a0a;color:#fca5a5}
+  [data-theme=dark] .elec-bloc.left{background:#1e3a5f;color:#93c5fd}
+  [data-theme=dark] .elec-bloc.center{background:#3b2f00;color:#fde68a}
+  [data-theme=dark] .elec-bloc.unity{background:#052e16;color:#86efac}
+
   /* ---------- Wars / Events ---------- */
   .events-wrap{max-width:880px;margin:20px auto 0;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px 18px}
   .events-wrap h3{font-size:16px;font-weight:800;margin:0 0 12px;text-align:center}
@@ -250,9 +271,15 @@
   .block.pm   .count{background:var(--pm)}
   .block.cos  .count{background:var(--cos)}
   .block.pres .count{background:var(--pres)}
+  .block.def  .count{background:var(--def,#7c3aed)}
+  .block.fin  .count{background:var(--fin,#0369a1)}
   .block.pm   .accent{color:var(--pm)}
   .block.cos  .accent{color:var(--cos)}
   .block.pres .accent{color:var(--pres)}
+  .block.def  .accent{color:var(--def,#7c3aed)}
+  .block.fin  .accent{color:var(--fin,#0369a1)}
+  .block.def  .pct-bar span{background:var(--def,#7c3aed)}
+  .block.fin  .pct-bar span{background:var(--fin,#0369a1)}
 
   /* timeline list */
   .timeline{position:relative;margin:0;padding:0;list-style:none}
@@ -478,6 +505,74 @@ const DATA = {
       {name:'ראובן ריבלין', start:'2014-07-24', end:'2021-07-07', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Reuven_Rivlin_as_the_president_of_Israel.jpg/330px-Reuven_Rivlin_as_the_president_of_Israel.jpg'},
       {name:'יצחק הרצוג',   start:'2021-07-07', end:null,          img:'https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Isaac_Herzog%2C_July_2021_%28D1233-049%29.JPG/330px-Isaac_Herzog%2C_July_2021_%28D1233-049%29.JPG'}
     ]
+  },
+  def: {
+    title:'שרי ביטחון', icon:'🛡️', ordinal:true, singular:'שר ביטחון',
+    list:[
+      {name:'דוד בן-גוריון',     party:'מפא"י',          start:'1948-05-14', end:'1954-01-26', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/David_Ben-Gurion_%28D597-087%29.jpg/330px-David_Ben-Gurion_%28D597-087%29.jpg'},
+      {name:'פנחס לבון',         party:'מפא"י',          start:'1954-01-26', end:'1955-02-21', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Pinhas_Lavon_-_1960.jpg/330px-Pinhas_Lavon_-_1960.jpg'},
+      {name:'דוד בן-גוריון',     party:'מפא"י',          start:'1955-11-03', end:'1963-06-26', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/David_Ben-Gurion_%28D597-087%29.jpg/330px-David_Ben-Gurion_%28D597-087%29.jpg'},
+      {name:'לוי אשכול',         party:'מפא"י',          start:'1963-06-26', end:'1967-06-01', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Portrait_of_prime_minister_Levy_Eshkol._August_1963._D699-070.jpg/330px-Portrait_of_prime_minister_Levy_Eshkol._August_1963._D699-070.jpg'},
+      {name:'משה דיין',          party:'רפ"י / המערך',   start:'1967-06-01', end:'1974-06-03', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Mosche_Dajan.jpg/330px-Mosche_Dajan.jpg'},
+      {name:'שמעון פרס',         party:'המערך',          start:'1974-06-03', end:'1977-06-21', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Shimon_Peres_-_portrait_photograh_-_1996_%28full%29.jpg/330px-Shimon_Peres_-_portrait_photograh_-_1996_%28full%29.jpg'},
+      {name:'עזר ויצמן',         party:'הליכוד',         start:'1977-06-21', end:'1980-05-28', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Ezer_Weizman_9.jpg/330px-Ezer_Weizman_9.jpg'},
+      {name:'מנחם בגין',         party:'הליכוד',         start:'1980-05-28', end:'1981-08-05', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Menachem_Begin_1978_%28cropped%29.jpg/330px-Menachem_Begin_1978_%28cropped%29.jpg'},
+      {name:'אריאל שרון',        party:'הליכוד',         start:'1981-08-05', end:'1983-02-14', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Ariel_Sharon_official_portrait_2001.webp/330px-Ariel_Sharon_official_portrait_2001.webp.png'},
+      {name:'משה ארנס',          party:'הליכוד',         start:'1983-02-14', end:'1984-09-13', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Moshe_Arens.jpg/330px-Moshe_Arens.jpg'},
+      {name:'יצחק רבין',         party:'המערך',          start:'1984-09-13', end:'1990-03-20', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Yizhak_Rabin_%2800310004%29.jpg/330px-Yizhak_Rabin_%2800310004%29.jpg'},
+      {name:'משה ארנס',          party:'הליכוד',         start:'1990-03-20', end:'1992-07-13', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Moshe_Arens.jpg/330px-Moshe_Arens.jpg'},
+      {name:'יצחק רבין',         party:'העבודה',         start:'1992-07-13', end:'1995-11-04', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Yizhak_Rabin_%2800310004%29.jpg/330px-Yizhak_Rabin_%2800310004%29.jpg'},
+      {name:'שמעון פרס',         party:'העבודה',         start:'1995-11-22', end:'1996-06-18', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Shimon_Peres_-_portrait_photograh_-_1996_%28full%29.jpg/330px-Shimon_Peres_-_portrait_photograh_-_1996_%28full%29.jpg'},
+      {name:'יצחק מרדכי',        party:'הליכוד',         start:'1996-06-18', end:'1999-01-21', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Yitzhak_Mordechai.jpg/330px-Yitzhak_Mordechai.jpg'},
+      {name:'משה ארנס',          party:'הליכוד',         start:'1999-01-21', end:'1999-07-06', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Moshe_Arens.jpg/330px-Moshe_Arens.jpg'},
+      {name:'אהוד ברק',          party:'ישראל אחת',      start:'1999-07-06', end:'2001-03-07', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Ehud_Barak_2016_-_Herzliya_Conference_2016_3015_%28cropped%29.jpg/330px-Ehud_Barak_2016_-_Herzliya_Conference_2016_3015_%28cropped%29.jpg'},
+      {name:'בנימין בן-אליעזר',  party:'העבודה',         start:'2001-03-07', end:'2002-10-28', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Benjamin_Ben-Eliezer.jpg/330px-Benjamin_Ben-Eliezer.jpg'},
+      {name:'שאול מופז',         party:'הליכוד',         start:'2002-10-28', end:'2006-05-04', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Shaul_Mofaz_%28E32J1226%29.jpg/330px-Shaul_Mofaz_%28E32J1226%29.jpg'},
+      {name:'עמיר פרץ',          party:'העבודה',         start:'2006-05-04', end:'2007-06-18', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Amir_Peretz_2006.jpg/330px-Amir_Peretz_2006.jpg'},
+      {name:'אהוד ברק',          party:'העבודה',         start:'2007-06-18', end:'2013-03-18', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Ehud_Barak_2016_-_Herzliya_Conference_2016_3015_%28cropped%29.jpg/330px-Ehud_Barak_2016_-_Herzliya_Conference_2016_3015_%28cropped%29.jpg'},
+      {name:'משה יעלון',         party:'הליכוד',         start:'2013-03-18', end:'2016-05-20', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Moshe_Ya%27alon_%28cropped%29.jpg/330px-Moshe_Ya%27alon_%28cropped%29.jpg'},
+      {name:'אביגדור ליברמן',    party:'ישראל ביתנו',    start:'2016-05-30', end:'2018-11-14', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Avigdor_Lieberman_%28cropped%29.jpg/330px-Avigdor_Lieberman_%28cropped%29.jpg'},
+      {name:'בנימין נתניהו',     party:'הליכוד',         start:'2018-11-14', end:'2019-11-17', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Benjamin_Netanyahu%2C_February_2023.jpg/330px-Benjamin_Netanyahu%2C_February_2023.jpg'},
+      {name:'נפתלי בנט',         party:'ימינה',          start:'2019-11-17', end:'2020-05-17', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Naftali_Bennett_official_portrait.jpg/330px-Naftali_Bennett_official_portrait.jpg'},
+      {name:'בני גנץ',           party:'כחול לבן',       start:'2020-05-17', end:'2022-12-29', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Israeli_Minister_Benny_Gantz_at_the_Department_of_State_in_Washington%2C_D.C._on_March_5%2C_2024_%28cropped%29.jpg/330px-Israeli_Minister_Benny_Gantz_at_the_Department_of_State_in_Washington%2C_D.C._on_March_5%2C_2024_%28cropped%29.jpg'},
+      {name:'יואב גלנט',         party:'הליכוד',         start:'2022-12-29', end:'2024-11-05', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Yoav_Gallant%2C_IDF_29_September_2021.jpg/330px-Yoav_Gallant%2C_IDF_29_September_2021.jpg'},
+      {name:'ישראל כץ',          party:'הליכוד',         start:'2024-11-05', end:null,         img:'https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Israel_Katz_%28cropped%29.jpg/330px-Israel_Katz_%28cropped%29.jpg'},
+    ]
+  },
+  fin: {
+    title:'שרי אוצר', icon:'💰', ordinal:true, singular:'שר אוצר',
+    list:[
+      {name:'אליעזר קפלן',       party:'מפא"י',          start:'1948-05-14', end:'1952-07-15', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Eliezer_Kaplan.jpg/330px-Eliezer_Kaplan.jpg'},
+      {name:'לוי אשכול',         party:'מפא"י',          start:'1952-07-24', end:'1963-06-26', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Portrait_of_prime_minister_Levy_Eshkol._August_1963._D699-070.jpg/330px-Portrait_of_prime_minister_Levy_Eshkol._August_1963._D699-070.jpg'},
+      {name:'פנחס ספיר',         party:'מפא"י',          start:'1963-06-26', end:'1968-01-15', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Pinchas_Sapir.jpg/330px-Pinchas_Sapir.jpg'},
+      {name:'זאב שרף',           party:'מפא"י',          start:'1968-01-15', end:'1969-07-15', img:''},
+      {name:'פנחס ספיר',         party:'המערך',          start:'1969-07-15', end:'1974-06-03', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Pinchas_Sapir.jpg/330px-Pinchas_Sapir.jpg'},
+      {name:'יהושע רבינוביץ\'',  party:'המערך',          start:'1974-06-03', end:'1977-06-21', img:''},
+      {name:'שמחה ארליך',        party:'הליכוד',         start:'1977-06-21', end:'1979-11-07', img:''},
+      {name:'יגאל הורביץ\'',     party:'הליכוד',         start:'1979-11-07', end:'1981-07-05', img:''},
+      {name:'יורם ארידור',       party:'הליכוד',         start:'1981-07-05', end:'1983-10-10', img:''},
+      {name:'יגאל כהן-אורגד',   party:'הליכוד',         start:'1983-10-10', end:'1984-09-13', img:''},
+      {name:'יצחק מודעי',        party:'הליכוד',         start:'1984-09-13', end:'1986-10-20', img:''},
+      {name:'משה ניסים',         party:'הליכוד',         start:'1986-10-20', end:'1988-12-22', img:''},
+      {name:'שמעון פרס',         party:'העבודה',         start:'1988-12-22', end:'1990-03-15', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Shimon_Peres_-_portrait_photograh_-_1996_%28full%29.jpg/330px-Shimon_Peres_-_portrait_photograh_-_1996_%28full%29.jpg'},
+      {name:'יצחק מודעי',        party:'הליכוד',         start:'1990-06-08', end:'1992-07-13', img:''},
+      {name:'אברהם שוחט',        party:'העבודה',         start:'1992-07-13', end:'1996-06-18', img:''},
+      {name:'דן מרידור',         party:'הליכוד',         start:'1996-06-18', end:'1997-06-18', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Dan_Meridor.jpg/330px-Dan_Meridor.jpg'},
+      {name:'יעקב נאמן',         party:'הליכוד',         start:'1997-06-18', end:'1998-01-04', img:''},
+      {name:'מאיר שטרית',        party:'הליכוד',         start:'1998-01-04', end:'1999-07-06', img:''},
+      {name:'אברהם שוחט',        party:'ישראל אחת',      start:'1999-07-06', end:'2001-03-07', img:''},
+      {name:'סילבן שלום',        party:'הליכוד',         start:'2001-03-07', end:'2003-02-27', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Silvan_Shalom.jpg/330px-Silvan_Shalom.jpg'},
+      {name:'בנימין נתניהו',     party:'הליכוד',         start:'2003-02-27', end:'2005-08-09', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Benjamin_Netanyahu%2C_February_2023.jpg/330px-Benjamin_Netanyahu%2C_February_2023.jpg'},
+      {name:'אהוד אולמרט',       party:'קדימה',          start:'2006-01-04', end:'2006-05-04', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Clinton_and_Olmert_2009_%28cropped%29.png/330px-Clinton_and_Olmert_2009_%28cropped%29.png'},
+      {name:'אברהם הירשזון',     party:'קדימה',          start:'2006-05-04', end:'2007-07-01', img:''},
+      {name:'רוני בר-און',       party:'קדימה',          start:'2007-07-01', end:'2009-03-31', img:''},
+      {name:'יובל שטייניץ',      party:'הליכוד',         start:'2009-03-31', end:'2013-03-18', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Yuval_Steinitz.jpg/330px-Yuval_Steinitz.jpg'},
+      {name:'יאיר לפיד',         party:'יש עתיד',        start:'2013-03-18', end:'2014-12-02', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Yair_Lapid_%28D1237-011%29.jpg/330px-Yair_Lapid_%28D1237-011%29.jpg'},
+      {name:'משה כחלון',         party:'כולנו',          start:'2015-05-14', end:'2020-05-17', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Moshe_Kahlon.jpg/330px-Moshe_Kahlon.jpg'},
+      {name:'ישראל כץ',          party:'הליכוד',         start:'2020-05-17', end:'2020-06-01', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Israel_Katz_%28cropped%29.jpg/330px-Israel_Katz_%28cropped%29.jpg'},
+      {name:'אביגדור ליברמן',    party:'ישראל ביתנו',    start:'2021-06-13', end:'2022-12-29', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Avigdor_Lieberman_%28cropped%29.jpg/330px-Avigdor_Lieberman_%28cropped%29.jpg'},
+      {name:'בצלאל סמוטריץ\'',   party:'הציונות הדתית', start:'2023-01-29', end:null,         img:'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Bezalel_Smotrich_%28portrait%29.jpg/330px-Bezalel_Smotrich_%28portrait%29.jpg'},
+    ]
   }
 };
 
@@ -491,6 +586,35 @@ const ELECTIONS = [
 ];
 
 const FOUNDING = '1948-05-14';
+
+// תוצאות בחירות לכנסת
+const KNESSET = [
+  {n:1,  date:'1949-01-25', winner:'מפא"י',        wSeats:46, coalition:73,  pm:'דוד בן-גוריון',          bloc:'מרכז-שמאל'},
+  {n:2,  date:'1951-07-30', winner:'מפא"י',        wSeats:45, coalition:67,  pm:'דוד בן-גוריון',          bloc:'מרכז-שמאל'},
+  {n:3,  date:'1955-07-26', winner:'מפא"י',        wSeats:40, coalition:65,  pm:'דוד בן-גוריון',          bloc:'מרכז-שמאל'},
+  {n:4,  date:'1959-11-03', winner:'מפא"י',        wSeats:47, coalition:73,  pm:'דוד בן-גוריון',          bloc:'מרכז-שמאל'},
+  {n:5,  date:'1961-08-15', winner:'מפא"י',        wSeats:42, coalition:68,  pm:'דוד בן-גוריון',          bloc:'מרכז-שמאל'},
+  {n:6,  date:'1965-11-02', winner:'המערך',        wSeats:45, coalition:75,  pm:'לוי אשכול',              bloc:'מרכז-שמאל'},
+  {n:7,  date:'1969-10-28', winner:'המערך',        wSeats:56, coalition:75,  pm:'גולדה מאיר',             bloc:'מרכז-שמאל'},
+  {n:8,  date:'1973-12-31', winner:'המערך',        wSeats:51, coalition:68,  pm:'גולדה מאיר',             bloc:'מרכז-שמאל'},
+  {n:9,  date:'1977-05-17', winner:'הליכוד',       wSeats:43, coalition:61,  pm:'מנחם בגין',              bloc:'ימין'},
+  {n:10, date:'1981-06-30', winner:'הליכוד',       wSeats:48, coalition:61,  pm:'מנחם בגין',              bloc:'ימין'},
+  {n:11, date:'1984-07-23', winner:'המערך',        wSeats:44, coalition:97,  pm:'שמעון פרס / יצחק שמיר', bloc:'ממשלת אחדות'},
+  {n:12, date:'1988-11-01', winner:'הליכוד',       wSeats:40, coalition:62,  pm:'יצחק שמיר',              bloc:'ימין'},
+  {n:13, date:'1992-06-23', winner:'העבודה',       wSeats:44, coalition:61,  pm:'יצחק רבין',              bloc:'מרכז-שמאל'},
+  {n:14, date:'1996-05-29', winner:'הליכוד',       wSeats:32, coalition:66,  pm:'בנימין נתניהו',          bloc:'ימין'},
+  {n:15, date:'1999-05-17', winner:'ישראל אחת',    wSeats:26, coalition:75,  pm:'אהוד ברק',               bloc:'מרכז-שמאל'},
+  {n:16, date:'2003-01-28', winner:'הליכוד',       wSeats:38, coalition:68,  pm:'אריאל שרון',             bloc:'ימין'},
+  {n:17, date:'2006-03-28', winner:'קדימה',        wSeats:29, coalition:67,  pm:'אהוד אולמרט',            bloc:'מרכז'},
+  {n:18, date:'2009-02-10', winner:'הליכוד',       wSeats:27, coalition:74,  pm:'בנימין נתניהו',          bloc:'ימין'},
+  {n:19, date:'2013-01-22', winner:'הליכוד-ביתנו', wSeats:31, coalition:68, pm:'בנימין נתניהו',           bloc:'ימין'},
+  {n:20, date:'2015-03-17', winner:'הליכוד',       wSeats:30, coalition:67,  pm:'בנימין נתניהו',          bloc:'ימין'},
+  {n:21, date:'2019-04-09', winner:'הליכוד',       wSeats:35, coalition:60,  pm:'(לא הורכבה ממשלה)',      bloc:'ימין'},
+  {n:22, date:'2019-09-17', winner:'כחול-לבן',     wSeats:33, coalition:55,  pm:'(לא הורכבה ממשלה)',      bloc:'מרכז'},
+  {n:23, date:'2020-03-02', winner:'הליכוד',       wSeats:36, coalition:72,  pm:'בנימין נתניהו',          bloc:'ממשלת אחדות'},
+  {n:24, date:'2021-03-23', winner:'הליכוד',       wSeats:30, coalition:61,  pm:'נפתלי בנט / יאיר לפיד', bloc:'מרכז-שמאל-ימין'},
+  {n:25, date:'2022-11-01', winner:'הליכוד',       wSeats:32, coalition:64,  pm:'בנימין נתניהו',          bloc:'ימין'},
+];
 
 // תקצירים ביוגרפיים — העובדות הוצלבו ממספר מקורות סמכותיים (לא ויקיפדיה כמקור יחיד)
 const BIOS = {
@@ -1052,8 +1176,9 @@ function setActiveTab(key){
     t.classList.toggle('active', t.dataset.key === key));
   document.querySelectorAll('#results section.block').forEach(s =>
     s.classList.toggle('hidden', s.getAttribute('data-key') !== key));
-  // clear search when switching tabs
+  // hide search on elections tab (no cards to filter)
   if (searchInput) { searchInput.value = ''; filterCards(''); }
+  if (searchWrap) searchWrap.classList.toggle('hidden', key === 'elec');
 }
 
 /* ========= DARK MODE ========= */
@@ -1140,6 +1265,49 @@ function buildShareText(birthStr, blocks){
 }
 
 /* ========= VISUAL TIMELINE ========= */
+/* ========= ELECTIONS ========= */
+function buildElections(birthStr){
+  const todayStr2 = new Date().toISOString().slice(0,10);
+  const list = KNESSET.filter(k => k.date >= birthStr && k.date <= todayStr2);
+  if (!list.length) return null;
+
+  const section = el('section', 'block elec');
+  section.setAttribute('data-key', 'elec');
+  const head = el('div', 'block-head');
+  head.appendChild(el('span', 'ic', '🗳️'));
+  head.appendChild(el('h2', null, 'מערכות בחירות'));
+  head.appendChild(el('span', 'count', list.length + ' בחירות'));
+  section.appendChild(head);
+
+  const grid = el('div', 'elec-grid');
+  list.forEach((k, idx) => {
+    const card = el('div', 'elec-card');
+    card.style.setProperty('--ci', idx);
+    card.style.animation = 'cardIn .32s ease both';
+    card.style.animationDelay = (idx * 60) + 'ms';
+
+    const pct = Math.round((k.coalition / 120) * 100);
+    const blocClass = k.bloc.includes('ימין') && !k.bloc.includes('מרכז') ? 'right'
+      : k.bloc.includes('שמאל') ? 'left'
+      : k.bloc.includes('אחדות') ? 'unity' : 'center';
+
+    const dateObj = new Date(k.date + 'T00:00:00');
+    const dateHe = dateObj.getDate() + ' ב' + months[dateObj.getMonth()] + ' ' + dateObj.getFullYear();
+
+    card.innerHTML =
+      '<div class="elec-num">כנסת ה-' + k.n + '</div>' +
+      '<div class="elec-date">' + dateHe + '</div>' +
+      '<div class="elec-winner">' + k.winner + ' — ' + k.wSeats + ' מנדטים</div>' +
+      '<div class="elec-pm">ראש ממשלה: ' + k.pm + '</div>' +
+      '<div class="elec-bar-wrap"><div class="elec-bar-fill" style="width:' + pct + '%"></div></div>' +
+      '<div class="elec-meta"><span>קואליציה: ' + k.coalition + '/120</span><span>' + pct + '%</span></div>' +
+      '<span class="elec-bloc ' + blocClass + '">' + k.bloc + '</span>';
+    grid.appendChild(card);
+  });
+  section.appendChild(grid);
+  return section;
+}
+
 /* ========= EVENTS ========= */
 function buildEvents(birthStr){
   const birthY = parseInt(birthStr.slice(0,4));
@@ -1233,14 +1401,18 @@ form.addEventListener('submit', function(e){
   compareToggleBtn.classList.add('hidden');
   comparePanel.classList.add('hidden');
   const blocks = {};
-  ['pm', 'cos', 'pres'].forEach(key => {
+  ['pm', 'cos', 'pres', 'def', 'fin'].forEach(key => {
     const b = buildBlock(key, val, birth, today);
     blocks[key] = b;
     if (b.node) results.appendChild(b.node);
   });
 
+  // elections section
+  const elecNode = buildElections(val);
+  if (elecNode) results.appendChild(elecNode);
+
   // tab menu — pick one category at a time
-  ['pm', 'cos', 'pres'].forEach(key => {
+  ['pm', 'cos', 'pres', 'def', 'fin'].forEach(key => {
     const b = blocks[key];
     if (!b.node) return;
     const btn = el('button', 'tab');
@@ -1251,8 +1423,18 @@ form.addEventListener('submit', function(e){
     btn.addEventListener('click', () => setActiveTab(key));
     tabsEl.appendChild(btn);
   });
+  if (elecNode) {
+    const eBtn = el('button', 'tab');
+    eBtn.type = 'button'; eBtn.dataset.key = 'elec';
+    const elecCount2 = KNESSET.filter(k => k.date >= val && k.date <= todayStr).length;
+    eBtn.innerHTML = '<span>🗳️</span><span>בחירות</span><span class="tcount">' + elecCount2 + '</span>';
+    eBtn.addEventListener('click', () => setActiveTab('elec'));
+    tabsEl.appendChild(eBtn);
+  }
   tabsEl.classList.remove('hidden');
-  if (!blocks[activeTab] || !blocks[activeTab].node) activeTab = 'pm';
+  const validTabs = ['pm','cos','pres','def','fin'].filter(k => blocks[k] && blocks[k].node);
+  if (elecNode) validTabs.push('elec');
+  if (!validTabs.includes(activeTab)) activeTab = 'pm';
   setActiveTab(activeTab);
 
   // summary stat box

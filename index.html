@@ -368,16 +368,89 @@
   .sources a{color:var(--accent);font-size:13.5px;text-decoration:none}
   .sources a:hover{text-decoration:underline}
 
+  /* ---------- Poll / Election survey ---------- */
+  .poll-admin-btn{
+    position:fixed;top:14px;right:64px;z-index:40;width:42px;height:42px;font-size:18px;
+    background:var(--card);border:1.5px solid var(--line);border-radius:50%;cursor:pointer;
+    display:grid;place-items:center;transition:background .2s,border-color .2s;box-shadow:var(--shadow);
+    color:var(--muted);padding:0;
+  }
+  .poll-admin-btn:hover{background:var(--bg1)}
+  @media (max-width:520px){ .poll-admin-btn{top:10px;right:54px;width:36px;height:36px;font-size:15px} }
+
+  .poll{
+    background:var(--card);border:1px solid var(--line);border-radius:20px;
+    box-shadow:var(--shadow);padding:22px 20px;margin:24px auto 8px;max-width:560px;
+  }
+  .poll-head{text-align:center;margin-bottom:6px}
+  .poll-head .poll-ic{font-size:30px}
+  .poll-head h2{font-size:clamp(20px,4vw,26px);font-weight:800;margin:6px 0 4px}
+  .poll-head p{color:var(--muted);font-size:14px;margin:0 auto;max-width:420px}
+  .poll-status{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;
+    padding:3px 11px;border-radius:999px;margin-top:10px}
+  .poll-status.live{background:#dcfce7;color:#15803d}
+  .poll-status.draft{background:#fef3c7;color:#b45309}
+  .poll-status.demo{background:#e0e7ff;color:#4338ca}
+  [data-theme=dark] .poll-status.live{background:#0f2a1a;color:#56d364}
+  [data-theme=dark] .poll-status.draft{background:#2a2310;color:#d29922}
+  [data-theme=dark] .poll-status.demo{background:#1e2236;color:#a5b4fc}
+
+  .poll-parties{display:flex;flex-direction:column;gap:8px;margin-top:16px}
+  .poll-party{
+    display:flex;align-items:center;gap:11px;width:100%;text-align:right;
+    background:var(--bg1);border:1.5px solid var(--line);border-radius:13px;
+    padding:12px 14px;cursor:pointer;color:var(--ink);font-weight:600;font-size:15px;
+    transition:border-color .15s,transform .06s,background .15s;
+  }
+  .poll-party:hover{border-color:var(--accent);background:var(--card)}
+  .poll-party:active{transform:translateY(1px)}
+  .poll-party .pp-name{flex:1}
+  .poll-party .pp-go{color:var(--muted);font-size:13px;font-weight:700}
+
+  .poll-results{display:flex;flex-direction:column;gap:11px;margin-top:16px}
+  .pr-top{display:flex;justify-content:space-between;align-items:baseline;font-size:14px;margin-bottom:4px;gap:8px}
+  .pr-name{font-weight:700}
+  .pr-name .pr-mine{font-size:11px;color:var(--accent);font-weight:700;margin-inline-start:6px}
+  .pr-vals{color:var(--muted);font-weight:600;font-size:13px;white-space:nowrap}
+  .pr-seats{color:var(--ink);font-weight:800;font-size:14px;margin-inline-start:8px}
+  .pr-bar{height:12px;border-radius:999px;background:var(--line);overflow:hidden}
+  .pr-fill{height:100%;border-radius:999px;transition:width .5s ease}
+  .pr-below{opacity:.5}
+
+  .poll-total{text-align:center;color:var(--muted);font-size:13px;margin-top:16px;font-weight:600;line-height:1.6}
+  .poll-thanks{text-align:center;background:#dcfce7;color:#15803d;border-radius:12px;padding:11px;
+    font-weight:700;font-size:14px;margin:14px 0 4px}
+  [data-theme=dark] .poll-thanks{background:#0f2a1a;color:#56d364}
+
+  .poll-admin-bar{background:var(--bg1);border:1.5px dashed var(--accent);border-radius:14px;padding:14px;margin-bottom:14px}
+  .pab-title{font-weight:800;font-size:14px;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between;gap:8px}
+  .pab-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+  .pab-btn{font-size:14px;padding:9px 16px;border-radius:10px;font-weight:700;border:none;cursor:pointer;color:#fff}
+  .pab-btn.publish{background:#16a34a}
+  .pab-btn.publish:hover{background:#15803d}
+  .pab-btn.unpublish{background:#b45309}
+  .pab-btn.unpublish:hover{background:#92400e}
+  .pab-btn.ghost{background:transparent;color:var(--muted);border:1.5px solid var(--line);padding:7px 12px;font-size:13px}
+  .pab-note{font-size:12.5px;color:var(--muted);margin-top:10px;line-height:1.6}
+
+  .poll-login{display:flex;flex-direction:column;gap:8px;max-width:300px;margin:0 auto}
+  .poll-login input{font-family:inherit;font-size:15px;padding:10px 12px;border-radius:10px;
+    border:1.5px solid var(--line);background:var(--card);color:var(--ink)}
+  .poll-login .pl-err{color:#dc2626;font-size:13px;min-height:16px;text-align:center;font-weight:500}
+
   .hidden{display:none}
 </style>
 </head>
 <body>
 <button class="dark-btn" id="darkBtn" aria-label="החלף מצב תצוגה">🌙</button>
+<button class="poll-admin-btn hidden" id="pollAdminBtn" aria-label="ניהול הסקר" title="ניהול הסקר">🔐</button>
 <div class="wrap">
   <header class="hero">
     <h1>המנהיגים של חיי</h1>
     <p>הזינו את תאריך הלידה שלכם וגלו מי כיהנו כראשי ממשלה, רמטכ"לים ונשיאי המדינה מאז שנולדתם.</p>
   </header>
+
+  <section id="pollSection" class="poll hidden" aria-live="polite"></section>
 
   <div class="panel">
     <form id="form" class="field" novalidate>
@@ -1782,6 +1855,251 @@ form.addEventListener('submit', function(e){
 
   summaryBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
 });
+</script>
+
+<!-- ===================== ELECTION POLL (Firebase) ===================== -->
+<script type="module">
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js';
+import { getFirestore, doc, setDoc, onSnapshot, collection }
+  from 'https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js';
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut }
+  from 'https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js';
+
+/* ===== 1) הדבק כאן את ההגדרות מ-Firebase (ראה הוראות בצ'אט) ===== */
+const firebaseConfig = {
+  apiKey:            "PASTE_API_KEY_HERE",
+  authDomain:        "PASTE_PROJECT.firebaseapp.com",
+  projectId:         "PASTE_PROJECT_ID",
+  storageBucket:     "PASTE_PROJECT.appspot.com",
+  messagingSenderId: "PASTE_SENDER_ID",
+  appId:             "PASTE_APP_ID"
+};
+const ADMIN_EMAIL = "omrivizel@gmail.com"; /* רק המשתמש הזה יכול לפרסם */
+
+/* ===== רשימות המתמודדות לכנסת ה-26 — אפשר לערוך / להוסיף / להסיר =====
+   (שמות בלבד, בלי צבעים. הסדר מעורבב אקראית לכל מצביע) */
+const PARTIES = [
+  'הליכוד',
+  'ביחד (בנט–לפיד)',
+  'ישר (איזנקוט)',
+  'הדמוקרטים (גולן)',
+  'הציונות הדתית',
+  'עוצמה יהודית',
+  'ש"ס',
+  'יהדות התורה',
+  'ישראל ביתנו',
+  'חד"ש–תע"ל',
+  'רע"מ',
+  'בל"ד',
+  'כחול לבן (גנץ)',
+  'המילואימניקים (הנדל)',
+  'זהות (פייגלין)',
+  'המפלגה הכלכלית (זליכה)',
+  'מפלגת עוז (וילף)'
+];
+/* סדר אקראי חדש לכל מצביע (פעם אחת בכל טעינת עמוד) */
+const SHUFFLED = PARTIES.slice();
+for(let i=SHUFFLED.length-1; i>0; i--){ const j=Math.floor(Math.random()*(i+1)); [SHUFFLED[i],SHUFFLED[j]]=[SHUFFLED[j],SHUFFLED[i]]; }
+
+const QUESTION  = 'במי הייתם בוחרים אם הבחירות לכנסת היו נערכות היום?';
+const THRESHOLD = 3.25; /* אחוז חסימה */
+
+/* ===== state ===== */
+const section  = document.getElementById('pollSection');
+const adminBtn = document.getElementById('pollAdminBtn');
+const configured = !/PASTE/.test(firebaseConfig.apiKey);
+const demo = !configured;
+const urlAdmin = /[?&#]admin\b/.test(location.href);
+
+let published = false, counts = {}, isAdmin = false, showLogin = false, loginErr = '';
+let db = null, auth = null, votesUnsub = null;
+
+const DEVICE_KEY = 'poll_device_id', VOTED_KEY = 'poll_voted_party', DEMO_KEY = 'poll_demo_v2';
+
+function deviceId(){
+  let id = localStorage.getItem(DEVICE_KEY);
+  if(!id){ id = 'd_' + Math.random().toString(36).slice(2) + Date.now().toString(36); localStorage.setItem(DEVICE_KEY, id); }
+  return id;
+}
+function votedParty(){ return localStorage.getItem(VOTED_KEY); }
+function esc(s){ return String(s).replace(/[&<>"]/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m])); }
+
+/* ===== demo store (כשאין Firebase) ===== */
+function demoLoad(){
+  let raw = localStorage.getItem(DEMO_KEY);
+  if(!raw){
+    const seed = {'הליכוד':24,'ביחד (בנט–לפיד)':20,'ישר (איזנקוט)':17,'הדמוקרטים (גולן)':9,'ש"ס':9,
+      'עוצמה יהודית':8,'יהדות התורה':7,'ישראל ביתנו':7,'הציונות הדתית':5,'חד"ש–תע"ל':6,'רע"מ':5,'כחול לבן (גנץ)':3};
+    localStorage.setItem(DEMO_KEY, JSON.stringify({ published:false, votes:seed }));
+    raw = localStorage.getItem(DEMO_KEY);
+  }
+  return JSON.parse(raw);
+}
+function demoSave(o){ localStorage.setItem(DEMO_KEY, JSON.stringify(o)); }
+
+function getPublished(){ return demo ? demoLoad().published : published; }
+function getCounts(){ return demo ? demoLoad().votes : counts; }
+function getTotal(){ return Object.values(getCounts()).reduce((a,b)=>a+b,0); }
+
+/* ===== seat / snapshot calc ===== */
+function snapshot(){
+  const c = getCounts(), total = getTotal();
+  let rows = PARTIES.map(name => ({ name, votes:c[name]||0 }));
+  rows.forEach(r => r.pct = total ? (r.votes/total*100) : 0);
+  const above = rows.filter(r => r.pct >= THRESHOLD && r.votes > 0);
+  const aboveVotes = above.reduce((a,b)=>a+b.votes,0);
+  const seatsMap = {};
+  if(aboveVotes > 0){
+    const quota = above.map(r => ({ name:r.name, exact: r.votes/aboveVotes*120 }));
+    quota.forEach(q => seatsMap[q.name] = Math.floor(q.exact));
+    let rem = 120 - Object.values(seatsMap).reduce((a,b)=>a+b,0);
+    const byRem = quota.map(q => ({ name:q.name, frac:q.exact-Math.floor(q.exact) })).sort((a,b)=>b.frac-a.frac);
+    for(let i=0; i<rem && byRem.length; i++) seatsMap[byRem[i % byRem.length].name]++;
+  }
+  rows.forEach(r => r.seats = seatsMap[r.name] || 0);
+  rows.sort((a,b) => b.votes - a.votes || b.seats - a.seats);
+  return { rows, total };
+}
+
+/* ===== actions ===== */
+async function vote(party){
+  if(votedParty()) return;
+  try{
+    if(demo){ const d = demoLoad(); d.votes[party] = (d.votes[party]||0)+1; demoSave(d); }
+    else { await setDoc(doc(db,'votes',deviceId()), { party, ts:Date.now() }); }
+    localStorage.setItem(VOTED_KEY, party);
+  }catch(e){
+    console.warn('vote failed', e);
+    if(String(e).includes('permission')) localStorage.setItem(VOTED_KEY, party);
+  }
+  render();
+}
+async function setPub(val){
+  if(demo){ const d = demoLoad(); d.published = val; demoSave(d); render(); return; }
+  try{ await setDoc(doc(db,'poll','meta'), { published:val }, { merge:true }); }
+  catch(e){ alert('פעולת הפרסום נכשלה: ' + e.message); }
+}
+async function doLogin(email, pass){
+  loginErr = '';
+  try{ await signInWithEmailAndPassword(auth, email, pass); showLogin = false; }
+  catch(e){ loginErr = 'התחברות נכשלה — בדקו אימייל וסיסמה.'; render(); }
+}
+async function doLogout(){ try{ if(auth) await signOut(auth); }catch(e){} isAdmin = false; render(); }
+
+function ensureVotesSub(){
+  if(!configured || votesUnsub) return;
+  votesUnsub = onSnapshot(collection(db,'votes'), snap => {
+    counts = {};
+    snap.forEach(d => { const p = d.data().party; if(p) counts[p] = (counts[p]||0)+1; });
+    render();
+  }, err => console.warn('votes listen', err));
+}
+
+/* ===== html builders ===== */
+function headHtml(pub){
+  const badge = demo
+    ? '<span class="poll-status demo">● מצב הדגמה</span>'
+    : (pub ? '<span class="poll-status live">● הסקר פעיל</span>'
+           : '<span class="poll-status draft">● טיוטה — גלוי לך בלבד</span>');
+  return '<div class="poll-head"><div class="poll-ic">🗳️</div><h2>סקר הבחירות</h2>'
+       + '<p>' + esc(QUESTION) + '</p>' + badge + '</div>';
+}
+function partyListHtml(){
+  let h = '<div class="poll-parties">';
+  SHUFFLED.forEach(name => {
+    h += '<button class="poll-party" data-party="' + esc(name) + '">'
+       + '<span class="pp-name">' + esc(name) + '</span>'
+       + '<span class="pp-go">בחר ›</span></button>';
+  });
+  return h + '</div>';
+}
+function resultsHtml(voted){
+  const { rows, total } = snapshot();
+  const maxPct = Math.max(1, ...rows.map(r => r.pct));
+  let h = voted ? '<div class="poll-thanks">תודה! הצבעת עבור ' + esc(voted) + ' ✓</div>' : '';
+  h += '<div class="poll-results">';
+  rows.forEach(r => {
+    const below = r.pct > 0 && r.pct < THRESHOLD;
+    h += '<div class="pr-row' + (below ? ' pr-below' : '') + '">'
+       + '<div class="pr-top"><span class="pr-name">' + esc(r.name)
+       + (voted === r.name ? '<span class="pr-mine">הבחירה שלך</span>' : '') + '</span>'
+       + '<span class="pr-vals">' + r.pct.toFixed(1) + '%'
+       + (r.seats ? '<span class="pr-seats">' + r.seats + ' מנדטים</span>' : '') + '</span></div>'
+       + '<div class="pr-bar"><div class="pr-fill" style="width:' + (r.pct/maxPct*100)
+       + '%;background:var(--accent)"></div></div></div>';
+  });
+  h += '</div><div class="poll-total">סה"כ ' + total + ' הצבעות · חלוקת מנדטים משוערת מתוך 120 (אחוז חסימה '
+     + THRESHOLD + '%)</div>';
+  return h;
+}
+function adminBarHtml(pub){
+  let h = '<div class="poll-admin-bar"><div class="pab-title"><span>⚙️ ניהול הסקר</span>'
+        + '<button class="pab-btn ghost" id="pollLogout">' + (demo ? 'יציאה' : 'התנתק') + '</button></div><div class="pab-row">';
+  h += pub ? '<button class="pab-btn unpublish" id="pollUnpub">השהה פרסום (החזרה לטיוטה)</button>'
+           : '<button class="pab-btn publish" id="pollPub">🚀 פרסם לציבור</button>';
+  h += '</div><div class="pab-note">'
+     + (pub ? 'הסקר <b>פורסם</b> וגלוי לכל מי שנכנס לאתר.'
+            : 'הסקר במצב <b>טיוטה</b> — אף אחד חוץ ממך לא רואה אותו. כשתהיה מוכן לחץ "פרסם לציבור".')
+     + ' · סה"כ הצבעות: <b>' + getTotal() + '</b></div>';
+  if(demo){
+    h += '<div class="pab-note" style="border-top:1px dashed var(--line);padding-top:8px;margin-top:8px">'
+       + '⚠️ <b>מצב הדגמה</b> — Firebase עדיין לא מחובר, אז הנתונים מקומיים בלבד (לא משותפים בין מכשירים). '
+       + 'להפעלת סקר אמיתי חבר את Firebase לפי ההוראות בצ\'אט.</div>';
+  }
+  return h + '</div>';
+}
+function loginHtml(){
+  return '<div class="poll-head"><div class="poll-ic">🔐</div><h2>כניסת מנהל</h2>'
+       + '<p>רק המנהל יכול לנהל ולפרסם את הסקר.</p></div><div class="poll-login">'
+       + '<input id="plEmail" type="email" placeholder="אימייל" autocomplete="username" value="' + esc(ADMIN_EMAIL) + '">'
+       + '<input id="plPass" type="password" placeholder="סיסמה" autocomplete="current-password">'
+       + '<div class="pl-err">' + esc(loginErr) + '</div>'
+       + '<button class="pab-btn publish" id="plGo">התחבר</button>'
+       + '<button class="pab-btn ghost" id="plCancel" style="align-self:center">ביטול</button></div>';
+}
+
+/* ===== render ===== */
+function render(){
+  const pub = getPublished();
+  adminBtn.classList.toggle('hidden', !(urlAdmin || isAdmin));
+
+  if(showLogin && !isAdmin){
+    section.classList.remove('hidden'); section.innerHTML = loginHtml(); wire(); return;
+  }
+  if(!pub && !isAdmin){ section.classList.add('hidden'); return; }
+
+  section.classList.remove('hidden');
+  let html = headHtml(pub);
+  if(isAdmin) html += adminBarHtml(pub);
+  const voted = votedParty();
+  if(!voted) html += partyListHtml();
+  if(voted || isAdmin){ html += resultsHtml(voted); if(configured && (isAdmin || voted)) ensureVotesSub(); }
+  section.innerHTML = html;
+  wire();
+}
+function wire(){
+  section.querySelectorAll('.poll-party').forEach(b => b.addEventListener('click', () => vote(b.dataset.party)));
+  const pub = section.querySelector('#pollPub');   if(pub) pub.addEventListener('click', () => setPub(true));
+  const unpub = section.querySelector('#pollUnpub'); if(unpub) unpub.addEventListener('click', () => { if(confirm('להחזיר את הסקר לטיוטה? הוא יוסתר מהציבור.')) setPub(false); });
+  const lo = section.querySelector('#pollLogout'); if(lo) lo.addEventListener('click', () => { if(demo){ isAdmin = false; render(); } else doLogout(); });
+  const go = section.querySelector('#plGo'); if(go) go.addEventListener('click', () => doLogin(section.querySelector('#plEmail').value.trim(), section.querySelector('#plPass').value));
+  const cancel = section.querySelector('#plCancel'); if(cancel) cancel.addEventListener('click', () => { showLogin = false; render(); });
+}
+
+adminBtn.addEventListener('click', () => { if(demo){ isAdmin = true; } else { showLogin = true; } render(); });
+
+/* ===== init ===== */
+if(demo){
+  if(urlAdmin) isAdmin = true;
+  render();
+} else {
+  db = getFirestore(initializeApp(firebaseConfig));
+  auth = getAuth();
+  onSnapshot(doc(db,'poll','meta'), s => { published = s.exists() ? !!s.data().published : false; render(); },
+             e => console.warn('meta listen', e));
+  onAuthStateChanged(auth, u => { isAdmin = !!u && u.email === ADMIN_EMAIL; if(isAdmin) showLogin = false; render(); });
+  render();
+}
 </script>
 </body>
 </html>

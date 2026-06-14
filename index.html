@@ -193,7 +193,7 @@
 
   /* ---------- Elections ---------- */
   .elec-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-top:16px}
-  .elec-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+  .elec-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;cursor:pointer}
   .elec-num{font-size:11px;font-weight:700;color:var(--muted);margin-bottom:4px}
   .elec-date{font-size:11px;color:var(--muted)}
   .elec-winner{font-size:17px;font-weight:800;margin:4px 0 2px}
@@ -201,15 +201,17 @@
   .elec-bar-wrap{height:10px;background:var(--line);border-radius:999px;overflow:hidden;margin:6px 0 4px}
   .elec-bar-fill{height:100%;background:var(--accent);border-radius:999px;transition:width .4s ease}
   .elec-meta{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);font-weight:600}
-  .elec-bloc{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px;margin-top:6px}
-  .elec-bloc.right{background:#fee2e2;color:#991b1b}
-  .elec-bloc.left{background:#dbeafe;color:#1e40af}
-  .elec-bloc.center{background:#fef9c3;color:#713f12}
-  .elec-bloc.unity{background:#f0fdf4;color:#166534}
-  [data-theme=dark] .elec-bloc.right{background:#450a0a;color:#fca5a5}
-  [data-theme=dark] .elec-bloc.left{background:#1e3a5f;color:#93c5fd}
-  [data-theme=dark] .elec-bloc.center{background:#3b2f00;color:#fde68a}
-  [data-theme=dark] .elec-bloc.unity{background:#052e16;color:#86efac}
+  .elec-detail{display:none;margin-top:10px;padding-top:10px;border-top:1px solid var(--line)}
+  .elec-card.open .elec-detail{display:block}
+  .elec-cols{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+  .elec-col-hd{font-size:11px;font-weight:700;padding-bottom:3px;margin-bottom:5px;border-bottom:2px solid}
+  .elec-col-hd.coal{color:#0f766e;border-color:#0f766e}
+  .elec-col-hd.opp{color:#b91c1c;border-color:#b91c1c}
+  .party-row{display:flex;justify-content:space-between;font-size:12px;padding:2px 0;border-bottom:1px solid var(--line)}
+  .party-row:last-child{border-bottom:none}
+  .party-s{font-weight:700;color:var(--muted)}
+  [data-theme=dark] .elec-col-hd.coal{color:#2dd4bf;border-color:#2dd4bf}
+  [data-theme=dark] .elec-col-hd.opp{color:#f87171;border-color:#f87171}
 
   /* ---------- Wars / Events ---------- */
   .events-wrap{max-width:880px;margin:20px auto 0;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px 18px}
@@ -222,9 +224,6 @@
   .event-name{font-size:15px;font-weight:700}
   .event-desc{font-size:13px;color:var(--muted);margin-top:2px}
 
-  /* ---------- Economy items ---------- */
-  .economy-item{background:linear-gradient(135deg,#f0fdf4,#ecfdf5);border-color:#86efac}
-  [data-theme=dark] .economy-item{background:#052e16;border-color:#166534}
 
   /* ---------- Highlights box (personal summary) ---------- */
   .highlight-box{
@@ -409,7 +408,6 @@
   </div>
   <div id="results"></div>
   <div id="eventsWrap" class="events-wrap hidden"></div>
-  <div id="economyWrap" class="events-wrap hidden"></div>
 
   <footer>
     הפרטים הוצלבו ממספר מקורות סמכותיים (אנציקלופדיות, אתרים רשמיים ותקשורת) ומיועדים למטרות כלליות. ייתכנו אי-דיוקים קלים בתאריכי מעבר.
@@ -594,31 +592,81 @@ const FOUNDING = '1948-05-14';
 
 // תוצאות בחירות לכנסת
 const KNESSET = [
-  {n:1,  date:'1949-01-25', winner:'מפא"י',        wSeats:46, coalition:73,  pm:'דוד בן-גוריון',          bloc:'מרכז-שמאל'},
-  {n:2,  date:'1951-07-30', winner:'מפא"י',        wSeats:45, coalition:67,  pm:'דוד בן-גוריון',          bloc:'מרכז-שמאל'},
-  {n:3,  date:'1955-07-26', winner:'מפא"י',        wSeats:40, coalition:65,  pm:'דוד בן-גוריון',          bloc:'מרכז-שמאל'},
-  {n:4,  date:'1959-11-03', winner:'מפא"י',        wSeats:47, coalition:73,  pm:'דוד בן-גוריון',          bloc:'מרכז-שמאל'},
-  {n:5,  date:'1961-08-15', winner:'מפא"י',        wSeats:42, coalition:68,  pm:'דוד בן-גוריון',          bloc:'מרכז-שמאל'},
-  {n:6,  date:'1965-11-02', winner:'המערך',        wSeats:45, coalition:75,  pm:'לוי אשכול',              bloc:'מרכז-שמאל'},
-  {n:7,  date:'1969-10-28', winner:'המערך',        wSeats:56, coalition:75,  pm:'גולדה מאיר',             bloc:'מרכז-שמאל'},
-  {n:8,  date:'1973-12-31', winner:'המערך',        wSeats:51, coalition:68,  pm:'גולדה מאיר',             bloc:'מרכז-שמאל'},
-  {n:9,  date:'1977-05-17', winner:'הליכוד',       wSeats:43, coalition:61,  pm:'מנחם בגין',              bloc:'ימין'},
-  {n:10, date:'1981-06-30', winner:'הליכוד',       wSeats:48, coalition:61,  pm:'מנחם בגין',              bloc:'ימין'},
-  {n:11, date:'1984-07-23', winner:'המערך',        wSeats:44, coalition:97,  pm:'שמעון פרס / יצחק שמיר', bloc:'ממשלת אחדות'},
-  {n:12, date:'1988-11-01', winner:'הליכוד',       wSeats:40, coalition:62,  pm:'יצחק שמיר',              bloc:'ימין'},
-  {n:13, date:'1992-06-23', winner:'העבודה',       wSeats:44, coalition:61,  pm:'יצחק רבין',              bloc:'מרכז-שמאל'},
-  {n:14, date:'1996-05-29', winner:'הליכוד',       wSeats:32, coalition:66,  pm:'בנימין נתניהו',          bloc:'ימין'},
-  {n:15, date:'1999-05-17', winner:'ישראל אחת',    wSeats:26, coalition:75,  pm:'אהוד ברק',               bloc:'מרכז-שמאל'},
-  {n:16, date:'2003-01-28', winner:'הליכוד',       wSeats:38, coalition:68,  pm:'אריאל שרון',             bloc:'ימין'},
-  {n:17, date:'2006-03-28', winner:'קדימה',        wSeats:29, coalition:67,  pm:'אהוד אולמרט',            bloc:'מרכז'},
-  {n:18, date:'2009-02-10', winner:'הליכוד',       wSeats:27, coalition:74,  pm:'בנימין נתניהו',          bloc:'ימין'},
-  {n:19, date:'2013-01-22', winner:'הליכוד-ביתנו', wSeats:31, coalition:68, pm:'בנימין נתניהו',           bloc:'ימין'},
-  {n:20, date:'2015-03-17', winner:'הליכוד',       wSeats:30, coalition:67,  pm:'בנימין נתניהו',          bloc:'ימין'},
-  {n:21, date:'2019-04-09', winner:'הליכוד',       wSeats:35, coalition:60,  pm:'(לא הורכבה ממשלה)',      bloc:'ימין'},
-  {n:22, date:'2019-09-17', winner:'כחול-לבן',     wSeats:33, coalition:55,  pm:'(לא הורכבה ממשלה)',      bloc:'מרכז'},
-  {n:23, date:'2020-03-02', winner:'הליכוד',       wSeats:36, coalition:72,  pm:'בנימין נתניהו',          bloc:'ממשלת אחדות'},
-  {n:24, date:'2021-03-23', winner:'הליכוד',       wSeats:30, coalition:61,  pm:'נפתלי בנט / יאיר לפיד', bloc:'מרכז-שמאל-ימין'},
-  {n:25, date:'2022-11-01', winner:'הליכוד',       wSeats:32, coalition:64,  pm:'בנימין נתניהו',          bloc:'ימין'},
+  {n:1,  date:'1949-01-25', winner:'מפא"י',  wSeats:46, coalition:73,  pm:'דוד בן-גוריון',
+   coalP:[{n:'מפא"י',s:46},{n:'מפד"ל',s:16},{n:'פרוגרסיבים',s:5},{n:'ספרדים ומזרחיים',s:4},{n:"עלייה ב'",s:2}],
+   oppP:[{n:'מפ"ם',s:19},{n:'חרות',s:14},{n:'ציונים כלליים',s:7},{n:'מק"י',s:4},{n:'אחרים',s:3}]},
+  {n:2,  date:'1951-07-30', winner:'מפא"י',  wSeats:45, coalition:67,  pm:'דוד בן-גוריון',
+   coalP:[{n:'מפא"י',s:45},{n:'מפד"ל',s:10},{n:'ספרדים ומזרחיים',s:8},{n:'פרוגרסיבים',s:4}],
+   oppP:[{n:'ציונים כלליים',s:23},{n:'מפ"ם',s:15},{n:'חרות',s:8},{n:'מק"י',s:5},{n:'אחרים',s:2}]},
+  {n:3,  date:'1955-07-26', winner:'מפא"י',  wSeats:40, coalition:65,  pm:'דוד בן-גוריון',
+   coalP:[{n:'מפא"י',s:40},{n:'מפד"ל',s:11},{n:'אחדות העבודה',s:10},{n:'פרוגרסיבים',s:4}],
+   oppP:[{n:'חרות',s:15},{n:'ציונים כלליים',s:13},{n:'מפ"ם',s:9},{n:'מק"י',s:6},{n:'אחרים',s:12}]},
+  {n:4,  date:'1959-11-03', winner:'מפא"י',  wSeats:47, coalition:73,  pm:'דוד בן-גוריון',
+   coalP:[{n:'מפא"י',s:47},{n:'מפד"ל',s:12},{n:'אחדות העבודה',s:7},{n:'פרוגרסיבים',s:5},{n:'ספרדים',s:2}],
+   oppP:[{n:'חרות',s:17},{n:'מפ"ם',s:9},{n:'ציונים כלליים',s:8},{n:'מק"י',s:3},{n:'אחרים',s:10}]},
+  {n:5,  date:'1961-08-15', winner:'מפא"י',  wSeats:42, coalition:68,  pm:'דוד בן-גוריון',
+   coalP:[{n:'מפא"י',s:42},{n:'מפד"ל',s:12},{n:'אחדות העבודה',s:8},{n:'פרוגרסיבים',s:6}],
+   oppP:[{n:'חרות',s:17},{n:'ציונים כלליים',s:9},{n:'מפ"ם',s:9},{n:'מק"י',s:5},{n:'ספרדים ומזרחיים',s:5},{n:'אחרים',s:7}]},
+  {n:6,  date:'1965-11-02', winner:'המערך',   wSeats:45, coalition:75,  pm:'לוי אשכול',
+   coalP:[{n:'המערך',s:45},{n:'מפד"ל',s:11},{n:'עצמאיים ליברלים',s:5},{n:'רשימות ערביות',s:8},{n:'אחרים',s:6}],
+   oppP:[{n:'גח"ל',s:26},{n:'רפ"י',s:10},{n:'מפ"ם',s:8},{n:'מק"י',s:1}]},
+  {n:7,  date:'1969-10-28', winner:'המערך',   wSeats:56, coalition:75,  pm:'גולדה מאיר',
+   coalP:[{n:'המערך',s:56},{n:'מפד"ל',s:12},{n:'עצמאיים ליברלים',s:4},{n:"פ\"א",s:3}],
+   oppP:[{n:'גח"ל',s:26},{n:'הרשימה הממלכתית',s:4},{n:'מוקד',s:3},{n:'אחרים',s:12}]},
+  {n:8,  date:'1973-12-31', winner:'המערך',   wSeats:51, coalition:68,  pm:'גולדה מאיר',
+   coalP:[{n:'המערך',s:51},{n:'מפד"ל',s:10},{n:'עצמאיים ליברלים',s:4},{n:"פ\"א",s:3}],
+   oppP:[{n:'ליכוד',s:39},{n:'חד"ש',s:4},{n:"ר\"צ",s:3},{n:'אחרים',s:6}]},
+  {n:9,  date:'1977-05-17', winner:'הליכוד',  wSeats:43, coalition:61,  pm:'מנחם בגין',
+   coalP:[{n:'ליכוד',s:43},{n:'מפד"ל',s:12},{n:'אגודת ישראל',s:4},{n:'לאם',s:2}],
+   oppP:[{n:'המערך',s:32},{n:"ד\"ש",s:15},{n:'חד"ש',s:5},{n:'שלי',s:2},{n:'אחרים',s:5}]},
+  {n:10, date:'1981-06-30', winner:'הליכוד',  wSeats:48, coalition:61,  pm:'מנחם בגין',
+   coalP:[{n:'ליכוד',s:48},{n:'מפד"ל',s:6},{n:'אגודת ישראל',s:4},{n:'תמ"י',s:3}],
+   oppP:[{n:'המערך',s:47},{n:'חד"ש',s:4},{n:'עצמאיים ליברלים',s:3},{n:'שינוי',s:2},{n:'תל"ם',s:2},{n:'אחרים',s:1}]},
+  {n:11, date:'1984-07-23', winner:'המערך',   wSeats:44, coalition:97,  pm:'שמעון פרס / יצחק שמיר',
+   coalP:[{n:'המערך',s:44},{n:'ליכוד',s:41},{n:'ש"ס',s:4},{n:'עומץ',s:5},{n:'שינוי',s:3}],
+   oppP:[{n:'מפ"ם',s:6},{n:"ר\"צ",s:3},{n:'חד"ש',s:4},{n:'כך',s:1},{n:'אחרים',s:9}]},
+  {n:12, date:'1988-11-01', winner:'הליכוד',  wSeats:40, coalition:62,  pm:'יצחק שמיר',
+   coalP:[{n:'ליכוד',s:40},{n:'ש"ס',s:6},{n:'מפד"ל',s:5},{n:'אגודת ישראל',s:5},{n:'דגל התורה',s:2},{n:'תחיה',s:4}],
+   oppP:[{n:'המערך',s:39},{n:"ר\"צ",s:5},{n:'חד"ש',s:4},{n:'מפ"ם',s:3},{n:'מולדת',s:2},{n:'שינוי',s:2},{n:'אחרים',s:3}]},
+  {n:13, date:'1992-06-23', winner:'העבודה',  wSeats:44, coalition:61,  pm:'יצחק רבין',
+   coalP:[{n:'עבודה',s:44},{n:'מרצ',s:12},{n:'ש"ס',s:5}],
+   oppP:[{n:'ליכוד',s:32},{n:'צומת',s:8},{n:'מפד"ל',s:6},{n:'אחדות התורה',s:4},{n:'חד"ש',s:3},{n:'מולדת',s:3},{n:"ע\"ס",s:2},{n:'אחרים',s:1}]},
+  {n:14, date:'1996-05-29', winner:'הליכוד',  wSeats:32, coalition:66,  pm:'בנימין נתניהו',
+   coalP:[{n:'ליכוד',s:32},{n:'ש"ס',s:10},{n:'מפד"ל',s:9},{n:"ישראל ב\"עלייה",s:7},{n:'יהדות התורה',s:4},{n:'הדרך השלישית',s:4}],
+   oppP:[{n:'עבודה',s:34},{n:'מרצ',s:9},{n:'חד"ש',s:5},{n:"ע\"ס",s:4},{n:"בל\"ד",s:2}]},
+  {n:15, date:'1999-05-17', winner:'ישראל אחת', wSeats:26, coalition:75,  pm:'אהוד ברק',
+   coalP:[{n:'ישראל אחת',s:26},{n:'ש"ס',s:17},{n:'מרצ',s:10},{n:'מרכז',s:6},{n:"ישראל ב\"עלייה",s:6},{n:'מפד"ל',s:5},{n:'יהדות התורה',s:5}],
+   oppP:[{n:'ליכוד',s:19},{n:'אחדות לאומית',s:4},{n:'ישראל ביתנו',s:4},{n:"ע\"ס",s:5},{n:'חד"ש',s:3},{n:"בל\"ד",s:2},{n:'אחרים',s:8}]},
+  {n:16, date:'2003-01-28', winner:'הליכוד',  wSeats:38, coalition:68,  pm:'אריאל שרון',
+   coalP:[{n:'ליכוד',s:38},{n:'שינוי',s:15},{n:'מפד"ל',s:5},{n:'ישראל ביתנו',s:7},{n:'אחרים',s:3}],
+   oppP:[{n:'עבודה',s:19},{n:'ש"ס',s:11},{n:'מרצ',s:6},{n:'יהדות התורה',s:5},{n:'חד"ש',s:3},{n:"בל\"ד",s:3},{n:"ע\"ס",s:2},{n:'אחרים',s:3}]},
+  {n:17, date:'2006-03-28', winner:'קדימה',   wSeats:29, coalition:67,  pm:'אהוד אולמרט',
+   coalP:[{n:'קדימה',s:29},{n:'עבודה',s:19},{n:'ש"ס',s:12},{n:'גמלאים',s:7}],
+   oppP:[{n:'ליכוד',s:12},{n:'ישראל ביתנו',s:11},{n:'אחדות לאומית+מפד"ל',s:9},{n:'יהדות התורה',s:6},{n:'מרצ',s:5},{n:'חד"ש',s:3},{n:"בל\"ד",s:3},{n:'ר"ע+טא"ל',s:4}]},
+  {n:18, date:'2009-02-10', winner:'הליכוד',  wSeats:27, coalition:74,  pm:'בנימין נתניהו',
+   coalP:[{n:'ליכוד',s:27},{n:'ישראל ביתנו',s:15},{n:'עבודה',s:13},{n:'ש"ס',s:11},{n:'יהדות התורה',s:5},{n:'מפד"ל',s:3}],
+   oppP:[{n:'קדימה',s:28},{n:'חד"ש',s:4},{n:"בל\"ד",s:3},{n:'ר"ע+טא"ל',s:4},{n:'אחדות לאומית',s:4},{n:'מרצ',s:3}]},
+  {n:19, date:'2013-01-22', winner:'הליכוד-ביתנו', wSeats:31, coalition:68, pm:'בנימין נתניהו',
+   coalP:[{n:'ליכוד-ביתנו',s:31},{n:'יש עתיד',s:19},{n:'הבית היהודי',s:12},{n:'תנועה',s:6}],
+   oppP:[{n:'עבודה',s:15},{n:'ש"ס',s:11},{n:'יהדות התורה',s:7},{n:'מרצ',s:6},{n:'חד"ש',s:4},{n:'ר"ע+טא"ל',s:4},{n:"בל\"ד",s:3},{n:'אחרים',s:2}]},
+  {n:20, date:'2015-03-17', winner:'הליכוד',  wSeats:30, coalition:67,  pm:'בנימין נתניהו',
+   coalP:[{n:'ליכוד',s:30},{n:'כולנו',s:10},{n:'הבית היהודי',s:8},{n:'ש"ס',s:7},{n:'ישראל ביתנו',s:6},{n:'יהדות התורה',s:6}],
+   oppP:[{n:'האיחוד הציוני',s:24},{n:'הרשימה המשותפת',s:13},{n:'יש עתיד',s:11},{n:'מרצ',s:5}]},
+  {n:21, date:'2019-04-09', winner:'הליכוד',  wSeats:35, coalition:60,  pm:'(לא הורכבה ממשלה)',
+   coalP:[{n:'ליכוד',s:35},{n:'ש"ס',s:8},{n:'יהדות התורה',s:8},{n:'חזית ימנית',s:5},{n:'אחרים',s:4}],
+   oppP:[{n:'כחול-לבן',s:35},{n:'חד"ש-תע"ל',s:6},{n:'עבודה+גשר',s:6},{n:'ישראל ביתנו',s:5},{n:'מרצ',s:4},{n:'רע"ם-בל"ד',s:4}]},
+  {n:22, date:'2019-09-17', winner:'כחול-לבן', wSeats:33, coalition:55,  pm:'(לא הורכבה ממשלה)',
+   coalP:[{n:'ליכוד',s:32},{n:'ש"ס',s:9},{n:'יהדות התורה',s:7},{n:'ימינה',s:7}],
+   oppP:[{n:'כחול-לבן',s:33},{n:'הרשימה המשותפת',s:13},{n:'ישראל ביתנו',s:8},{n:'עבודה+גשר+מימד',s:6},{n:'מרצ',s:5}]},
+  {n:23, date:'2020-03-02', winner:'הליכוד',  wSeats:36, coalition:72,  pm:'בנימין נתניהו',
+   coalP:[{n:'ליכוד',s:36},{n:'כחול-לבן',s:15},{n:'ש"ס',s:9},{n:'יהדות התורה',s:7},{n:'עבודה+גשר+מימד',s:5}],
+   oppP:[{n:'יש עתיד',s:17},{n:'הרשימה המשותפת',s:15},{n:'ישראל ביתנו',s:7},{n:'ימינה',s:6},{n:'מרצ',s:3}]},
+  {n:24, date:'2021-03-23', winner:'הליכוד',  wSeats:30, coalition:61,  pm:'נפתלי בנט / יאיר לפיד',
+   coalP:[{n:'יש עתיד',s:17},{n:'ימינה',s:7},{n:'כחול-לבן',s:8},{n:'תקווה חדשה',s:6},{n:'ישראל ביתנו',s:7},{n:'עבודה',s:7},{n:'מרצ',s:5},{n:"ר\"ע",s:4}],
+   oppP:[{n:'ליכוד',s:30},{n:'ש"ס',s:9},{n:'יהדות התורה',s:7},{n:'הרשימה המשותפת',s:6},{n:'אחרים',s:7}]},
+  {n:25, date:'2022-11-01', winner:'הליכוד',  wSeats:32, coalition:64,  pm:'בנימין נתניהו',
+   coalP:[{n:'ליכוד',s:32},{n:'ש"ס',s:11},{n:'ציונות דתית+עוצמה יהודית',s:14},{n:'יהדות התורה',s:7}],
+   oppP:[{n:'יש עתיד',s:24},{n:'מחנה ממלכתי',s:12},{n:'ישראל ביתנו',s:6},{n:'חד"ש-תע"ל',s:5},{n:"ר\"ע",s:5},{n:'עבודה',s:4}]},
 ];
 
 // תקצירים ביוגרפיים — העובדות הוצלבו ממספר מקורות סמכותיים (לא ויקיפדיה כמקור יחיד)
@@ -1195,28 +1243,16 @@ const BIOS = {
       {t:'Jewish Virtual Library', u:'https://jewishvirtuallibrary.org/bezalel-smotrich'},
       {t:'The Times of Israel', u:'https://www.timesofisrael.com/topic/bezalel-smotrich/'}
     ]
+  },
+  'יובל שטייניץ': {
+    bio: 'יובל שטייניץ (נולד ב-1958 בחיפה) הוא מדינאי ופרופסור לפילוסופיה לשעבר. לאחר קריירה אקדמית באוניברסיטת חיפה נבחר לכנסת ב-1996 מטעם הליכוד. שימש כיוע”ר ועדת החוץ והביטחון (2001–2003) בתקופת האינתיפאדה השנייה. כשר האוצר (2009–2013) בממשלת נתניהו השנייה, הוביל מדיניות פיסקלית שמרנית שסייעה לישראל לעמוד בפני המשבר הפיננסי הגלובלי בהצלחה יחסית. לאחר מכן כיהן כשר לנושא מאבק ביראן, שר האנרגיה ושר המשאבים הטבעיים.',
+    sources: [
+      {t:'Encyclopaedia Britannica', u:'https://www.britannica.com/biography/Yuval-Steinitz'},
+      {t:'Jewish Virtual Library', u:'https://jewishvirtuallibrary.org/yuval-steinitz'},
+      {t:'The Times of Israel', u:'https://www.timesofisrael.com/topic/yuval-steinitz/'}
+    ]
   }
 };
-
-/* ===================== ECONOMY DATA ===================== */
-const ECONOMY = [
-  {y:'1948',icon:'🏗️',name:'תקופת הצנע',desc:'אחרי קום המדינה נגזרה תקופת צנע חמורה — מזון, בגדים ודיור הוקצבו. מאות אלפי עולים נקלטים בתנאי עוני; האינפלציה גבוהה, רזרבות המטבע אפסיות.'},
-  {y:'1952',icon:'💶',name:'הסכם השילומים עם גרמניה',desc:'הסכם עם גרמניה המערבית שבו שולמו לישראל 3 מיליארד מארק. הכסף שימש לרכישת ציוד תעשייתי ותשתיות שהאיצו מאוד את בניית המדינה.'},
-  {y:'1955',icon:'📈',name:'פריחה כלכלית ראשונה',desc:'ממחצית שנות ה-50 צמחה כלכלת ישראל בקצבים גבוהים — ייסוד תשתיות חשמל, מים ותחבורה; הכנסה לנפש עלתה משמעותית.'},
-  {y:'1967',icon:'💹',name:'פריחה אחרי מלחמת ששת הימים',desc:'ניצחון 1967 הביא פריחה כלכלית זמנית: אבטלה נמוכה, השקעות זרות וביקוש לכוח אדם. התמ"ג צמח בשיעורים דו-ספרתיים בסוף שנות ה-60.'},
-  {y:'1973',icon:'📉',name:'משבר אחרי מלחמת יום הכיפורים',desc:'המלחמה ומשבר הנפט העולמי של 1973 הכניסו את ישראל למיתון חריף. האינפלציה עלתה לעשרות אחוזים בשנה, וצמיחת שנות ה-60 נעצרה.'},
-  {y:'1983',icon:'💥',name:'משבר מניות הבנקים',desc:'ארבעת הבנקים הגדולים קרסו תחת מניפולציה שנמשכה שנים. הממשלה הלאימה אותם בעלות עצומה, ומשבר האמון הכלכלי הפך לאחד החמורים בתולדות המדינה.'},
-  {y:'1985',icon:'🏦',name:'תוכנית הייצוב הכלכלית',desc:'הממשלה הפסיקה הדפסת כסף, קיצצה את התקציב וקפאה שכר ומחירים. האינפלציה ירדה מ-450% ל-20% תוך שנה — אחת ההצלחות הכלכליות הבולטות בעולם.'},
-  {y:'1990',icon:'🏘️',name:'גל העלייה הגדול מבריה"מ',desc:'כמיליון עולים מברית המועצות לשעבר הגיעו בין 1990 ל-2000. בתחילה גרם לאבטלה גבוהה, אך לאחר מכן תרם לצמיחה משמעותית ולפריחת ענף ההיטק.'},
-  {y:'1994',icon:'🤝',name:'הסכמי שלום ופתיחת שווקים',desc:'הסכמי אוסלו ושלום עם ירדן פתחו לישראל שווקים חדשים ודחפו השקעות זרות. יצוא וסחר חוץ הכפילו את עצמם לאורך שנות ה-90.'},
-  {y:'2000',icon:'💻',name:'פריחת ההיטק — "סיליקון ואדי"',desc:'ישראל הפכה ל"אומת הסטארטאפ": חברות כ-Check Point, Amdocs, NICE עלו לבורסות בעולם, ותעשיית ההיטק הפכה למנוע הצמיחה המרכזי.'},
-  {y:'2003',icon:'💊',name:'רפורמות נתניהו כשר אוצר',desc:'קיצוצי קצבאות, הפרטת חברות ממשלתיות, הפחתת מס הכנסה. רפורמות שנויות במחלוקת שהגדילו אי-שוויון אך דחפו צמיחה חזקה ב-2003–2008.'},
-  {y:'2008',icon:'🌍',name:'המשבר הפיננסי העולמי — ישראל שרדה',desc:'ישראל ספגה פגיעה מתונה יחסית מהמשבר של 2008–2009, בזכות פיקוח בנקאי הדוק ויצוא מגוון. ההתאוששות היתה מהירה יחסית.'},
-  {y:'2011',icon:'🏠',name:'מחאת האוהלים — יוקר המחייה',desc:'מחאה המונית בקיץ 2011 על יוקר הדיור ואי-שוויון. מאות אלפים יצאו לרחובות, וסדר היום החברתי-כלכלי שינה מחדש את שיח השיוויון.'},
-  {y:'2014',icon:'📱',name:'רפורמת הסלולר של כחלון',desc:'כשר תקשורת, כחלון שבר את המונופולים בתחום הסלולר. מחירי חבילות הנייד ירדו ב-90%, חסכו לצרכנים מיליארדי שקלים ודחפו תחרות בשוק הטלקום.'},
-  {y:'2021',icon:'📊',name:'גידול חריג בגביית מיסים',desc:'ב-2021–2022 נרשמה עלייה חדה בגביית מיסים בזכות פריחת ההיטק ושוקי ההון. הגירעון ירד בחדות, והתקציב איזן עצמו לראשונה מזה שנים.'},
-  {y:'2023',icon:'⚠️',name:'השפעות המלחמה על הכלכלה',desc:'מלחמת חרבות ברזל מאז אוקטובר 2023 פגעה בתיירות, בהשקעות ובסחר החוץ. דירוג האשראי הורד, הגירעון זינק, ועלות המלחמה הוערכה בעשרות מיליארדי שקלים.'},
-];
 
 /* ===================== WARS & EVENTS DATA ===================== */
 const EVENTS = [
@@ -1518,12 +1554,13 @@ function buildElections(birthStr){
     card.style.animationDelay = (idx * 60) + 'ms';
 
     const pct = Math.round((k.coalition / 120) * 100);
-    const blocClass = k.bloc.includes('ימין') && !k.bloc.includes('מרכז') ? 'right'
-      : k.bloc.includes('שמאל') ? 'left'
-      : k.bloc.includes('אחדות') ? 'unity' : 'center';
+    const oppTotal = 120 - k.coalition;
 
     const dateObj = new Date(k.date + 'T00:00:00');
     const dateHe = dateObj.getDate() + ' ב' + months[dateObj.getMonth()] + ' ' + dateObj.getFullYear();
+
+    const coalRows = (k.coalP || []).map(p => '<div class="party-row"><span class="party-n">' + p.n + '</span><span class="party-s">' + p.s + '</span></div>').join('');
+    const oppRows  = (k.oppP  || []).map(p => '<div class="party-row"><span class="party-n">' + p.n + '</span><span class="party-s">' + p.s + '</span></div>').join('');
 
     card.innerHTML =
       '<div class="elec-num">כנסת ה-' + k.n + '</div>' +
@@ -1532,7 +1569,12 @@ function buildElections(birthStr){
       '<div class="elec-pm">ראש ממשלה: ' + k.pm + '</div>' +
       '<div class="elec-bar-wrap"><div class="elec-bar-fill" style="width:' + pct + '%"></div></div>' +
       '<div class="elec-meta"><span>קואליציה: ' + k.coalition + '/120</span><span>' + pct + '%</span></div>' +
-      '<span class="elec-bloc ' + blocClass + '">' + k.bloc + '</span>';
+      '<div class="elec-detail"><div class="elec-cols">' +
+      '<div><div class="elec-col-hd coal">קואליציה (' + k.coalition + ')</div>' + coalRows + '</div>' +
+      '<div><div class="elec-col-hd opp">אופוזיציה (' + oppTotal + ')</div>' + oppRows + '</div>' +
+      '</div></div>';
+
+    card.addEventListener('click', function(){ this.classList.toggle('open'); });
     grid.appendChild(card);
   });
   section.appendChild(grid);
@@ -1556,26 +1598,6 @@ function buildEvents(birthStr){
     </div>
   </div>`).join('')}</div>`;
   eventsWrap.classList.remove('hidden');
-}
-
-/* ========= ECONOMY ========= */
-const economyWrap = document.getElementById('economyWrap');
-function buildEconomy(birthStr){
-  const birthY = parseInt(birthStr.slice(0,4));
-  const todayY = new Date().getFullYear();
-  const evts = ECONOMY.filter(e => parseInt(e.y) >= birthY && parseInt(e.y) <= todayY);
-  if (!evts.length){ economyWrap.classList.add('hidden'); return; }
-  economyWrap.innerHTML = `<h3>💹 אבני דרך כלכליות במהלך חייך</h3>
-<div class="event-list">${evts.map(e=>`
-  <div class="event-item economy-item">
-    <span class="event-icon">${e.icon}</span>
-    <div class="event-body">
-      <div class="event-year">${e.y}</div>
-      <div class="event-name">${e.name}</div>
-      <div class="event-desc">${e.desc}</div>
-    </div>
-  </div>`).join('')}</div>`;
-  economyWrap.classList.remove('hidden');
 }
 
 // ----- profile modal -----
@@ -1648,7 +1670,6 @@ form.addEventListener('submit', function(e){
   results.innerHTML = '';
   tabsEl.innerHTML = '';
   eventsWrap.classList.add('hidden');
-  economyWrap.classList.add('hidden');
   searchWrap.classList.add('hidden');
   compareToggleBtn.classList.add('hidden');
   comparePanel.classList.add('hidden');
@@ -1750,7 +1771,6 @@ form.addEventListener('submit', function(e){
   searchWrap.classList.remove('hidden');
 
   buildEvents(val);
-  buildEconomy(val);
 
   // founding note
   if (val < FOUNDING){

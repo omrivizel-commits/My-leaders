@@ -222,6 +222,10 @@
   .event-name{font-size:15px;font-weight:700}
   .event-desc{font-size:13px;color:var(--muted);margin-top:2px}
 
+  /* ---------- Economy items ---------- */
+  .economy-item{background:linear-gradient(135deg,#f0fdf4,#ecfdf5);border-color:#86efac}
+  [data-theme=dark] .economy-item{background:#052e16;border-color:#166534}
+
   /* ---------- Highlights box (personal summary) ---------- */
   .highlight-box{
     max-width:680px;margin:16px auto 6px;background:var(--card);border:1px solid var(--line);
@@ -405,6 +409,7 @@
   </div>
   <div id="results"></div>
   <div id="eventsWrap" class="events-wrap hidden"></div>
+  <div id="economyWrap" class="events-wrap hidden"></div>
 
   <footer>
     הפרטים הוצלבו ממספר מקורות סמכותיים (אנציקלופדיות, אתרים רשמיים ותקשורת) ומיועדים למטרות כלליות. ייתכנו אי-דיוקים קלים בתאריכי מעבר.
@@ -545,27 +550,27 @@ const DATA = {
       {name:'אליעזר קפלן',       party:'מפא"י',          start:'1948-05-14', end:'1952-07-15', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Eliezer_Kaplan.jpg/330px-Eliezer_Kaplan.jpg'},
       {name:'לוי אשכול',         party:'מפא"י',          start:'1952-07-24', end:'1963-06-26', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Portrait_of_prime_minister_Levy_Eshkol._August_1963._D699-070.jpg/330px-Portrait_of_prime_minister_Levy_Eshkol._August_1963._D699-070.jpg'},
       {name:'פנחס ספיר',         party:'מפא"י',          start:'1963-06-26', end:'1968-01-15', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Pinchas_Sapir.jpg/330px-Pinchas_Sapir.jpg'},
-      {name:'זאב שרף',           party:'מפא"י',          start:'1968-01-15', end:'1969-07-15', img:''},
+      {name:'זאב שרף',           party:'מפא"י',          start:'1968-01-15', end:'1969-07-15', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Zeev_Sherf.jpg/330px-Zeev_Sherf.jpg'},
       {name:'פנחס ספיר',         party:'המערך',          start:'1969-07-15', end:'1974-06-03', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Pinchas_Sapir.jpg/330px-Pinchas_Sapir.jpg'},
-      {name:'יהושע רבינוביץ\'',  party:'המערך',          start:'1974-06-03', end:'1977-06-21', img:''},
-      {name:'שמחה ארליך',        party:'הליכוד',         start:'1977-06-21', end:'1979-11-07', img:''},
-      {name:'יגאל הורביץ\'',     party:'הליכוד',         start:'1979-11-07', end:'1981-07-05', img:''},
-      {name:'יורם ארידור',       party:'הליכוד',         start:'1981-07-05', end:'1983-10-10', img:''},
-      {name:'יגאל כהן-אורגד',   party:'הליכוד',         start:'1983-10-10', end:'1984-09-13', img:''},
-      {name:'יצחק מודעי',        party:'הליכוד',         start:'1984-09-13', end:'1986-10-20', img:''},
-      {name:'משה ניסים',         party:'הליכוד',         start:'1986-10-20', end:'1988-12-22', img:''},
+      {name:'יהושע רבינוביץ\'',  party:'המערך',          start:'1974-06-03', end:'1977-06-21', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Nomination_of_the_New_Chief_Rabbis_%28FL45992286%29.jpg/330px-Nomination_of_the_New_Chief_Rabbis_%28FL45992286%29.jpg'},
+      {name:'שמחה ארליך',        party:'הליכוד',         start:'1977-06-21', end:'1979-11-07', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Simha_Erlich%2C_D627-072.jpg/330px-Simha_Erlich%2C_D627-072.jpg'},
+      {name:'יגאל הורביץ\'',     party:'הליכוד',         start:'1979-11-07', end:'1981-07-05', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Dan_Hadani_collection_%28990044392760205171%29.jpg/330px-Dan_Hadani_collection_%28990044392760205171%29.jpg'},
+      {name:'יורם ארידור',       party:'הליכוד',         start:'1981-07-05', end:'1983-10-10', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Yoram_Aridor%2C_1969._D708-038.jpg/330px-Yoram_Aridor%2C_1969._D708-038.jpg'},
+      {name:'יגאל כהן-אורגד',   party:'הליכוד',         start:'1983-10-10', end:'1984-09-13', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Knesset_held_the_first_session_on_the_budget_for_the_next_year_%28FL45739508%29_%28cropped%29.jpg/330px-Knesset_held_the_first_session_on_the_budget_for_the_next_year_%28FL45739508%29_%28cropped%29.jpg'},
+      {name:'יצחק מודעי',        party:'הליכוד',         start:'1984-09-13', end:'1986-10-20', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Meeting_with_minister_of_energy_Yitzhak_Moday_%28FL62573320%29_%28cropped%29.jpg/330px-Meeting_with_minister_of_energy_Yitzhak_Moday_%28FL62573320%29_%28cropped%29.jpg'},
+      {name:'משה ניסים',         party:'הליכוד',         start:'1986-10-20', end:'1988-12-22', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Likud_Party_holding_a_press_conference_at_Beit_Sokolov_%28FL45830966%29.jpg/330px-Likud_Party_holding_a_press_conference_at_Beit_Sokolov_%28FL45830966%29.jpg'},
       {name:'שמעון פרס',         party:'העבודה',         start:'1988-12-22', end:'1990-03-15', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Shimon_Peres_-_portrait_photograh_-_1996_%28full%29.jpg/330px-Shimon_Peres_-_portrait_photograh_-_1996_%28full%29.jpg'},
-      {name:'יצחק מודעי',        party:'הליכוד',         start:'1990-06-08', end:'1992-07-13', img:''},
-      {name:'אברהם שוחט',        party:'העבודה',         start:'1992-07-13', end:'1996-06-18', img:''},
+      {name:'יצחק מודעי',        party:'הליכוד',         start:'1990-06-08', end:'1992-07-13', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Meeting_with_minister_of_energy_Yitzhak_Moday_%28FL62573320%29_%28cropped%29.jpg/330px-Meeting_with_minister_of_energy_Yitzhak_Moday_%28FL62573320%29_%28cropped%29.jpg'},
+      {name:'אברהם שוחט',        party:'העבודה',         start:'1992-07-13', end:'1996-06-18', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Avraham_Sochat_1.jpg/330px-Avraham_Sochat_1.jpg'},
       {name:'דן מרידור',         party:'הליכוד',         start:'1996-06-18', end:'1997-06-18', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Dan_Meridor.jpg/330px-Dan_Meridor.jpg'},
-      {name:'יעקב נאמן',         party:'הליכוד',         start:'1997-06-18', end:'1998-01-04', img:''},
-      {name:'מאיר שטרית',        party:'הליכוד',         start:'1998-01-04', end:'1999-07-06', img:''},
-      {name:'אברהם שוחט',        party:'ישראל אחת',      start:'1999-07-06', end:'2001-03-07', img:''},
+      {name:'יעקב נאמן',         party:'הליכוד',         start:'1997-06-18', end:'1998-01-04', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Yaakov_Neeman2012-2.jpg/330px-Yaakov_Neeman2012-2.jpg'},
+      {name:'מאיר שטרית',        party:'הליכוד',         start:'1998-01-04', end:'1999-07-06', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Meir_Sheetrit_2009.jpg/330px-Meir_Sheetrit_2009.jpg'},
+      {name:'אברהם שוחט',        party:'ישראל אחת',      start:'1999-07-06', end:'2001-03-07', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Avraham_Sochat_1.jpg/330px-Avraham_Sochat_1.jpg'},
       {name:'סילבן שלום',        party:'הליכוד',         start:'2001-03-07', end:'2003-02-27', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Silvan_Shalom.jpg/330px-Silvan_Shalom.jpg'},
       {name:'בנימין נתניהו',     party:'הליכוד',         start:'2003-02-27', end:'2005-08-09', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Benjamin_Netanyahu%2C_February_2023.jpg/330px-Benjamin_Netanyahu%2C_February_2023.jpg'},
       {name:'אהוד אולמרט',       party:'קדימה',          start:'2006-01-04', end:'2006-05-04', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Clinton_and_Olmert_2009_%28cropped%29.png/330px-Clinton_and_Olmert_2009_%28cropped%29.png'},
-      {name:'אברהם הירשזון',     party:'קדימה',          start:'2006-05-04', end:'2007-07-01', img:''},
-      {name:'רוני בר-און',       party:'קדימה',          start:'2007-07-01', end:'2009-03-31', img:''},
+      {name:'אברהם הירשזון',     party:'קדימה',          start:'2006-05-04', end:'2007-07-01', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Avraham_Hirschson_%2800370075%29.jpg/330px-Avraham_Hirschson_%2800370075%29.jpg'},
+      {name:'רוני בר-און',       party:'קדימה',          start:'2007-07-01', end:'2009-03-31', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Zucky_Crystal_exhibition_for_the_memory_of_Hanna_Zemer_%D7%A8%D7%95%D7%A0%D7%99_%D7%91%D7%A8-%D7%90%D7%95%D7%9F_%288357798080%29_%28cropped%29.jpg/330px-Zucky_Crystal_exhibition_for_the_memory_of_Hanna_Zemer_%D7%A8%D7%95%D7%A0%D7%99_%D7%91%D7%A8-%D7%90%D7%95%D7%9F_%288357798080%29_%28cropped%29.jpg'},
       {name:'יובל שטייניץ',      party:'הליכוד',         start:'2009-03-31', end:'2013-03-18', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Yuval_Steinitz.jpg/330px-Yuval_Steinitz.jpg'},
       {name:'יאיר לפיד',         party:'יש עתיד',        start:'2013-03-18', end:'2014-12-02', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Yair_Lapid_%28D1237-011%29.jpg/330px-Yair_Lapid_%28D1237-011%29.jpg'},
       {name:'משה כחלון',         party:'כולנו',          start:'2015-05-14', end:'2020-05-17', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Moshe_Kahlon.jpg/330px-Moshe_Kahlon.jpg'},
@@ -984,8 +989,234 @@ const BIOS = {
       {t:'JNS — Jewish News Syndicate', u:'https://www.jns.org/new-era-for-idf-leadership-eyal-zamir-confirmed-as-chief-of-staff/'},
       {t:'The Media Line', u:'https://themedialine.org/top-stories/who-is-eyal-zamir-israels-next-idf-chief-of-staff/'}
     ]
+  },
+
+  /* === שרי ביטחון === */
+  'פנחס לבון': {
+    bio: 'פנחס לבון (נולד פנחס לובינבסקר בוקובינה שבאוסטריה, 1904; נפטר ב-1976) היה מדינאי ואיש תנועת העבודה, שר הביטחון השני של ישראל. הוא עלה לארץ ב-1929 ונעשה פעיל מרכזי במפא"י ובתנועת הפועלים. בינואר 1954 מונה לשר הביטחון, אך כהונתו הסתיימה בטרם עת בפברואר 1955 בעקבות "עסק הביש" — מבצע ביון כושל שבמסגרתו ניסו סוכנים ישראלים לפגוע במטרות אמריקניות ובריטיות במצרים כדי לגרום לפגיעה ביחסים בין הצדדים. הסוכנים נתפסו, ופרצה מחלוקת סוערת בשאלת מי נתן את ההוראה — שנודעה כ"פרשת לבון". הפרשה המשיכה לרדוף את לבון ואת מפא"י שנים רבות, וב-1961 הוא פרש מהחיים הציבוריים.',
+    sources: [
+      {t:'Encyclopaedia Britannica', u:'https://www.britannica.com/biography/Pinhas-Lavon'},
+      {t:'Jewish Virtual Library', u:'https://jewishvirtuallibrary.org/pinhas-lavon'},
+      {t:'The Jewish Press', u:'https://www.jewishpress.com/news/the-lavon-affair/'}
+    ]
+  },
+  'משה ארנס': {
+    bio: 'משה ארנס (נולד בקובנה שבליטא, 1925; נפטר ב-2019) היה מהנדס אווירונאוטי, מדינאי בכיר בליכוד ושר הביטחון שלוש פעמים. הוא עלה לארץ בילדותו, למד הנדסת אווירוניות ב-MIT ו-Caltech, ולאחר שירות ב"הגנה" ובצה"ל שב לאקדמיה. ארנס נבחר לכנסת ב-1973 מטעם הליכוד, כיהן כשגריר ישראל בארה"ב (1982–1983), ואחר כך שלוש פעמים כשר הביטחון (1983–1984, 1990–1992, 1999), לצד כהונה כשר החוץ. הוא מזוהה עם תמיכה נחושה בפיתוח תעשיית הביטחון הישראלית ועם הפיתוח של מטוס "לביא" שמלחמת פרוץ ביטחון לאומית בוטל ב-1987. ארנס היה ידוע בעמדות עקרוניות ובביקורת גלויה של עמיתיו.',
+    sources: [
+      {t:'Encyclopaedia Britannica', u:'https://www.britannica.com/biography/Moshe-Arens'},
+      {t:'Jewish Virtual Library', u:'https://jewishvirtuallibrary.org/moshe-arens'},
+      {t:'The Times of Israel', u:'https://www.timesofisrael.com/moshe-arens-defense-minister-and-mentorofnetanyahu-dies-at-93/'}
+    ]
+  },
+  'יצחק מרדכי': {
+    bio: 'יצחק מרדכי (נולד ב-1944 בכורדיסטאן העיראקית) הוא מצביא ומדינאי, שר הביטחון בממשלת נתניהו הראשונה. משפחתו עלתה לישראל בשנות ה-50. הוא שירת בצה"ל ועלה לדרגת אלוף; בין תפקידיו פיקד על פיקוד הדרום. לאחר פרישתו מהצבא נכנס לפוליטיקה מטעם הליכוד, ושימש כשר הביטחון בין 1996 ל-1999. ב-1999 פרש מהליכוד, הקים את מפלגת "המרכז" וגיבש את המחנה שהוביל לתבוסת נתניהו בבחירות 1999. לאחר מכן נחקר בחשד להטרדות מיניות, וב-2002 הורשע בעבירות מין ונגזרו עליו שמונה עשר חודשי עבודות שירות.',
+    sources: [
+      {t:'Encyclopaedia Britannica', u:'https://www.britannica.com/biography/Yitzhak-Mordecai'},
+      {t:'Jewish Virtual Library', u:'https://jewishvirtuallibrary.org/yitzhak-mordechai'}
+    ]
+  },
+  'בנימין בן-אליעזר': {
+    bio: 'בנימין ("פואד") בן-אליעזר (נולד בבצרה שבעיראק, 1936; נפטר ב-2016) היה מצביא ומדינאי, שר הביטחון בממשלת שרון ומנהיג מפלגת העבודה. עם עלייתו לישראל שירת בצה"ל, עלה לדרגת אלוף ומילא תפקידים בכירים, בהם אחראי הממשל הצבאי בשטחים. כחבר כנסת מטעם מפלגת העבודה, מונה לשר הביטחון במרץ 2001 בממשלת האחדות של אריאל שרון. בתקופת כהונתו (2001–2002) אישר פעולות רבות נגד תשתיות הטרור באינתיפאדה השנייה, ובהן מבצע "חומת מגן" (2002). הוא עמד גם בראש מפלגת העבודה (2001–2003) ואחר כך כיהן בשורת תיקים שרותיים.',
+    sources: [
+      {t:'Encyclopaedia Britannica', u:'https://www.britannica.com/biography/Benjamin-Ben-Eliezer'},
+      {t:'The Times of Israel', u:'https://www.timesofisrael.com/fuad-a-biography-of-the-street-smart-pragmatist/'},
+      {t:'Jewish Virtual Library', u:'https://jewishvirtuallibrary.org/benjamin-ben-eliezer'}
+    ]
+  },
+  'עמיר פרץ': {
+    bio: 'עמיר פרץ (נולד במרוקו, 1952; עלה לישראל בילדותו) הוא מדינאי ואיש ציבור, שר הביטחון וראש מפלגת העבודה. פרץ גדל בשדרות ועסק בשנות ה-80 בהנהגת ועד העובדים שם. הוא עלה לפרומיננטיות ב-1995 עת ניצח בפריימריז את שמעון פרס על ראשות מפלגת העבודה. ב-2006 כיהן כשר הביטחון — למרות שלא היה לו ניסיון צבאי — בממשלת אולמרט. כהונתו נפגמה בביקורת חריפה על ניהול מלחמת לבנון השנייה ב-2006; הוא צולם כשהוא מביט בתרגיל ביטחוני עם שמשת הטלסקופ כשהיא סגורה, תמונה שסימלה בעיני רבים את חוסר המוכנות. בשנות ה-2010 שב לקדמת הבמה ושימש בתפקידי שר שונים.',
+    sources: [
+      {t:'Encyclopaedia Britannica', u:'https://www.britannica.com/biography/Amir-Peretz'},
+      {t:'Jewish Virtual Library', u:'https://jewishvirtuallibrary.org/amir-peretz'},
+      {t:'Haaretz', u:'https://www.haaretz.com/opinion/2006-09-25/ty-article/how-peretz-lost-the-war/0000017f-e9ad-d7b2-a37f-fdbd2f980000'}
+    ]
+  },
+  'יואב גלנט': {
+    bio: 'יואב גלנט (נולד ב-1958) הוא מצביא ומדינאי, שר הביטחון של ממשלת נתניהו השישית. בצה"ל שירת שנים רבות, בהן כמפקד חטיבת הצנחנים, כמפקד אוגדה, ובמשך שנים כמפקד פיקוד הדרום. ב-2011 מונה להיות הרמטכ"ל הבא אך מינויו בוטל עקב חשדות שחלקות קרקע פרטיות נגרמו. ב-2022 נכנס לפוליטיקה מטעם הליכוד ומונה לשר הביטחון. במלחמה שפרצה לאחר טבח 7 באוקטובר 2023 הוביל את לחימת צה"ל בעזה ובלבנון, ולעיתים נמצא בסכסוך גלוי עם נתניהו על ניהול המלחמה ועסקת החטופים. בנובמבר 2024 פוטר על ידי נתניהו תוך כדי המלחמה — עובדה שגרמה לגל ביקורת ציבורי נרחב.',
+    sources: [
+      {t:'The Times of Israel', u:'https://www.timesofisrael.com/yoav-gallant-fired-as-defense-minister-israel-katz-appointed/'},
+      {t:'BBC News', u:'https://www.bbc.com/news/world-middle-east-67892020'},
+      {t:'Jewish Virtual Library', u:'https://jewishvirtuallibrary.org/yoav-gallant'}
+    ]
+  },
+  'ישראל כץ': {
+    bio: 'ישראל כץ (נולד ב-1958) הוא מדינאי בכיר בליכוד, המכהן כשר הביטחון מנובמבר 2024. כץ גדל בבית שאן, שירת בצה"ל ועסק בחינוך. נבחר לכנסת ב-1999 מטעם הליכוד ומאז כיהן בשורת תפקידי שרים: שר החקלאות, שר התחבורה (תקופה ארוכה, תחתיו הורחב מפעל הכבישים המהיר), שר האוצר (2020, תקופה קצרה), שר החוץ (2019–2020) ושר האנרגיה. כשר תחבורה ייזם את מסילת הרכבת לאילת. בנובמבר 2024 מונה לשר הביטחון לאחר פיטורי גלנט, ומנהל את המלחמה בעזה ובלבנון בשיתוף פעולה עם ראש הממשלה.',
+    sources: [
+      {t:'Knesset.gov.il', u:'https://main.knesset.gov.il/mk/en/Pages/MKPersonalDetails.aspx?MKID=978'},
+      {t:'The Times of Israel', u:'https://www.timesofisrael.com/yoav-gallant-fired-as-defense-minister-israel-katz-appointed/'},
+      {t:'Jewish Virtual Library', u:'https://jewishvirtuallibrary.org/israel-katz'}
+    ]
+  },
+
+  /* === שרי אוצר === */
+  'אליעזר קפלן': {
+    bio: 'אליעזר קפלן (נולד בבריסק שבבלרוסיה, 1891; נפטר ב-1952) היה שר האוצר הראשון של ישראל ואחד ממניחי יסודות כלכלתה. הוא עלה לארץ ב-1920, עסק בתפקידים ציבוריים ומשנת 1933 ניהל את הסוכנות היהודית מבחינה פיננסית. עם הקמת המדינה ב-1948 מונה לשר האוצר הראשון — תפקיד שמילא עד מותו ב-1952. בתקופתו כונן המוסד הפיננסי הבסיסי של ישראל — הבנק המרכזי, מטבע הלירה הישראלית ומנגנוני הגבייה — בתנאים קשים של מלחמה, עלייה המונית וצנע. מותו בעת כהונתו הותיר חלל גדול.',
+    sources: [
+      {t:'Jewish Virtual Library', u:'https://jewishvirtuallibrary.org/eliezer-kaplan'},
+      {t:'Encyclopedia.com', u:'https://www.encyclopedia.com/religion/encyclopedias-almanacs-transcripts-and-maps/kaplan-eliezer'}
+    ]
+  },
+  'פנחס ספיר': {
+    bio: 'פנחס ספיר (נולד בסובאלק שבפולין, 1907; נפטר ב-1975) היה שר האוצר המכונה "אדריכל הכלכלה הישראלית". הוא עלה לארץ ב-1929, ייסד את העיר נס ציונה, ועסק לאחר מכן בניהול כלכלי. כשר האוצר (1963–1968 ו-1969–1974) ניצח על קפיצת המדרגה הגדולה של ישראל בשנות ה-60 — תיעוש, גיוס הון עתק ופיתוח אזורי. הוא ידוע בשיטת "קרן ספיר" — רשת אישית של תורמים ומשקיעים יהודים מהעולם שגייס בכוחות עצמו, וכן בתפקידו כ"מחלק" — מי שהיפנה משאבים להתיישבות ולתשתיות. ספיר סירב להיות ראש ממשלה למרות לחצים, ונחשב לאחד מבוני הכלכלה הבולטים שעמד על כוחה של ישראל.',
+    sources: [
+      {t:'Jewish Virtual Library', u:'https://jewishvirtuallibrary.org/pinchas-sapir'},
+      {t:'Encyclopaedia Britannica', u:'https://www.britannica.com/biography/Pinhas-Sapir'},
+      {t:'Encyclopedia.com', u:'https://www.encyclopedia.com/religion/encyclopedias-almanacs-transcripts-and-maps/sapir-pinchas'}
+    ]
+  },
+  'זאב שרף': {
+    bio: 'זאב שרף (נולד בגליציה, 1906; נפטר ב-1984) היה פקיד ממשל ומדינאי, מהאנשים שעיצבו את מנגנוני המדינה הישראלית בראשיתה. הוא עלה לארץ ב-1925, ועמד בראש לשכת ממשלה בתקופה שלפני ואחרי ההכרזה על העצמאות — הוא היה הפקיד האחראי שניהל את מגילת העצמאות בטקס ב-14 במאי 1948 ותיעד את האירוע. שרף כיהן כשר האוצר מינואר 1968 עד יולי 1969, ואחר כך כשר נוסף. מחוץ לתפקידו הרשמי נזכר שרף בעיקר בזכות ספרו "שלושה ימים" — עדות מקרבי בימים שקדמו להקמת המדינה.',
+    sources: [
+      {t:'Jewish Virtual Library', u:'https://jewishvirtuallibrary.org/ze-ev-sherf'},
+      {t:'Wikipedia', u:'https://en.wikipedia.org/wiki/Ze%27ev_Sherf'}
+    ]
+  },
+  'יהושע רבינוביץ\'': {
+    bio: 'יהושע רבינוביץ\' (נולד ב-1911; נפטר ב-2002) היה פוליטיקאי מטעם מפלגת העבודה, ראש עיריית תל אביב ושר האוצר. הוא כיהן כראש עיריית תל אביב-יפו בין 1969 ל-1974 — תקופה שבה הורחבה התשתית העירונית. לאחר מכן מונה לשר האוצר (1974–1977) בממשלות רבין, תקופה כלכלית קשה שאופיינה באינפלציה גואה ולחץ כלכלי בעקבות מלחמת יום הכיפורים ומשבר הנפט. רבינוביץ\' ניסה לבלום את האינפלציה וצמצם הוצאות ממשלתיות, אך לא הצליח לעצור את ההאצה הכלכלית השלילית.',
+    sources: [
+      {t:'Jewish Virtual Library', u:'https://jewishvirtuallibrary.org/yehoshua-rabinovitch'},
+      {t:'Wikipedia', u:'https://en.wikipedia.org/wiki/Yehoshua_Rabinowitz'}
+    ]
+  },
+  'שמחה ארליך': {
+    bio: 'שמחה ארליך (נולד בגליציה, 1915; נפטר ב-1983) היה שר האוצר הראשון מהליכוד ויישם ליברליזציה כלכלית חסרת תקדים בישראל. הוא עלה לארץ בשנות ה-30, שירת ב"הגנה" ובמלחמת העצמאות, ועסק בפוליטיקה מטעם הציונים הכלליים ולאחר מכן הליכוד. לאחר "המהפך" של 1977 מונה לשר האוצר. "מדיניות ארליך" ביטלה את פיקוח המטבע הזר, שחררה ייבוא ומחירים, וחתרה לשוק חופשי — הניסיון הרחב ביותר לשינוי כלכלי מאז קום המדינה. אך ריצת הצרכנים לרכישות בחו"ל ועלות יבוא גבוהה הגדילו את הגירעון, האינפלציה זינקה, וארליך נאלץ לעזוב את התיק ב-1979.',
+    sources: [
+      {t:'Encyclopedia.com', u:'https://www.encyclopedia.com/religion/encyclopedias-almanacs-transcripts-and-maps/ehrlich-simha'},
+      {t:'Jewish Virtual Library', u:'https://jewishvirtuallibrary.org/simha-erlich'},
+      {t:'Wikipedia', u:'https://en.wikipedia.org/wiki/Simha_Erlich'}
+    ]
+  },
+  'יגאל הורביץ\'': {
+    bio: 'יגאל הורביץ\' (נולד ב-1918; נפטר ב-2002) היה חקלאי, איש עסקים ומדינאי, שר האוצר שקיצץ וצנע כשאף אחד אחר לא עשה זאת. הוא גדל בארץ, עסק בחקלאות וייסד חברות לאחסון תבואה ולשיווק חקלאי. בפוליטיקה שייך לזרם "לאם" ולמפלגות קטנות שהצטרפו לממשלת בגין. שימש כשר האוצר מנובמבר 1979 עד ינואר 1981, ובתקופה זו ניסה לכפות משמעת תקציבית נוקשה ולצמצם את גירעון המדינה — מדיניות שהיתה פופולרית בקרב כלכלנים אך פחות פופולרית בציבור. הוא התפטר לאחר שנתקל בהתנגדות לתוכניותיו.',
+    sources: [
+      {t:'Jewish Virtual Library', u:'https://jewishvirtuallibrary.org/yigal-hurwitz'},
+      {t:'Wikipedia', u:'https://en.wikipedia.org/wiki/Yigal_Hurvitz'}
+    ]
+  },
+  'יורם ארידור': {
+    bio: 'יורם ארידור (נולד בתל אביב, 1933; נפטר ב-2024) היה עורך דין ופוליטיקאי, שר האוצר בממשלת בגין ששמו נקשר לקריסת המניות הגדולה של 1983. הוא נבחר לכנסת מטעם הליכוד ב-1969, כיהן כמזכיר הפוליטי של בגין, ובינואר 1981 מונה לשר האוצר. ארידור "פתח את הברז" — הפחית מסי יבוא, סבסד מוצרי צריכה ופעל לייצוב מלאכותי של שער החליפין. מדיניות זו הביאה לתחושת שגשוג לפני בחירות 1981, אך האינפלציה המשיכה להאיץ ומשבר הבנקים פרץ ב-1983. ארידור התפטר באוקטובר 1983 לאחר שהציע "דולריזציה" של המשק — מהלך שנפסל על ידי הממשלה.',
+    sources: [
+      {t:'Encyclopedia.com', u:'https://www.encyclopedia.com/religion/encyclopedias-almanacs-transcripts-and-maps/aridor-yoram'},
+      {t:'Wikipedia', u:'https://en.wikipedia.org/wiki/Yoram_Aridor'},
+      {t:'Haaretz', u:'https://www.haaretz.com/israel-news/2024-12-16/ty-article/former-finance-minister-yoram-aridor-dies-at-91/0000019383b3-d4fc-a1fd'}
+    ]
+  },
+  'יגאל כהן-אורגד': {
+    bio: 'יגאל כהן-אורגד (נולד ב-1928; נפטר ב-2016) היה פוליטיקאי ומדינאי בכיר בליכוד, שכיהן בשורת תפקידים ממשלתיים. הוא נבחר לכנסת ב-1969 מטעם הליכוד ועמד בראש ועדות שונות. מונה לשר האוצר באוקטובר 1983, ממש בעת משבר מניות הבנקים שהסעיר את ישראל — ממשלה הלאימה את הבנקים הגדולים כדי למנוע קריסה. כהן-אורגד כיהן עד ממשלת האחדות (ספטמבר 1984) ומינוי ניסים לממשיך. בהמשך הקריירה שימש כשר בתיקים שונים ועמד בראש תפקידים בכנסת.',
+    sources: [
+      {t:'Jewish Virtual Library', u:'https://jewishvirtuallibrary.org/yigal-cohen-orgad'},
+      {t:'Wikipedia', u:'https://en.wikipedia.org/wiki/Yigal_Cohen-Orgad'}
+    ]
+  },
+  'יצחק מודעי': {
+    bio: 'יצחק מודעי (נולד ב-1926; נפטר ב-1998) היה עורך דין ומדינאי רב-תחומי, שכיהן כשר בתיקים שונים ובין השאר כשר האוצר בשתי תקופות. הוא בא מתנועת הציונים הכלליים, הצטרף לליכוד ונבחר לכנסת. כשר האוצר הראשון (1984–1986) קידם יחד עם ממשלת האחדות (פרס-שמיר) את תוכנית הייצוב הכלכלית של 1985 — אחת ההצלחות הכלכליות המרשימות בעולם, שבה ירדה האינפלציה מ-450% ל-20% תוך שנה. בתקופתו השנייה (1990–1992) עבד עם ממשלת שמיר. מודעי ידוע גם כמי שניסה בשנת 1990 ל"הפיל" את ממשלת פרס תוך כדי ניסיון להכניס חרדים לקואליציה — מה שכונה "התרגיל המסריח".',
+    sources: [
+      {t:'Jewish Virtual Library', u:'https://jewishvirtuallibrary.org/yitzhak-modai'},
+      {t:'Wikipedia', u:'https://en.wikipedia.org/wiki/Yitzhak_Modai'}
+    ]
+  },
+  'משה ניסים': {
+    bio: 'משה ניסים (נולד ב-1935 למשפחה יוצאת איטליה-ספרד) הוא עורך דין ומדינאי, שר האוצר בממשלת שמיר וכמה פעמים שר בתיקים נוספים. הוא נבחר לכנסת ב-1973 מטעם הליכוד, ועם הזמן כיהן כשר המשפטים, שר האוצר (1986–1988) ושר הפנים. כשר האוצר עסק בייצוב המשך לאחר תוכנית 1985, ועבד להמשיך לצמצם את האינפלציה ולייצב את התקציב. ניסים נחשב לפוליטיקאי ותיק ופרגמטי, ללא תשוקה לפרסום, שניהל את תיקיו בשקט ובמקצועיות.',
+    sources: [
+      {t:'Jewish Virtual Library', u:'https://jewishvirtuallibrary.org/moshe-nissim'},
+      {t:'Wikipedia', u:'https://en.wikipedia.org/wiki/Moshe_Nissim'}
+    ]
+  },
+  'אברהם שוחט': {
+    bio: 'אברהם ("ביגה") שוחט (נולד ב-1936 בתל אביב; נפטר ב-2024) היה מהנדס אזרחי, ראש עיריית ערד ושר האוצר בממשלות רבין וברק. הוא ייסד יחד עם אחרים את עיר ערד בנגב בשנות ה-60 ועמד בראש עירייתה 20 שנה, עד שפנה לפוליטיקה הארצית. כשר האוצר בממשלת רבין (1992–1996) קידם פתיחת שוק ההון, חתם על הסכמי הפרטה וחיזק את מעמד הבנק המרכזי. בכהונתו השנייה (1999–2001) בממשלת ברק, ניסה לאזן בין צרכים חברתיים לצמיחה. שוחט ייצג את הגישה המתונה והפרגמטית בכלכלה, ונחשב לאיש ציבור מן השורה שהגיע לתפקידים הבכירים ביותר.',
+    sources: [
+      {t:'The Times of Israel', u:'https://www.timesofisrael.com/avraham-baiga-shochat-first-mayor-of-arad-and-rabins-finance-minister-dies-at-88/'},
+      {t:'Wikipedia', u:'https://en.wikipedia.org/wiki/Avraham_Shochat'}
+    ]
+  },
+  'דן מרידור': {
+    bio: 'דן מרידור (נולד ב-1947 בירושלים) הוא עורך דין ומדינאי, ממשפחה ממיסדי הרביזיוניזם הציוני (אביו אליהו מרידור היה מבכירי האצ"ל). הוא נבחר לכנסת ב-1984 מטעם הליכוד, כיהן כשר המשפטים (1988–1992) ועמד בראש ועדות חשובות. כשר האוצר בממשלת נתניהו הראשונה (1996–1997) אימץ מדיניות פיסקלית שמרנית, אך פרש בשל מחלוקות עם נתניהו על חוסר עצמאות. מרידור נחשב למדינאי ליברלי וישר-דרך ב"ימין", שהיה מרוחק מהקיצוניות של חלק ממפלגתו.',
+    sources: [
+      {t:'Jewish Virtual Library', u:'https://jewishvirtuallibrary.org/dan-meridor'},
+      {t:'Wikipedia', u:'https://en.wikipedia.org/wiki/Dan_Meridor'}
+    ]
+  },
+  'יעקב נאמן': {
+    bio: 'יעקב נאמן (נולד ב-1939) הוא עורך דין מסחרי וממשלתי ומדינאי, שכיהן כשר האוצר ושר המשפטים פעמים אחדות. הוא הפך לדמות מרכזית בעולם המשפט הישראלי כיועץ משפטי לחברות גדולות ולממשלה. כשר האוצר לתקופה קצרה (1997–1998) עסק ביציבות פיסקלית, אך בסמוך לאחר כהונתו עלו חשדות שנחקרו (ובסופו של דבר לא הוגש כתב אישום). בכהונות מאוחרות יותר שימש שר המשפטים (2009–2013) ודיגם בפועל מדיניות חינוכית-משפטית שמרנית. נאמן הוא גם אדם דתי שעסק בחידוש תהליכי גיור.',
+    sources: [
+      {t:'Jewish Virtual Library', u:'https://jewishvirtuallibrary.org/yaakov-neeman'},
+      {t:'Wikipedia', u:'https://en.wikipedia.org/wiki/Yaakov_Neeman'}
+    ]
+  },
+  'מאיר שטרית': {
+    bio: 'מאיר שטרית (נולד ב-1948 בקסבלנקה שבמרוקו; עלה לישראל ב-1962) הוא מדינאי שכיהן בשורת תפקידים בליכוד ובקדימה. גדל בירוחם, עסק בחינוך ובציבור, ונבחר לכנסת ב-1981. כיהן כשר בתיקים רבים: שר אוצר קצר-מועד (1998–1999), שר הפנים, שר הבינוי ושר המשפטים. שטרית עבר מהליכוד לקדימה כשייסד אותה שרון ב-2005, וחזר לאחר מכן לפוליטיקה מרכזית. בתפקיד שר האוצר עסק בעיקר בהמשכיות של השנה הפוליטית, ולא הספיק לבצע שינויים משמעותיים.',
+    sources: [
+      {t:'Jewish Virtual Library', u:'https://jewishvirtuallibrary.org/meir-sheetrit'},
+      {t:'Wikipedia', u:'https://en.wikipedia.org/wiki/Meir_Sheetrit'}
+    ]
+  },
+  'סילבן שלום': {
+    bio: 'סילבן שלום (נולד ב-1958 בתוניס; עלה לישראל בינקותו) הוא מדינאי בכיר בליכוד, שר האוצר (2001–2003) ושר החוץ (2003–2006) בממשלות שרון. גדל בבאר שבע, שירת בצבא ואחר כך למד מינהל עסקים. נבחר לכנסת ב-1992 מטעם הליכוד ועלה מהר בהיררכיה. כשר האוצר נאלץ לבצע קיצוצים חריפים בעקבות המיתון שאחרי מלחמות האינתיפאדה השנייה ומשבר הדוט-קום. המשיך לכהן כשר הנגב, שר האנרגיה ועוד. ידוע גם בזכות אשתו ג'ודי שלום ניר-מוזס.',
+    sources: [
+      {t:'Jewish Virtual Library', u:'https://jewishvirtuallibrary.org/silvan-shalom'},
+      {t:'Wikipedia', u:'https://en.wikipedia.org/wiki/Silvan_Shalom'}
+    ]
+  },
+  'אברהם הירשזון': {
+    bio: 'אברהם הירשזון (נולד ב-1941; נפטר ב-2020) היה מדינאי שכיהן כשר האוצר בממשלת אולמרט (2006–2007), וסופו של דבר נשפט ונכלא בגין שחיתות. הוא כיהן שנים רבות כחבר כנסת מטעם הליכוד, עסק בהסתדרות, ובשנת 2006 מונה לשר האוצר. כהונתו הסתיימה לאחר שנה, בעת שנחקר בחשד למעילה בכספים ציבוריים. ב-2009 הורשע בגניבה ממעביד ובמרמה, ונגזרו עליו 5.5 שנות מאסר. שמו הפך לאחד מסמלי השחיתות בפוליטיקה הישראלית.',
+    sources: [
+      {t:'Haaretz', u:'https://www.haaretz.com/israel-news/2020-11-23/ty-article/ex-finance-minister-hirchson-dies-at-78/0000017f-e83c-d538-a17f-eaff06040000'},
+      {t:'Jewish Virtual Library', u:'https://jewishvirtuallibrary.org/avraham-hirchson'},
+      {t:'Wikipedia', u:'https://en.wikipedia.org/wiki/Avraham_Hirchson'}
+    ]
+  },
+  'רוני בר-און': {
+    bio: 'רוני בר-און (נולד ב-1949) הוא עורך דין ומדינאי, שר האוצר בממשלת אולמרט (2007–2009) ולפני כן שר הפנים. נבחר לכנסת מטעם ליכוד ב-2003 ועבר לקדימה ב-2005. שמו היה כרוך ב"פרשת בר-און-חברון" (1997) — פרשת שחיתות מדינית שבה טען שסגל-אמסלם כי נתניהו הציע לו את תפקיד היועמ"ש בתמורה להסכמה על הסכם חברון. נגד בר-און לא הוגש כתב אישום. לאחר שכיהן כשר האוצר הוביל צמיחה מתונה שסייעה לישראל לעמוד טוב יחסית מול משבר 2008.',
+    sources: [
+      {t:'Jewish Virtual Library', u:'https://jewishvirtuallibrary.org/ronnie-bar-on'},
+      {t:'Wikipedia', u:'https://en.wikipedia.org/wiki/Roni_Bar-On'}
+    ]
+  },
+  'משה כחלון': {
+    bio: 'משה כחלון (נולד ב-1961 בבני ברק, גדל בחדרה למשפחה יוצאת לוב) הוא מדינאי שכיהן כשר האוצר (2015–2020) ושמו נקשר לרפורמות נגד יוקר המחייה. בצעירותו שירת בצה"ל, עסק בעסקים קטנים ונבחר לכנסת ב-2003 מטעם הליכוד. כשר התקשורת (2009–2013) יזם את "רפורמת כחלון" בשוק הסלולר — שמחיריו ירדו בשיעור חד של 90% תוך שנתיים — שהפכה לאחד ממהלכי הצרכנות המוצלחים ביותר בתולדות ישראל. ב-2014 ייסד את מפלגת "כולנו" ובשנת 2015 נכנס לקואליציה עם נתניהו. כשר האוצר הוריד ממיסי דיור, ניסה לטפל ביוקר המחייה ועוגן בחינוך תקציבי.',
+    sources: [
+      {t:'Encyclopaedia Britannica', u:'https://www.britannica.com/biography/Moshe-Kahlon'},
+      {t:'Jewish Virtual Library', u:'https://jewishvirtuallibrary.org/moshe-kahlon'},
+      {t:'Haaretz', u:'https://www.haaretz.com/israel-news/elections/2019-04-04/ty-article/profile-moshe-kahlon-the-man-who-gave-israelis-affordable-cell-phone-plans/0000017f-e4b4-d0f8-a77f-eef766530000'}
+    ]
+  },
+  'אביגדור ליברמן': {
+    bio: 'אביגדור (איגור) ליברמן (נולד ב-1958 בדניפרופטרובסק שבאוקראינה; עלה לישראל ב-1978) הוא מדינאי, מייסד ומנהיג מפלגת "ישראל ביתנו". בישראל עבד בתחילה כשומר ואחר כך כמנהל לשכתו של נתניהו. ב-1999 ייסד את "ישראל ביתנו" — שהפכה לבסיסו הפוליטי, בשלב מסוים מפלגתה השנייה בגודלה — ותוכנה ריכוז עולים מבריה"מ לשעבר ועמדות ימין לאומיות. כשר ביטחון (2016–2018) ניהל את צה"ל בעימותים בגבול עזה. כשר אוצר (2021–2022) בממשלת בנט-לפיד הוביל תקציב ראשון בשנים, אחרי תקופה של ממשלות מעבר ותקציב "אוטומטי". ביברמן ידוע בביקורתו החריפה על הממשלה הנוכחית ועל כוחו של הציבור החרדי.',
+    sources: [
+      {t:'Encyclopaedia Britannica', u:'https://www.britannica.com/biography/Avigdor-Lieberman'},
+      {t:'Jewish Virtual Library', u:'https://jewishvirtuallibrary.org/avigdor-lieberman'},
+      {t:'The Times of Israel', u:'https://www.timesofisrael.com/topic/avigdor-liberman/'}
+    ]
+  },
+  'בצלאל סמוטריץ\'': {
+    bio: 'בצלאל סמוטריץ\' (נולד ב-1980 בחספין שבגולן) הוא מדינאי דתי-לאומי, ראש "הציונות הדתית" ושר האוצר המכהן. גדל בקריית ארבע שבחברון, למד משפטים ועסק בפעילות ציבורית. ב-2015 נבחר לכנסת ועלה לפרומיננטיות בזכות עמדותיו האידיאולוגיות הקיצוניות בנושאי גיאוגרפיה, לאום ודת. בשנת 2023 כיהן כשר בממשלת נתניהו השישית — שר "על המשרד ראש הממשלה" עם סמכות על מינהל האזרחי ביהודה ושומרון — ולאחר מכן מינה עצמו לשר האוצר. כשר אוצר מכהן מ-2023 מנהל את הכלכלה בתקופת מלחמה יקרה מאוד, עם עלייה בגירעון ובחוב הלאומי. ידוע בתמיכתו בהפחתת תשלומים לשלטון פלסטיני.',
+    sources: [
+      {t:'Encyclopaedia Britannica', u:'https://www.britannica.com/biography/Bezalel-Smotrich'},
+      {t:'Jewish Virtual Library', u:'https://jewishvirtuallibrary.org/bezalel-smotrich'},
+      {t:'The Times of Israel', u:'https://www.timesofisrael.com/topic/bezalel-smotrich/'}
+    ]
   }
 };
+
+/* ===================== ECONOMY DATA ===================== */
+const ECONOMY = [
+  {y:'1948',icon:'🏗️',name:'תקופת הצנע',desc:'אחרי קום המדינה נגזרה תקופת צנע חמורה — מזון, בגדים ודיור הוקצבו. מאות אלפי עולים נקלטים בתנאי עוני; האינפלציה גבוהה, רזרבות המטבע אפסיות.'},
+  {y:'1952',icon:'💶',name:'הסכם השילומים עם גרמניה',desc:'הסכם עם גרמניה המערבית שבו שולמו לישראל 3 מיליארד מארק. הכסף שימש לרכישת ציוד תעשייתי ותשתיות שהאיצו מאוד את בניית המדינה.'},
+  {y:'1955',icon:'📈',name:'פריחה כלכלית ראשונה',desc:'ממחצית שנות ה-50 צמחה כלכלת ישראל בקצבים גבוהים — ייסוד תשתיות חשמל, מים ותחבורה; הכנסה לנפש עלתה משמעותית.'},
+  {y:'1967',icon:'💹',name:'פריחה אחרי מלחמת ששת הימים',desc:'ניצחון 1967 הביא פריחה כלכלית זמנית: אבטלה נמוכה, השקעות זרות וביקוש לכוח אדם. התמ"ג צמח בשיעורים דו-ספרתיים בסוף שנות ה-60.'},
+  {y:'1973',icon:'📉',name:'משבר אחרי מלחמת יום הכיפורים',desc:'המלחמה ומשבר הנפט העולמי של 1973 הכניסו את ישראל למיתון חריף. האינפלציה עלתה לעשרות אחוזים בשנה, וצמיחת שנות ה-60 נעצרה.'},
+  {y:'1983',icon:'💥',name:'משבר מניות הבנקים',desc:'ארבעת הבנקים הגדולים קרסו תחת מניפולציה שנמשכה שנים. הממשלה הלאימה אותם בעלות עצומה, ומשבר האמון הכלכלי הפך לאחד החמורים בתולדות המדינה.'},
+  {y:'1985',icon:'🏦',name:'תוכנית הייצוב הכלכלית',desc:'הממשלה הפסיקה הדפסת כסף, קיצצה את התקציב וקפאה שכר ומחירים. האינפלציה ירדה מ-450% ל-20% תוך שנה — אחת ההצלחות הכלכליות הבולטות בעולם.'},
+  {y:'1990',icon:'🏘️',name:'גל העלייה הגדול מבריה"מ',desc:'כמיליון עולים מברית המועצות לשעבר הגיעו בין 1990 ל-2000. בתחילה גרם לאבטלה גבוהה, אך לאחר מכן תרם לצמיחה משמעותית ולפריחת ענף ההיטק.'},
+  {y:'1994',icon:'🤝',name:'הסכמי שלום ופתיחת שווקים',desc:'הסכמי אוסלו ושלום עם ירדן פתחו לישראל שווקים חדשים ודחפו השקעות זרות. יצוא וסחר חוץ הכפילו את עצמם לאורך שנות ה-90.'},
+  {y:'2000',icon:'💻',name:'פריחת ההיטק — "סיליקון ואדי"',desc:'ישראל הפכה ל"אומת הסטארטאפ": חברות כ-Check Point, Amdocs, NICE עלו לבורסות בעולם, ותעשיית ההיטק הפכה למנוע הצמיחה המרכזי.'},
+  {y:'2003',icon:'💊',name:'רפורמות נתניהו כשר אוצר',desc:'קיצוצי קצבאות, הפרטת חברות ממשלתיות, הפחתת מס הכנסה. רפורמות שנויות במחלוקת שהגדילו אי-שוויון אך דחפו צמיחה חזקה ב-2003–2008.'},
+  {y:'2008',icon:'🌍',name:'המשבר הפיננסי העולמי — ישראל שרדה',desc:'ישראל ספגה פגיעה מתונה יחסית מהמשבר של 2008–2009, בזכות פיקוח בנקאי הדוק ויצוא מגוון. ההתאוששות היתה מהירה יחסית.'},
+  {y:'2011',icon:'🏠',name:'מחאת האוהלים — יוקר המחייה',desc:'מחאה המונית בקיץ 2011 על יוקר הדיור ואי-שוויון. מאות אלפים יצאו לרחובות, וסדר היום החברתי-כלכלי שינה מחדש את שיח השיוויון.'},
+  {y:'2014',icon:'📱',name:'רפורמת הסלולר של כחלון',desc:'כשר תקשורת, כחלון שבר את המונופולים בתחום הסלולר. מחירי חבילות הנייד ירדו ב-90%, חסכו לצרכנים מיליארדי שקלים ודחפו תחרות בשוק הטלקום.'},
+  {y:'2021',icon:'📊',name:'גידול חריג בגביית מיסים',desc:'ב-2021–2022 נרשמה עלייה חדה בגביית מיסים בזכות פריחת ההיטק ושוקי ההון. הגירעון ירד בחדות, והתקציב איזן עצמו לראשונה מזה שנים.'},
+  {y:'2023',icon:'⚠️',name:'השפעות המלחמה על הכלכלה',desc:'מלחמת חרבות ברזל מאז אוקטובר 2023 פגעה בתיירות, בהשקעות ובסחר החוץ. דירוג האשראי הורד, הגירעון זינק, ועלות המלחמה הוערכה בעשרות מיליארדי שקלים.'},
+];
 
 /* ===================== WARS & EVENTS DATA ===================== */
 const EVENTS = [
@@ -1327,6 +1558,26 @@ function buildEvents(birthStr){
   eventsWrap.classList.remove('hidden');
 }
 
+/* ========= ECONOMY ========= */
+const economyWrap = document.getElementById('economyWrap');
+function buildEconomy(birthStr){
+  const birthY = parseInt(birthStr.slice(0,4));
+  const todayY = new Date().getFullYear();
+  const evts = ECONOMY.filter(e => parseInt(e.y) >= birthY && parseInt(e.y) <= todayY);
+  if (!evts.length){ economyWrap.classList.add('hidden'); return; }
+  economyWrap.innerHTML = `<h3>💹 אבני דרך כלכליות במהלך חייך</h3>
+<div class="event-list">${evts.map(e=>`
+  <div class="event-item economy-item">
+    <span class="event-icon">${e.icon}</span>
+    <div class="event-body">
+      <div class="event-year">${e.y}</div>
+      <div class="event-name">${e.name}</div>
+      <div class="event-desc">${e.desc}</div>
+    </div>
+  </div>`).join('')}</div>`;
+  economyWrap.classList.remove('hidden');
+}
+
 // ----- profile modal -----
 const modal = document.getElementById('modal');
 
@@ -1397,6 +1648,7 @@ form.addEventListener('submit', function(e){
   results.innerHTML = '';
   tabsEl.innerHTML = '';
   eventsWrap.classList.add('hidden');
+  economyWrap.classList.add('hidden');
   searchWrap.classList.add('hidden');
   compareToggleBtn.classList.add('hidden');
   comparePanel.classList.add('hidden');
@@ -1498,6 +1750,7 @@ form.addEventListener('submit', function(e){
   searchWrap.classList.remove('hidden');
 
   buildEvents(val);
+  buildEconomy(val);
 
   // founding note
   if (val < FOUNDING){

@@ -1997,10 +1997,11 @@ function ensureVotesSub(){
 
 /* ===== html builders ===== */
 function headHtml(pub){
-  const badge = demo
-    ? '<span class="poll-status demo">● מצב הדגמה</span>'
-    : (pub ? '<span class="poll-status live">● הסקר פעיל</span>'
-           : '<span class="poll-status draft">● טיוטה — גלוי לך בלבד</span>');
+  let badge = '';
+  if(demo) badge = '<span class="poll-status demo">● מצב הדגמה</span>';
+  else if(isAdmin) badge = pub
+    ? '<span class="poll-status live">● התוצאות פורסמו לציבור</span>'
+    : '<span class="poll-status draft">● התוצאות מוסתרות מהציבור</span>';
   return '<div class="poll-head"><div class="poll-ic">🗳️</div><h2>סקר הבחירות</h2>'
        + '<p>' + esc(QUESTION) + '</p>' + badge + '</div>';
 }
@@ -2035,11 +2036,11 @@ function resultsHtml(voted){
 function adminBarHtml(pub){
   let h = '<div class="poll-admin-bar"><div class="pab-title"><span>⚙️ ניהול הסקר</span>'
         + '<button class="pab-btn ghost" id="pollLogout">' + (demo ? 'יציאה' : 'התנתק') + '</button></div><div class="pab-row">';
-  h += pub ? '<button class="pab-btn unpublish" id="pollUnpub">השהה פרסום (החזרה לטיוטה)</button>'
-           : '<button class="pab-btn publish" id="pollPub">🚀 פרסם לציבור</button>';
+  h += pub ? '<button class="pab-btn unpublish" id="pollUnpub">הסתר תוצאות מהציבור</button>'
+           : '<button class="pab-btn publish" id="pollPub">🚀 פרסם את התוצאות</button>';
   h += '</div><div class="pab-note">'
-     + (pub ? 'הסקר <b>פורסם</b> וגלוי לכל מי שנכנס לאתר.'
-            : 'הסקר במצב <b>טיוטה</b> — אף אחד חוץ ממך לא רואה אותו. כשתהיה מוכן לחץ "פרסם לציבור".')
+     + (pub ? 'התוצאות <b>פורסמו</b> — כל מי שנכנס לאתר רואה את תמונת המצב. ההצבעה ממשיכה כרגיל.'
+            : 'ההצבעה <b>פתוחה לכולם</b>, אבל התוצאות גלויות <b>לך בלבד</b> כרגע. כשתרצה לחשוף את תמונת המצב לציבור — לחץ "פרסם את התוצאות".')
      + ' · סה"כ הצבעות: <b>' + getTotal() + '</b></div>';
   if(demo){
     h += '<div class="pab-note" style="border-top:1px dashed var(--line);padding-top:8px;margin-top:8px">'
@@ -2066,21 +2067,28 @@ function render(){
   if(showLogin && !isAdmin){
     section.classList.remove('hidden'); section.innerHTML = loginHtml(); wire(); return;
   }
-  if(!pub && !isAdmin){ section.classList.add('hidden'); return; }
 
+  // ההצבעה פתוחה תמיד לציבור; התוצאות גלויות רק לאחר פרסום (או למנהל בכל עת)
   section.classList.remove('hidden');
   let html = headHtml(pub);
   if(isAdmin) html += adminBarHtml(pub);
   const voted = votedParty();
   if(!voted) html += partyListHtml();
-  if(voted || isAdmin){ html += resultsHtml(voted); if(configured && (isAdmin || voted)) ensureVotesSub(); }
+  const canSeeResults = pub || isAdmin;
+  if(canSeeResults){
+    html += resultsHtml(voted);
+    if(configured) ensureVotesSub();
+  } else if(voted){
+    html += '<div class="poll-thanks">תודה! הצבעתך עבור ' + esc(voted) + ' נקלטה ✓</div>'
+          + '<div class="poll-total">התוצאות יתפרסמו בהמשך.</div>';
+  }
   section.innerHTML = html;
   wire();
 }
 function wire(){
   section.querySelectorAll('.poll-party').forEach(b => b.addEventListener('click', () => vote(b.dataset.party)));
   const pub = section.querySelector('#pollPub');   if(pub) pub.addEventListener('click', () => setPub(true));
-  const unpub = section.querySelector('#pollUnpub'); if(unpub) unpub.addEventListener('click', () => { if(confirm('להחזיר את הסקר לטיוטה? הוא יוסתר מהציבור.')) setPub(false); });
+  const unpub = section.querySelector('#pollUnpub'); if(unpub) unpub.addEventListener('click', () => { if(confirm('להסתיר את התוצאות מהציבור? ההצבעה תישאר פתוחה.')) setPub(false); });
   const lo = section.querySelector('#pollLogout'); if(lo) lo.addEventListener('click', () => { if(demo){ isAdmin = false; render(); } else doLogout(); });
   const go = section.querySelector('#plGo'); if(go) go.addEventListener('click', () => doLogin(section.querySelector('#plEmail').value.trim(), section.querySelector('#plPass').value));
   const cancel = section.querySelector('#plCancel'); if(cancel) cancel.addEventListener('click', () => { showLogin = false; render(); });

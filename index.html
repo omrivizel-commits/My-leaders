@@ -190,11 +190,6 @@
   .cc-stat-key{color:var(--muted);font-weight:600}
   .cc-stat-val{font-weight:800}
 
-  /* ---------- Visual timeline ---------- */
-  .vtl-wrap{max-width:880px;margin:20px auto 0;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px 20px;overflow-x:auto}
-  .vtl-wrap h3{font-size:16px;font-weight:800;margin:0 0 14px;text-align:center}
-  .vtl-svg{display:block;min-width:320px;width:100%}
-
   /* ---------- Wars / Events ---------- */
   .events-wrap{max-width:880px;margin:20px auto 0;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px 18px}
   .events-wrap h3{font-size:16px;font-weight:800;margin:0 0 12px;text-align:center}
@@ -382,7 +377,6 @@
     <input type="text" class="search-input" id="searchInput" placeholder="🔍 חיפוש לפי שם..." aria-label="חיפוש מנהיג">
   </div>
   <div id="results"></div>
-  <div id="vtlWrap" class="vtl-wrap hidden"></div>
   <div id="eventsWrap" class="events-wrap hidden"></div>
 
   <footer>
@@ -875,24 +869,19 @@ const EVENTS = [
   {y:'1956',icon:'⚔️',name:'מבצע קדש (מלחמת סיני)',desc:'ישראל תוקפת את סיני בתיאום עם בריטניה וצרפת מול מצרים'},
   {y:'1967',icon:'⚔️',name:'מלחמת ששת הימים',desc:'ישראל כובשת את סיני, הגדה, עזה, גולן וירושלים המזרחית'},
   {y:'1973',icon:'⚔️',name:'מלחמת יום הכיפורים',desc:'הפתעה מצרית-סורית ביום הכיפורים — 2,656 חיילים ישראלים נהרגו'},
-  {y:'1976',icon:'✈️',name:'מבצע אנטבה',desc:'חילוץ בני ערובה ישראלים מנמל התעופה של אוגנדה'},
-  {y:'1977',icon:'🕊️',name:'ביקור סאדאת',desc:'נשיא מצרים אנואר סאדאת מבקר בישראל — פריצת דרך לשלום'},
-  {y:'1979',icon:'🕊️',name:'הסכם שלום עם מצרים',desc:'הסכם קמפ-דיוויד — השלום הראשון בין ישראל למדינה ערבית'},
+  {y:'1976',icon:'⚔️',name:'מבצע אנטבה',desc:'חילוץ בני ערובה ישראלים מנמל התעופה של אוגנדה על ידי סיירת מטכ"ל'},
   {y:'1982',icon:'⚔️',name:'מלחמת לבנון הראשונה',desc:'ישראל פולשת ללבנון למשך 18 שנה; טבח סברה ושתילה'},
-  {y:'1987',icon:'✊',name:'האינתיפאדה הראשונה',desc:'התקוממות פלסטינית בגדה ובעזה שנמשכה 6 שנים'},
-  {y:'1991',icon:'🚀',name:'מלחמת המפרץ — טילי סקאד',desc:'עיראק ירתה 39 טילי סקאד על ישראל; ישראל לא הגיבה'},
-  {y:'1993',icon:'🕊️',name:'הסכמי אוסלו',desc:'ישראל ואש"ף מכירים זה בזה; הוקמה הרשות הפלסטינית'},
-  {y:'1994',icon:'🕊️',name:'הסכם שלום עם ירדן',desc:'ישראל וירדן חותמות על הסכם שלום בוואדי ערבה'},
-  {y:'1995',icon:'🩸',name:'רצח יצחק רבין',desc:'רבין נרצח ב-4 בנובמבר על ידי יגאל עמיר בכיכר מלכי ישראל'},
-  {y:'2000',icon:'✊',name:'האינתיפאדה השנייה',desc:'פרצה לאחר ביקור שרון בהר הבית — אלפי הרוגים משני הצדדים'},
-  {y:'2005',icon:'🏠',name:'ההתנתקות מעזה',desc:'שרון פינה 8,500 מתנחלים מ-21 יישובים בעזה'},
+  {y:'1991',icon:'⚔️',name:'מלחמת המפרץ — טילי סקאד',desc:'עיראק ירתה 39 טילי סקאד על ישראל; ישראל לא הגיבה'},
+  {y:'2002',icon:'⚔️',name:'מבצע חומת מגן',desc:'מבצע צבאי בגדה המערבית בעקבות גל פיגועי ההתאבדות של האינתיפאדה השנייה'},
   {y:'2006',icon:'⚔️',name:'מלחמת לבנון השנייה',desc:'34 ימי לחימה מול חיזבאללה לאחר חטיפת חיילים'},
   {y:'2008',icon:'⚔️',name:'מבצע עופרת יצוקה',desc:'22 ימי לחימה בעזה; 1,400 הרוגים פלסטינים, 13 ישראלים'},
-  {y:'2012',icon:'⚔️',name:'מבצע עמוד ענן',desc:'8 ימי לחימה בעזה; הסכם הפסקת אש תיווך מצרים'},
+  {y:'2012',icon:'⚔️',name:'מבצע עמוד ענן',desc:'8 ימי לחימה בעזה; הסכם הפסקת אש בתיווך מצרים'},
   {y:'2014',icon:'⚔️',name:'מבצע צוק איתן',desc:'50 ימי לחימה בעזה — המבצע הארוך ביותר מאז 1973'},
+  {y:'2019',icon:'⚔️',name:'מבצע שחר שחור',desc:'מבצע ממוקד נגד מפקד הג\'יהאד האסלאמי בעזה'},
   {y:'2021',icon:'⚔️',name:'מבצע שומר החומות',desc:'11 ימי לחימה בעזה לאחר עימותים בשייח\' ג\'ראח'},
-  {y:'2023',icon:'🩸',name:'טבח 7 באוקטובר',desc:'חמאס פשט על הנגב — 1,200 הרוגים, כ-250 חטופים — המתקפה הגדולה ביותר בתולדות ישראל'},
-  {y:'2023',icon:'⚔️',name:'מלחמת חרבות ברזל',desc:'מלחמה נגד חמאס בעזה ולאחר מכן גם מול חיזבאללה בלבנון, פרצה בעקבות הטבח'},
+  {y:'2023',icon:'⚔️',name:'מבצע מגן ועלה',desc:'מבצע ממוקד בג\'נין ובשכם נגד תשתיות טרור'},
+  {y:'2023',icon:'⚔️',name:'טבח 7 באוקטובר',desc:'חמאס פשט על הנגב — 1,200 הרוגים, כ-250 חטופים — המתקפה הגדולה ביותר בתולדות ישראל'},
+  {y:'2023',icon:'⚔️',name:'מלחמת חרבות ברזל',desc:'מלחמה נגד חמאס בעזה ולאחר מכן גם מול חיזבאללה בלבנון'},
 ];
 
 /* ===================== HELPERS ===================== */
@@ -1050,7 +1039,6 @@ const searchInput = document.getElementById('searchInput');
 const compareToggleBtn = document.getElementById('compareToggle');
 const comparePanel = document.getElementById('comparePanel');
 const compareResults = document.getElementById('compareResults');
-const vtlWrap = document.getElementById('vtlWrap');
 const eventsWrap = document.getElementById('eventsWrap');
 
 const todayStr = new Date().toISOString().slice(0, 10);
@@ -1152,68 +1140,13 @@ function buildShareText(birthStr, blocks){
 }
 
 /* ========= VISUAL TIMELINE ========= */
-function buildTimeline(birthStr, blocks){
-  const birth = new Date(birthStr+'T00:00:00');
-  const today = new Date();
-  const minD = birth.getTime();
-  const maxD = today.getTime();
-  const span = maxD - minD;
-  if (span <= 0) return;
-
-  const W = 800, ROW_H = 28, PAD_L = 90, PAD_R = 10, PAD_TOP = 30, TICK_H = 16;
-  const chartW = W - PAD_L - PAD_R;
-
-  const categories = [
-    {key:'pm', label:'ראש ממשלה', color:'var(--pm,#2563eb)'},
-    {key:'cos', label:'רמטכ"ל', color:'var(--cos,#15803d)'},
-    {key:'pres', label:'נשיא', color:'var(--pres,#b45309)'},
-  ];
-
-  const rows = categories.map(cat => ({
-    ...cat,
-    items: blocks[cat.key].items,
-  }));
-  const totalRows = rows.length;
-  const svgH = PAD_TOP + TICK_H + totalRows * (ROW_H + 6) + 10;
-
-  // year ticks
-  const startY = birth.getFullYear();
-  const endY = today.getFullYear();
-  let ticks = '';
-  for (let y = Math.ceil(startY/5)*5; y <= endY; y += 5){
-    const x = PAD_L + ((new Date(y+'-01-01').getTime() - minD) / span) * chartW;
-    if (x < PAD_L || x > W - PAD_R) continue;
-    ticks += `<line x1="${x.toFixed(1)}" y1="${PAD_TOP}" x2="${x.toFixed(1)}" y2="${svgH-10}" stroke="var(--line,#e2e8f0)" stroke-width="1"/>`;
-    ticks += `<text x="${x.toFixed(1)}" y="${PAD_TOP - 4}" font-size="9" fill="var(--muted,#64748b)" text-anchor="middle">${y}</text>`;
-  }
-
-  let bars = '';
-  rows.forEach((row, ri) => {
-    const y0 = PAD_TOP + TICK_H + ri * (ROW_H + 6);
-    bars += `<text x="${PAD_L - 6}" y="${y0 + ROW_H/2 + 4}" font-size="11" fill="var(--muted,#64748b)" text-anchor="end">${row.label}</text>`;
-    row.items.forEach(it => {
-      const s = Math.max(minD, new Date(it.start+'T00:00:00').getTime());
-      const e = it.end ? Math.min(maxD, new Date(it.end+'T00:00:00').getTime()) : maxD;
-      const x1 = PAD_L + ((s - minD)/span)*chartW;
-      const x2 = PAD_L + ((e - minD)/span)*chartW;
-      const w = Math.max(2, x2-x1);
-      bars += `<rect x="${x1.toFixed(1)}" y="${y0}" width="${w.toFixed(1)}" height="${ROW_H}" rx="4" fill="${row.color}" opacity="0.85">
-        <title>${it.name} (${it.start?.slice(0,4)}–${it.end ? it.end.slice(0,4) : 'היום'})</title></rect>`;
-    });
-  });
-
-  vtlWrap.innerHTML = `<h3>📊 ציר זמן כהונות במהלך חייך</h3>
-<svg class="vtl-svg" viewBox="0 0 ${W} ${svgH}" xmlns="http://www.w3.org/2000/svg">${ticks}${bars}</svg>`;
-  vtlWrap.classList.remove('hidden');
-}
-
 /* ========= EVENTS ========= */
 function buildEvents(birthStr){
   const birthY = parseInt(birthStr.slice(0,4));
   const todayY = new Date().getFullYear();
   const evts = EVENTS.filter(e => parseInt(e.y) >= birthY && parseInt(e.y) <= todayY);
   if (!evts.length){ eventsWrap.classList.add('hidden'); return; }
-  eventsWrap.innerHTML = `<h3>🕰️ אירועים היסטוריים במהלך חייך</h3>
+  eventsWrap.innerHTML = `<h3>⚔️ מלחמות ומבצעים במהלך חייך</h3>
 <div class="event-list">${evts.map(e=>`
   <div class="event-item">
     <span class="event-icon">${e.icon}</span>
@@ -1295,7 +1228,6 @@ form.addEventListener('submit', function(e){
   // reset
   results.innerHTML = '';
   tabsEl.innerHTML = '';
-  vtlWrap.classList.add('hidden');
   eventsWrap.classList.add('hidden');
   searchWrap.classList.add('hidden');
   compareToggleBtn.classList.add('hidden');
@@ -1383,10 +1315,6 @@ form.addEventListener('submit', function(e){
   compareResults.innerHTML = '';
   searchWrap.classList.remove('hidden');
 
-  // visual timeline
-  buildTimeline(val, blocks);
-
-  // historical events
   buildEvents(val);
 
   // founding note

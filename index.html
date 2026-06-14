@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="גלו מי שכיהן בישראל מאז שנולדתם. קלעו תאריך לידה וראו את כל ראשי הממשלה, הרמטכ"לים והנשיאים בסדר כרונולוגי עם פרטים מלאים.">
+<meta name="keywords" content="ישראל, ראש ממשלה, רמטכ"ל, נשיא, היסטוריה, מנהיגים, קלנדר, לידה">
+<meta name="author" content="המנהיגים של חיי">
+<meta property="og:title" content="המנהיגים של חיי — מי הנהיג מאז שנולדת?">
+<meta property="og:description" content="גלה מי הנהיג בישראל מאז שנולדת - ראשי ממשלה, רמטכ"לים, ונשיאים בסדר כרונולוגי.">
+<meta name="robots" content="index, follow">
+<title>המנהיגים של חיי — מי הנהיג מאז שנולדת?</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg1:#eef2ff; --bg2:#f8fafc; --ink:#0f172a; --muted:#64748b;
+    --card:#ffffff; --line:#e2e8f0; --accent:#2563eb; --accent-soft:#dbeafe;
+    --pm:#2563eb; --cos:#15803d; --pres:#b45309; --live:#16a34a;
+    --shadow:0 10px 30px -12px rgba(15,23,42,.25);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:'Rubik',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;
+    color:var(--ink);
+    background:
+      radial-gradient(1200px 600px at 100% -10%, #e0e7ff 0%, transparent 60%),
+      linear-gradient(180deg,var(--bg1),var(--bg2));
+    min-height:100vh;
+    line-height:1.5;
+  }
+  .wrap{max-width:880px;margin:0 auto;padding:28px 18px 64px}
+
+  /* ---------- Header / form ---------- */
+  header.hero{text-align:center;padding:18px 6px 6px}
+  .hero h1{font-size:clamp(26px,5vw,40px);font-weight:800;margin:0 0 8px;letter-spacing:-.5px}
+  .hero p{color:var(--muted);font-size:clamp(15px,2.5vw,18px);margin:0 auto;max-width:560px}
+  .panel{
+    background:var(--card);border:1px solid var(--line);border-radius:20px;
+    box-shadow:var(--shadow);padding:20px;margin:24px auto 8px;max-width:560px;
+  }
+  .field{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center}
+  label{font-weight:600;font-size:16px}
+  input[type=date]{
+    font-family:inherit;font-size:17px;padding:12px 14px;border-radius:12px;
+    border:1.5px solid var(--line);background:#fff;color:var(--ink);min-width:190px;
+  }
+  input[type=date]::placeholder{color:var(--muted)}
+  input[type=date]:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}
+  button{
+    font-family:inherit;font-size:17px;font-weight:700;color:#fff;cursor:pointer;
+    background:var(--accent);border:none;padding:12px 26px;border-radius:12px;
+    transition:transform .06s ease, background .15s ease;
+  }
+  button:hover{background:#1d4ed8}
+  button:active{transform:translateY(1px)}
+  .err{color:#dc2626;font-size:14px;text-align:center;margin-top:10px;min-height:18px;font-weight:500}
+
+  /* ---------- Summary stat box ---------- */
+  .summary-box{max-width:680px;margin:22px auto 6px}
+  .summary-box .intro{text-align:center;font-size:16px;font-weight:600;margin-bottom:12px}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+  .stat{
+    background:var(--card);border:1px solid var(--line);border-radius:16px;
+    padding:14px 6px;text-align:center;box-shadow:0 4px 14px -10px rgba(15,23,42,.3);
+  }
+  .stat .num{font-size:27px;font-weight:800;line-height:1.1;color:var(--accent)}
+  .stat .lbl{font-size:12px;color:var(--muted);font-weight:600;margin-top:4px}
+  @media(max-width:560px){ .stats{grid-template-columns:repeat(2,1fr)} }
+
+  /* ---------- Mobile ---------- */
+  @media(max-width:480px){
+    .wrap{padding:14px 10px 48px}
+    .hero{padding:10px 4px 4px}
+    .hero h1{font-size:24px;margin-bottom:6px}
+    .hero p{font-size:14px}
+    .panel{padding:14px 12px;margin:14px auto 6px;border-radius:16px}
+    .field{flex-direction:column;gap:8px;align-items:stretch}
+    input[type=date]{width:100%;min-width:unset;font-size:16px;padding:11px 12px}
+    button{width:100%;font-size:16px;padding:11px}
+    .summary-box{margin:14px auto 4px}
+    .stats{grid-template-columns:repeat(2,1fr);gap:8px}
+    .stat{padding:11px 4px;border-radius:13px}
+    .stat .num{font-size:22px}
+    .stat .lbl{font-size:11px}
+    .highlight-box{margin:10px auto 4px;padding:12px 12px;border-radius:14px}
+    .hl-stats{gap:7px}
+    .hl-stat{min-width:0;flex:1 1 calc(50% - 4px);padding:8px 6px}
+    .hl-stat b{font-size:18px}
+    .tabs{gap:6px;margin:18px auto 4px}
+    .tab{font-size:13px;padding:8px 12px}
+    .tab .tcount{font-size:11px;padding:1px 6px}
+    section.block{margin-top:14px}
+    .block-head h2{font-size:18px}
+    .block-head .ic{font-size:20px}
+    .card{padding:10px 10px;gap:10px;border-radius:13px}
+    .avatar{width:52px;height:52px;font-size:15px}
+    .avatar img{object-position:center 15%}
+    .info .name{font-size:15px;gap:6px}
+    .info .meta,.info .term{font-size:12px}
+    .info .age{font-size:11px}
+    .info .pct-bar{max-width:110px}
+    .info .pct-label{font-size:12px}
+    .card .go{font-size:18px}
+    .timeline::before{inset-inline-start:25px}
+    .modal-overlay{padding:0;align-items:flex-end}
+    .modal{border-radius:20px 20px 0 0;max-height:92vh;max-width:100%}
+    .modal-top{padding:16px 14px 12px;gap:12px}
+    .modal-photo{width:72px!important;height:72px!important;font-size:22px!important}
+    .modal-name{font-size:19px}
+    .modal-role{font-size:13px}
+    .modal-close{top:12px;left:12px;width:30px;height:30px;font-size:18px}
+    .modal-body{padding:12px 14px 24px}
+    .modal-bio{font-size:14.5px;line-height:1.75}
+    .fact{font-size:12px;padding:4px 9px}
+  }
+
+  /* ---------- Highlights box (personal summary) ---------- */
+  .highlight-box{
+    max-width:680px;margin:16px auto 6px;background:var(--card);border:1px solid var(--line);
+    border-radius:18px;box-shadow:var(--shadow);padding:16px 18px;
+  }
+  .highlight-box h3{margin:0 0 8px;font-size:16px;font-weight:800;text-align:center}
+  .hl-row{display:flex;align-items:center;gap:11px;padding:10px 2px;border-bottom:1px solid var(--line)}
+  .hl-ic{font-size:21px;flex:0 0 auto;line-height:1}
+  .hl-main{flex:1 1 auto;min-width:0}
+  .hl-label{font-size:12.5px;color:var(--muted);font-weight:600}
+  .hl-name{font-size:16px;font-weight:700;margin-top:1px}
+  .hl-pct{flex:0 0 auto;font-size:15px;font-weight:800;color:var(--accent);white-space:nowrap}
+  .hl-stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;padding-top:12px;border-top:1px dashed var(--line)}
+  .hl-stat{
+    flex:1 1 0;min-width:130px;background:var(--bg1);border:1px solid var(--line);border-radius:12px;
+    padding:10px;text-align:center;font-size:12.5px;color:var(--muted);font-weight:600;
+  }
+  .hl-stat b{display:block;font-size:22px;color:var(--ink);font-weight:800;line-height:1.1;margin-bottom:2px}
+
+  /* ---------- Tabs ---------- */
+  .tabs{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:28px auto 4px;max-width:680px}
+  .tab{
+    font-family:inherit;font-size:15px;font-weight:700;cursor:pointer;
+    background:var(--card);color:var(--ink);border:1.5px solid var(--line);
+    padding:9px 16px;border-radius:999px;display:flex;align-items:center;gap:7px;
+    transition:border-color .15s ease, background .15s ease, color .15s ease;
+  }
+  .tab:hover{border-color:var(--accent)}
+  .tab .tcount{font-size:12px;background:var(--line);color:var(--muted);border-radius:999px;padding:1px 8px;font-weight:700}
+  .tab.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .tab.active .tcount{background:rgba(255,255,255,.25);color:#fff}
+
+  .note{
+    text-align:center;max-width:620px;margin:8px auto 0;color:var(--muted);
+    font-size:14px;background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:8px 12px;
+  }
+
+  /* ---------- Sections ---------- */
+  section.block{margin-top:34px}
+  .block-head{display:flex;align-items:center;gap:10px;margin:0 2px 14px}
+  .block-head .ic{font-size:24px;line-height:1}
+  .block-head h2{font-size:22px;font-weight:800;margin:0}
+  .block-head .count{
+    margin-inline-start:auto;font-size:13px;font-weight:600;color:#fff;
+    padding:3px 11px;border-radius:999px;
+  }
+  .block.pm   .count{background:var(--pm)}
+  .block.cos  .count{background:var(--cos)}
+  .block.pres .count{background:var(--pres)}
+  .block.pm   .accent{color:var(--pm)}
+  .block.cos  .accent{color:var(--cos)}
+  .block.pres .accent{color:var(--pres)}
+
+  /* timeline list */
+  .timeline{position:relative;margin:0;padding:0;list-style:none}
+  .timeline::before{
+    content:"";position:absolute;inset-inline-start:31px;top:8px;bottom:8px;width:2px;
+    background:var(--line);
+  }
+  .card{
+    position:relative;display:flex;gap:14px;align-items:center;cursor:pointer;
+    background:var(--card);border:1px solid var(--line);border-radius:16px;
+    padding:12px 14px;margin:0 0 12px;box-shadow:0 4px 14px -10px rgba(15,23,42,.3);
+    transition:transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+  }
+  .card:hover{transform:translateY(-2px);box-shadow:var(--shadow);border-color:var(--accent)}
+  .card:focus-visible{outline:3px solid var(--accent-soft);outline-offset:2px}
+  .card .go{
+    flex:0 0 auto;font-size:22px;line-height:1;color:var(--muted);opacity:.45;
+    transition:opacity .12s ease, transform .12s ease;align-self:center;
+  }
+  .card:hover .go{opacity:1;color:var(--accent);transform:translateX(-3px)}
+  .card.live{border-color:var(--live);box-shadow:0 0 0 3px rgba(22,163,74,.12)}
+
+  .avatar{
+    position:relative;flex:0 0 auto;width:64px;height:64px;border-radius:50%;
+    background:linear-gradient(135deg,#cbd5e1,#94a3b8);
+    display:grid;place-items:center;color:#fff;font-weight:700;font-size:20px;
+    overflow:hidden;border:2px solid #fff;box-shadow:0 0 0 1px var(--line);
+  }
+  .avatar::after{content:attr(data-initials)}
+  .avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 18%}
+
+  .info{flex:1 1 auto;min-width:0}
+  .info .name{font-size:18px;font-weight:700;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .badge-live{
+    font-size:11px;font-weight:700;color:#fff;background:var(--live);
+    padding:2px 9px;border-radius:999px;white-space:nowrap;
+  }
+  .info .meta{font-size:14px;color:var(--muted);font-weight:600;margin-top:1px}
+  .info .term{font-size:14px;color:var(--ink);margin-top:3px;font-weight:500}
+  .info .age{font-size:13px;color:var(--muted);margin-top:1px}
+  .info .pct{margin-top:8px;display:flex;align-items:center;gap:8px}
+  .info .pct-bar{flex:1 1 auto;height:7px;background:var(--line);border-radius:999px;overflow:hidden;max-width:170px}
+  .info .pct-bar span{display:block;height:100%;border-radius:999px}
+  .block.pm   .pct-bar span{background:var(--pm)}
+  .block.cos  .pct-bar span{background:var(--cos)}
+  .block.pres .pct-bar span{background:var(--pres)}
+  .info .pct-label{font-size:13px;color:var(--ink);font-weight:600;white-space:nowrap}
+  .info .pct-label b{font-size:14px}
+  section.block{margin-top:18px}
+
+  footer{display:none}
+
+  /* ---------- Modal / profile ---------- */
+  .modal-overlay{
+    position:fixed;inset:0;background:rgba(15,23,42,.62);backdrop-filter:blur(3px);
+    display:flex;align-items:center;justify-content:center;padding:18px;z-index:50;
+    opacity:0;transition:opacity .2s ease;
+  }
+  .modal-overlay.show{opacity:1}
+  .modal{
+    background:var(--card);border-radius:22px;max-width:560px;width:100%;
+    max-height:88vh;overflow-y:auto;box-shadow:0 30px 70px -20px rgba(0,0,0,.55);
+    transform:translateY(14px) scale(.97);transition:transform .22s ease;
+  }
+  .modal-overlay.show .modal{transform:none}
+  .modal-top{display:flex;gap:16px;align-items:center;padding:24px 24px 18px;border-bottom:1px solid var(--line);position:relative}
+  .modal-photo{width:92px!important;height:92px!important;font-size:28px!important;flex:0 0 auto}
+  .modal-name{font-size:23px;font-weight:800;line-height:1.2}
+  .modal-role{color:var(--accent);font-weight:700;font-size:15px;margin-top:4px}
+  .modal-close{
+    position:absolute;top:14px;left:16px;width:34px;height:34px;border-radius:50%;
+    border:none;background:var(--bg1);color:var(--muted);font-size:22px;line-height:1;cursor:pointer;
+    display:grid;place-items:center;transition:background .15s ease,color .15s ease;
+  }
+  .modal-close:hover{background:#fee2e2;color:#dc2626}
+  .modal-body{padding:18px 24px 24px}
+  .modal-facts{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+  .fact{background:var(--bg1);border:1px solid var(--line);border-radius:10px;padding:5px 11px;font-size:13px;font-weight:600;color:var(--ink)}
+  .modal-bio{font-size:15.5px;line-height:1.85;color:var(--ink);white-space:pre-line}
+  .sources{margin-top:18px;border-top:1px dashed var(--line);padding-top:14px}
+  .sources h4{margin:0 0 9px;font-size:14px;color:var(--ink)}
+  .sources ul{margin:0;padding-inline-start:18px;display:flex;flex-direction:column;gap:5px}
+  .sources a{color:var(--accent);font-size:13.5px;text-decoration:none}
+  .sources a:hover{text-decoration:underline}
+
+  .hidden{display:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <h1>המנהיגים של חיי</h1>
+    <p>הזינו את תאריך הלידה שלכם וגלו מי כיהנו כראשי ממשלה, רמטכ"לים ונשיאי המדינה מאז שנולדתם.</p>
+  </header>
+
+  <div class="panel">
+    <form id="form" class="field" novalidate>
+      <label for="bd">תאריך לידה:</label>
+      <input type="date" id="bd" name="bd" min="1900-01-01" lang="en-GB" dir="ltr" placeholder="dd/mm/yyyy">
+      <button type="submit">הצג</button>
+    </form>
+    <div class="err" id="err"></div>
+  </div>
+
+  <div id="summary" class="summary-box hidden"></div>
+  <div id="highlights" class="highlight-box hidden"></div>
+  <div id="note" class="note hidden"></div>
+  <div id="tabs" class="tabs hidden"></div>
+  <div id="results"></div>
+
+  <footer>
+    הפרטים הוצלבו ממספר מקורות סמכותיים (אנציקלופדיות, אתרים רשמיים ותקשורת) ומיועדים למטרות כלליות. ייתכנו אי-דיוקים קלים בתאריכי מעבר.
+  </footer>
+</div>
+
+<div id="modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="m-name">
+  <div class="modal">
+    <div class="modal-top">
+      <button class="modal-close" type="button" aria-label="סגירה">×</button>
+      <div class="avatar modal-photo" id="m-photo"></div>
+      <div>
+        <div class="modal-name" id="m-name"></div>
+        <div class="modal-role" id="m-role"></div>
+      </div>
+    </div>
+    <div class="modal-body">
+      <div class="modal-facts" id="m-facts"></div>
+      <div class="modal-bio" id="m-bio"></div>
+      <div class="sources" id="m-sources"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ===================== DATA ===================== */
+const months = ['ינואר','פברואר','מרץ','אפריל','מאי','יוני','יולי','אוגוסט','ספטמבר','אוקטובר','נובמבר','דצמבר'];
+
+const DATA = {
+  pm: {
+    title: 'ראשי הממשלה', icon: '🏛️', ordinal: false,
+    list: [
+      {name:'דוד בן-גוריון', party:'מפא"י',  start:'1948-05-14', end:'1954-01-26', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/David_Ben-Gurion_%28D597-087%29.jpg/330px-David_Ben-Gurion_%28D597-087%29.jpg'},
+      {name:'משה שרת',       party:'מפא"י',  start:'1954-01-26', end:'1955-11-03', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Moshe_Sharet.jpg/330px-Moshe_Sharet.jpg'},
+      {name:'דוד בן-גוריון', party:'מפא"י',  start:'1955-11-03', end:'1963-06-26', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/David_Ben-Gurion_%28D597-087%29.jpg/330px-David_Ben-Gurion_%28D597-087%29.jpg'},
+      {name:'לוי אשכול',     party:'מפא"י',  start:'1963-06-26', end:'1969-02-26', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Portrait_of_prime_minister_Levy_Eshkol._August_1963._D699-070.jpg/330px-Portrait_of_prime_minister_Levy_Eshkol._August_1963._D699-070.jpg'},
+      {name:'גולדה מאיר',    party:'המערך', gender:'f', start:'1969-03-17', end:'1974-06-03', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Golda_Meir_03265u.jpg/330px-Golda_Meir_03265u.jpg'},
+      {name:'יצחק רבין',     party:'המערך',  start:'1974-06-03', end:'1977-06-21', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Yizhak_Rabin_%2800310004%29.jpg/330px-Yizhak_Rabin_%2800310004%29.jpg'},
+      {name:'מנחם בגין',     party:'הליכוד', start:'1977-06-21', end:'1983-10-10', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Menachem_Begin_1978_%28cropped%29.jpg/330px-Menachem_Begin_1978_%28cropped%29.jpg'},
+      {name:'יצחק שמיר',     party:'הליכוד', start:'1983-10-10', end:'1984-09-13', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Yitzhak_Shamir_1992_Dan_Hadani_Archive_%281%29.jpg/330px-Yitzhak_Shamir_1992_Dan_Hadani_Archive_%281%29.jpg'},
+      {name:'שמעון פרס',     party:'המערך',  start:'1984-09-13', end:'1986-10-20', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Shimon_Peres_-_portrait_photograh_-_1996_%28full%29.jpg/330px-Shimon_Peres_-_portrait_photograh_-_1996_%28full%29.jpg'},
+      {name:'יצחק שמיר',     party:'הליכוד', start:'1986-10-20', end:'1992-07-13', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Yitzhak_Shamir_1992_Dan_Hadani_Archive_%281%29.jpg/330px-Yitzhak_Shamir_1992_Dan_Hadani_Archive_%281%29.jpg'},
+      {name:'יצחק רבין',     party:'העבודה', start:'1992-07-13', end:'1995-11-04', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Yizhak_Rabin_%2800310004%29.jpg/330px-Yizhak_Rabin_%2800310004%29.jpg'},
+      {name:'שמעון פרס',     party:'העבודה', start:'1995-11-22', end:'1996-06-18', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Shimon_Peres_-_portrait_photograh_-_1996_%28full%29.jpg/330px-Shimon_Peres_-_portrait_photograh_-_1996_%28full%29.jpg'},
+      {name:'בנימין נתניהו', party:'הליכוד', start:'1996-06-18', end:'1999-07-06', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Benjamin_Netanyahu%2C_February_2023.jpg/330px-Benjamin_Netanyahu%2C_February_2023.jpg'},
+      {name:'אהוד ברק',      party:'ישראל אחת', start:'1999-07-06', end:'2001-03-07', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Ehud_Barak_2016_-_Herzliya_Conference_2016_3015_%28cropped%29.jpg/330px-Ehud_Barak_2016_-_Herzliya_Conference_2016_3015_%28cropped%29.jpg'},
+      {name:'אריאל שרון',    party:'הליכוד / קדימה', start:'2001-03-07', end:'2006-01-04', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Ariel_Sharon_official_portrait_2001.webp/330px-Ariel_Sharon_official_portrait_2001.webp.png'},
+      {name:'אהוד אולמרט',   party:'קדימה',  start:'2006-01-04', end:'2009-03-31', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Clinton_and_Olmert_2009_%28cropped%29.png/330px-Clinton_and_Olmert_2009_%28cropped%29.png'},
+      {name:'בנימין נתניהו', party:'הליכוד', start:'2009-03-31', end:'2021-06-13', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Benjamin_Netanyahu%2C_February_2023.jpg/330px-Benjamin_Netanyahu%2C_February_2023.jpg'},
+      {name:'נפתלי בנט',     party:'ימינה',  start:'2021-06-13', end:'2022-06-30', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Naftali_Bennett_official_portrait.jpg/330px-Naftali_Bennett_official_portrait.jpg'},
+      {name:'יאיר לפיד',     party:'יש עתיד', start:'2022-07-01', end:'2022-12-29', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Yair_Lapid_%28D1237-011%29.jpg/330px-Yair_Lapid_%28D1237-011%29.jpg'},
+      {name:'בנימין נתניהו', party:'הליכוד', start:'2022-12-29', end:null,          img:'https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Benjamin_Netanyahu%2C_February_2023.jpg/330px-Benjamin_Netanyahu%2C_February_2023.jpg'}
+    ]
+  },
+
+  cos: {
+    title: 'הרמטכ"לים', icon: '🎖️', ordinal: true, singular: 'הרמטכ"ל',
+    list: [
+      {name:'יעקב דורי',         start:'1948-05-14', end:'1949-11-09', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Yaakov_Dori%2C_Chief_of_General_Staff.jpg/330px-Yaakov_Dori%2C_Chief_of_General_Staff.jpg'},
+      {name:'יגאל ידין',         start:'1949-11-09', end:'1952-12-07', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Leader_of_the_Democratic_Movement_for_Change%2C_Yigael_Yadin%2C_held_a_press_conference_%28FL50354082%29.jpg/330px-Leader_of_the_Democratic_Movement_for_Change%2C_Yigael_Yadin%2C_held_a_press_conference_%28FL50354082%29.jpg'},
+      {name:'מרדכי מקלף',        start:'1952-12-07', end:'1953-12-06', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Mordechai_Maklef_1952.jpg/330px-Mordechai_Maklef_1952.jpg'},
+      {name:'משה דיין',          start:'1953-12-06', end:'1958-01-29', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Mosche_Dajan.jpg/330px-Mosche_Dajan.jpg'},
+      {name:'חיים לסקוב',        start:'1958-01-29', end:'1961-01-01', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Haim_Laskov_1958.jpg/330px-Haim_Laskov_1958.jpg'},
+      {name:'צבי צור',           start:'1961-01-01', end:'1964-01-01', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Tzvi_Tzur.jpg/330px-Tzvi_Tzur.jpg'},
+      {name:'יצחק רבין',         start:'1964-01-01', end:'1968-01-01', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Yizhak_Rabin_%2800310004%29.jpg/330px-Yizhak_Rabin_%2800310004%29.jpg'},
+      {name:'חיים בר-לב',        start:'1968-01-01', end:'1972-01-01', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Bar-Lev%28cropped%29.jpg/330px-Bar-Lev%28cropped%29.jpg'},
+      {name:'דוד אלעזר',         start:'1972-01-01', end:'1974-04-16', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/David_Elazar_%28Dado%29.jpg/330px-David_Elazar_%28Dado%29.jpg'},
+      {name:'מרדכי גור',         start:'1974-04-16', end:'1978-04-16', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Mordechai_Gur%2C_Chief_of_General_Staff.jpg/330px-Mordechai_Gur%2C_Chief_of_General_Staff.jpg'},
+      {name:'רפאל איתן',         start:'1978-04-16', end:'1983-04-19', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Rafael_Eitan_%2800330604%29.jpg/330px-Rafael_Eitan_%2800330604%29.jpg'},
+      {name:'משה לוי',           start:'1983-04-19', end:'1987-04-19', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Moshe_Levi%2C_Chief_of_General_Staff.jpg/330px-Moshe_Levi%2C_Chief_of_General_Staff.jpg'},
+      {name:'דן שומרון',         start:'1987-04-19', end:'1991-04-01', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Dan_Shomron%2C_Chief_of_General_Staff.jpg/330px-Dan_Shomron%2C_Chief_of_General_Staff.jpg'},
+      {name:'אהוד ברק',          start:'1991-04-01', end:'1995-01-01', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Ehud_Barak_2016_-_Herzliya_Conference_2016_3015_%28cropped%29.jpg/330px-Ehud_Barak_2016_-_Herzliya_Conference_2016_3015_%28cropped%29.jpg'},
+      {name:'אמנון ליפקין-שחק',  start:'1995-01-01', end:'1998-07-09', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Amnon_Lipkin-Shahak%2C_Chief_of_General_Staff.jpg/330px-Amnon_Lipkin-Shahak%2C_Chief_of_General_Staff.jpg'},
+      {name:'שאול מופז',         start:'1998-07-09', end:'2002-07-09', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Shaul_Mofaz_%28E32J1226%29.jpg/330px-Shaul_Mofaz_%28E32J1226%29.jpg'},
+      {name:'משה יעלון',         start:'2002-07-09', end:'2005-06-01', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Moshe_Ya%27alon_%28cropped%29.jpg/330px-Moshe_Ya%27alon_%28cropped%29.jpg'},
+      {name:'דן חלוץ',          start:'2005-06-01', end:'2007-02-14', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Dan_Halutz%2C_Chief_of_General_Staff.jpg/330px-Dan_Halutz%2C_Chief_of_General_Staff.jpg'},
+      {name:'גבי אשכנזי',        start:'2007-02-14', end:'2011-02-14', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Gabi_Ashkenazi_%28ISH_7658%29.jpg/330px-Gabi_Ashkenazi_%28ISH_7658%29.jpg'},
+      {name:'בני גנץ',           start:'2011-02-14', end:'2015-02-16', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Israeli_Minister_Benny_Gantz_at_the_Department_of_State_in_Washington%2C_D.C._on_March_5%2C_2024_%28cropped%29.jpg/330px-Israeli_Minister_Benny_Gantz_at_the_Department_of_State_in_Washington%2C_D.C._on_March_5%2C_2024_%28cropped%29.jpg'},
+      {name:'גדי איזנקוט',       start:'2015-02-16', end:'2019-01-15', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Gadi_Eisenkot_1.jpg/330px-Gadi_Eisenkot_1.jpg'},
+      {name:'אביב כוכבי',        start:'2019-01-15', end:'2023-01-16', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Avivcoch.jpeg/330px-Avivcoch.jpeg'},
+      {name:'הרצי הלוי',         start:'2023-01-16', end:'2025-03-05', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Herzi_Halevi_RAV_ALUF.jpg/330px-Herzi_Halevi_RAV_ALUF.jpg'},
+      {name:'אייל זמיר',         start:'2025-03-05', end:null,          img:'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Eyal_Zamir-RAV_ALUF.jpg/330px-Eyal_Zamir-RAV_ALUF.jpg'}
+    ]
+  },
+
+  pres: {
+    title: 'נשיאי המדינה', icon: '⭐', ordinal: true, singular: 'הנשיא',
+    list: [
+      {name:'חיים ויצמן',   start:'1949-02-17', end:'1952-11-09', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Flickr_-_Government_Press_Office_%28GPO%29_-_President_Chaim_Weizmann_%28retouched%29.jpg/330px-Flickr_-_Government_Press_Office_%28GPO%29_-_President_Chaim_Weizmann_%28retouched%29.jpg'},
+      {name:'יצחק בן-צבי',  start:'1952-12-16', end:'1963-04-23', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Yitzhak_Ben-Zvi.jpg/330px-Yitzhak_Ben-Zvi.jpg'},
+      {name:'זלמן שזר',     start:'1963-05-21', end:'1973-05-24', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Portrait_of_Zalman_Shazar.jpg/330px-Portrait_of_Zalman_Shazar.jpg'},
+      {name:'אפרים קציר',   start:'1973-05-24', end:'1978-05-29', img:'https://upload.wikimedia.org/wikipedia/he/thumb/c/cd/Ephraim-Katzir.jpg/330px-Ephraim-Katzir.jpg'},
+      {name:'יצחק נבון',    start:'1978-05-29', end:'1983-05-05', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Yitzhak_Navon_1.jpg/330px-Yitzhak_Navon_1.jpg'},
+      {name:'חיים הרצוג',   start:'1983-05-05', end:'1993-05-13', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/PikiWiki_Israel_41500_Haim_Hertzog_%28cropped1%29.jpg/330px-PikiWiki_Israel_41500_Haim_Hertzog_%28cropped1%29.jpg'},
+      {name:'עזר ויצמן',    start:'1993-05-13', end:'2000-07-13', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Ezer_Weizman_9.jpg/330px-Ezer_Weizman_9.jpg'},
+      {name:'משה קצב',      start:'2000-08-01', end:'2007-07-01', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Moshe_Katsav_%2800310100%29.jpg/330px-Moshe_Katsav_%2800310100%29.jpg'},
+      {name:'שמעון פרס',    start:'2007-07-15', end:'2014-07-24', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Shimon_Peres_-_portrait_photograh_-_1996_%28full%29.jpg/330px-Shimon_Peres_-_portrait_photograh_-_1996_%28full%29.jpg'},
+      {name:'ראובן ריבלין', start:'2014-07-24', end:'2021-07-07', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Reuven_Rivlin_as_the_president_of_Israel.jpg/330px-Reuven_Rivlin_as_the_president_of_Israel.jpg'},
+      {name:'יצחק הרצוג',   start:'2021-07-07', end:null,          img:'https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Isaac_Herzog%2C_July_2021_%28D1233-049%29.JPG/330px-Isaac_Herzog%2C_July_2021_%28D1233-049%29.JPG'}
+    ]
+  }
+};
+
+// תאריכי הבחירות לכנסת (מערכות בחירות כלליות), 1949–2022
+const ELECTIONS = [
+  '1949-01-25','1951-07-30','1955-07-26','1959-11-03','1961-08-15',
+  '1965-11-02','1969-10-28','1973-12-31','1977-05-17','1981-06-30',
+  '1984-07-23','1988-11-01','1992-06-23','1996-05-29','1999-05-17',
+  '2003-01-28','2006-03-28','2009-02-10','2013-01-22','2015-03-17',
+  '2019-04-09','2019-09-17','2020-03-02','2021-03-23','2022-11-01'
+];
+
+const FOUNDING = '1948-05-14';
+
+// תקצירים ביוגרפיים — העובדות הוצלבו ממספר מקורות סמכותיים (לא ויקיפדיה כמקור יחיד)
+const BIOS = {
+  'דוד בן-גוריון': {
+    bio: 'דוד בן-גוריון (נולד דוד גרין בפלונסק שבפולין, 1886; נפטר ב-1973) היה מנהיג ציוני ומדינאי, ראש הממשלה הראשון של ישראל ושר הביטחון הראשון שלה. הוא עלה לארץ ישראל ב-1906 והפך לדמות המרכזית בתנועת העבודה ובהנהגה הציונית. ב-14 במאי 1948 הקריא את הכרזת העצמאות והכריז על הקמת המדינה, והוביל אותה במלחמת העצמאות. כראש ממשלה (1948–1953, 1955–1963) עיצב את מוסדות המדינה, הקים את צה"ל מתוך הארגונים הקדם-מדינתיים, וקלט עלייה המונית. הוא קידם את פיתוח הנגב, ובפרישתו עבר להתגורר בקיבוץ שדה בוקר. בן-גוריון מוכר כ"אבי האומה" ונחשב לאחד ממעצבי דמותה של מדינת ישראל.',
+    sources: [
+      {t:'Encyclopaedia Britannica', u:'https://www.britannica.com/biography/David-Ben-Gurion'},
+      {t:'Jewish Virtual Library', u:'https://jewishvirtuallibrary.org/david-ben-gurion'},
+      {t:'הספרייה הלאומית של ישראל', u:'https://www.nli.org.il/en/discover/israel/figures/david-ben-gurion'},
+      {t:'מכון בן-גוריון למורשת', u:'https://bgh.org.il/en/biography-of-david-ben-gurion/'}
+    ]
+  },
+  'יצחק רבין': {
+    bio: 'יצחק רבין (1922, ירושלים – 1995, תל אביב) היה איש צבא ומדינאי, ראש הממשלה החמישי של ישראל והראשון שנולד בארץ. הוא שירת בפלמ"ח ולאורך קריירה צבאית בת כ-27 שנה, ושימש כרמטכ"ל במלחמת ששת הימים ב-1967. לאחר שחרורו כיהן כשגריר ישראל בארצות הברית, ונבחר לכהונת ראש ממשלה פעמיים (1974–1977, 1992–1995). בכהונתו השנייה הוביל את תהליך השלום: חתם על הסכמי אוסלו עם אש"ף ועל הסכם השלום עם ירדן ב-1994, וזכה בפרס נובל לשלום ב-1994 יחד עם שמעון פרס ויאסר ערפאת. ב-4 בנובמבר 1995 נרצח בעצרת שלום בתל אביב בידי יגאל עמיר, מתנגד ימני קיצוני של ההסכמים. רצח רבין נחשב לאחד האירועים המכוננים והטראומטיים בתולדות המדינה.',
+    sources: [
+      {t:'Encyclopaedia Britannica', u:'https://www.britannica.com/biography/Yitzhak-Rabin'},
+      {t:'Britannica — רצח רבין', u:'https://www.britannica.com/topic/assassination-of-Yitzhak-Rabin'},
+      {t:'Council on Foreign Relations', u:'https://www.cfr.org/event/life-and-legacy-yitzhak-rabin-25-years-later'}
+    ]
+  },
+  'בנימין נתניהו': {
+    bio: 'בנימין (ביבי) נתניהו (נולד בתל אביב, 1949) הוא מדינאי, וראש הממשלה המכהן הוותיק ביותר בתולדות ישראל. בצעירותו שירת בסיירת מטכ"ל, ולאחר מכן פנה לקריירה דיפלומטית — סגן ראש המשלחת בשגרירות ישראל בארה"ב ושגריר ישראל באו"ם בשנים 1984–1988. ב-1988 נבחר לכנסת מטעם הליכוד ועלה במהירות בהיררכיה המפלגתית. הוא כיהן כראש ממשלה שלוש פעמים (1996–1999, 2009–2021, ומ-2022), וביולי 2019 עקף את דוד בן-גוריון והפך לראש הממשלה המכהן הזמן הרב ביותר. בין המהלכים שמזוהים עם תקופתו: הרחבת יחסי החוץ של ישראל וחתימת "הסכמי אברהם" לנורמליזציה עם איחוד האמירויות ומדינות נוספות. ב-7 באוקטובר 2023 פרצה טבח חמאס האיום, שבמהלכו נרצחו כ-1,200 ישראלים ונחטפו כ-250 בני ערובה. נתניהו, שאחראי על מדיניות הביטחון שאיפשרה את המחדל, נחשב בעיני רבים כאחראי מרכזי לכישלון המודיעיני וצבאי שהוביל לטבח.',
+    sources: [
+      {t:'Encyclopaedia Britannica', u:'https://www.britannica.com/biography/Benjamin-Netanyahu'},
+      {t:'Jewish Virtual Library', u:'https://jewishvirtuallibrary.org/benjamin-quot-bibi-quot-netanyahu'},
+      {t:'CIE — Center for Israel Education', u:'https://israeled.org/benjamin-netanyahu-1949/'},
+      {t:'NPR', u:'https://www.npr.org/2021/06/13/1005113363/assessing-benjamin-netanyahus-12-uninterrupted-years-in-power'}
+    ]
+  },
+  'משה שרת': {
+    bio: 'משה שרת (נולד שרתוק באוקראינה, 1894; נפטר ב-1965) היה ממנהיגי תנועת העבודה, שר החוץ הראשון של ישראל וראש הממשלה השני שלה. הוא עלה לארץ ב-1906, ומ-1933 עמד בראש המחלקה המדינית של הסוכנות היהודית — תפקיד מפתח במאבק המדיני להקמת המדינה. עם קום המדינה ב-1948 מונה לשר החוץ, וכיהן כראש ממשלה מינואר 1954 עד נובמבר 1955 בעת היעדרותו של בן-גוריון. שרת ייצג קו מדיני מתון ודיפלומטי, שהוביל לחיכוכים מתמשכים עם בן-גוריון בנוגע למדיניות הביטחון. לאחר שובו של בן-גוריון לראשות הממשלה הודח שרת מתפקיד שר החוץ ב-1956. הוא מכונה לעיתים "ראש הממשלה הנשכח", אך תרומתו לעיצוב מדיניות החוץ של ישראל נחשבת מכרעת.',
+    sources: [
+      {t:'Encyclopaedia Britannica', u:'https://www.britannica.com/biography/Moshe-Sharett'},
+      {t:'Encyclopedia.com', u:'https://www.encyclopedia.com/politics/dictionaries-thesauruses-pictures-and-press-releases/sharett-moshe-1894-1965'},
+      {t:'The Jerusalem Post', u:'https://www.jpost.com/opinion/article-719646'}
+    ]
+  },
+  'לוי אשכול': {
+    bio: 'לוי אשכול (נולד באוקראינה, 1895; נפטר ב-1969) היה חלוץ ציוני, איש כספים ומדינאי, ראש הממשלה השלישי של ישראל. הוא עלה לארץ ב-1914, עבד כפועל חקלאי והיה ממקימי ההתיישבות העובדת. כשר האוצר (1952–1963) מילא תפקיד מרכזי בבניין הכלכלה והתשתיות של המדינה הצעירה, ועם פרישת בן-גוריון ב-1963 ירש אותו כראש ממשלה. האירוע המכונן בכהונתו היה מלחמת ששת הימים (יוני 1967); ערב המלחמה הקים ממשלת אחדות והעביר את תיק הביטחון למשה דיין. אשכול נפטר מהתקף לב ב-26 בפברואר 1969 והיה ראש הממשלה הראשון שהלך לעולמו בעת כהונתו.',
+    sources: [
+      {t:'Encyclopaedia Britannica', u:'https://www.britannica.com/biography/Levi-Eshkol'},
+      {t:'Jewish Virtual Library', u:'https://jewishvirtuallibrary.org/levi-eshkol'},
+      {t:'The Prime Ministers (אתר)', u:'https://theprimeministers.org/biography-levi-eshkol/'}
+    ]
+  },
+  'גולדה מאיר': {
+    bio: 'גולדה מאיר (נולדה בקייב, 1898; נפטרה ב-1978) הייתה מדינאית, ראש הממשלה הרביעית של ישראל והאישה היחידה שכיהנה בתפקיד. בילדותה היגרה משפחתה למילווקי שבארה"ב, ומשם עלתה לארץ ישראל ב-1921 והצטרפה לקיבוץ. היא כיהנה כשרת העבודה וכשרת החוץ, ונבחרה לראשות הממשלה ב-1969 — מן הנשים הראשונות בעולם שעמדו בראש ממשלה. כהונתה לוותה במשבר מלחמת יום הכיפורים (אוקטובר 1973), שפרצה בהפתעה. אף שצה"ל התאושש והכריע במלחמה, האובדן הכבד והמחדל הוטלו במידה רבה לפתחה, והיא התפטרה ב-1974. גולדה נותרה סמל למנהיגות נחושה בתקופה מערערת.',
+    sources: [
+      {t:'Encyclopaedia Britannica', u:'https://www.britannica.com/biography/Golda-Meir'},
+      {t:'Jewish Women’s Archive', u:'https://jwa.org/encyclopedia/article/meir-golda'},
+      {t:'National Geographic', u:'https://www.nationalgeographic.com/history/article/golda-meir-israel-yom-kippur'},
+      {t:'Jewish Virtual Library', u:'https://jewishvirtuallibrary.org/golda-meir'}
+    ]
+  },
+  'מנחם בגין': {
+    bio: 'מנחם בגין (נולד בברסט-ליטובסק, 1913; נפטר ב-1992) היה מנהיג לאומי ומדינאי, ראש הממשלה השישי של ישראל והראשון מן הימין. בנעוריו הנהיג את תנועת בית"ר בפולין, וב-1942 הגיע לארץ ישראל. בשנים 1943–1948 פיקד על ארגון האצ"ל במאבק נגד השלטון הבריטי, ולאחר קום המדינה ייסד את תנועת חרות והוביל את האופוזיציה במשך כשלושה עשורים. ב-1977, ב"מהפך", הביא את הליכוד לשלטון. ההישג ההיסטורי של כהונתו היה הסכמי קמפ דייוויד (1978) עם נשיא מצרים אנואר סאדאת, שהובילו להסכם השלום בין ישראל למצרים ב-1979; על כך זכה בפרס נובל לשלום ב-1978. בגין התפטר ב-1983 על רקע מלחמת לבנון ופטירת רעייתו.',
+    sources: [
+      {t:'Encyclopaedia Britannica', u:'https://www.britannica.com/biography/Menachem-Begin'},
+      {t:'NobelPrize.org', u:'https://www.nobelprize.org/prizes/peace/1978/begin/biographical/'},
+      {t:'Jewish Virtual Library', u:'https://jewishvirtuallibrary.org/menachem-begin'}
+    ]
+  },
+  'יצחק שמיר': {
+    bio: 'יצחק שמיר (נולד בפולין, 1915; נפטר ב-2012) היה לוחם מחתרת ומדינאי, ראש הממשלה השביעי של ישראל. בצעירותו עלה לארץ ב-1935, הצטרף לאצ"ל ולאחר מכן ללח"י, שבו שימש כאחראי המבצעים ומהבכירים במחתרת זו. בשנים שלאחר קום המדינה שירת כעשור בשירות המוסד באירופה. ב-1973 נבחר לכנסת מטעם הליכוד, כיהן כיושב-ראש הכנסת וכשר החוץ, ועלה לראשות הממשלה ב-1983. הוא כיהן כראש ממשלה בשנים 1983–1984 ו-1986–1992, בין השאר במסגרת ממשלות אחדות וברוטציה עם שמעון פרס. שמיר זוהה עם קו לאומי ניצי ועם עמדה נחרצת בנוגע לשטחים ולהתיישבות.',
+    sources: [
+      {t:'Encyclopaedia Britannica', u:'https://www.britannica.com/biography/Yitzhak-Shamir'},
+      {t:'Jewish Virtual Library', u:'https://jewishvirtuallibrary.org/yitzhak-shamir'},
+      {t:'Brookings Institution', u:'https://www.brookings.edu/articles/former-israeli-prime-minister-yitzhak-shamir-a-stalwart-of-israeli-conservatism/'}
+    ]
+  },
+  'שמעון פרס': {
+    bio: 'שמעון פרס (נולד בפולין, 1923; נפטר ב-2016) היה מדינאי ותיק, ראש הממשלה השמיני של ישראל והנשיא התשיעי שלה. הוא עלה לארץ ב-1934, וכבר בצעירותו היה מקורב לבן-גוריון; בגיל צעיר שימש מנכ"ל משרד הביטחון והיה מעורב בבניין עוצמתה הביטחונית של ישראל. לאורך הקריירה כיהן בשורת תפקידים בכירים והנהיג את מפלגת העבודה. הוא כיהן כראש ממשלה פעמיים (1984–1986, 1995–1996) וכנשיא המדינה בשנים 2007–2014. כשר החוץ היה ממובילי הסכמי אוסלו, ועל כך זכה בפרס נובל לשלום ב-1994 יחד עם יצחק רבין ויאסר ערפאת. פרס נחשב לאחרון מנהיגי דור המייסדים.',
+    sources: [
+      {t:'Encyclopaedia Britannica', u:'https://www.britannica.com/biography/Shimon-Peres'},
+      {t:'NobelPrize.org', u:'https://www.nobelprize.org/prizes/peace/1994/peres/biographical/'},
+      {t:'מרכז פרס לשלום ולחדשנות', u:'https://www.peres-center.org/en/shimon-peres/about/'}
+    ]
+  },
+  'אהוד ברק': {
+    bio: 'אהוד ברק (נולד בקיבוץ משמר השרון, 1942) הוא איש צבא ומדינאי, ראש הממשלה העשירי של ישראל. הוא התגייס לצה"ל ב-1959 ובנה קריירה צבאית יוצאת דופן, בעיקר כמפקד בסיירת מטכ"ל ובמבצעים מיוחדים נועזים. ב-1991 מונה לרמטכ"ל, ופרש ב-1995 כחייל המעוטר ביותר בתולדות צה"ל. לאחר מעבר לפוליטיקה במפלגת העבודה כיהן כשר הפנים וכשר החוץ, ובמאי 1999 נבחר לראשות הממשלה בבחירה ישירה. כראש ממשלה (1999–2001) ניסה לקדם הסדר מדיני, ובכלל זה שיחות קמפ דייוויד עם יאסר ערפאת בשנת 2000. לימים כיהן גם כשר הביטחון בממשלות אולמרט ונתניהו.',
+    sources: [
+      {t:'Encyclopaedia Britannica', u:'https://www.britannica.com/biography/Ehud-Barak'},
+      {t:'Jewish Virtual Library', u:'https://jewishvirtuallibrary.org/ehud-barak'},
+      {t:'Academy of Achievement', u:'https://achievement.org/achiever/ehud-barak/'}
+    ]
+  },
+  'אריאל שרון': {
+    bio: 'אריאל שרון (נולד בכפר מל"ל, 1928; נפטר ב-2014) היה גנרל ומדינאי, ראש הממשלה האחד-עשר של ישראל. הוא היה מהמפקדים הבולטים בצה"ל — לחם במלחמת העצמאות, פיקד על אוגדה במלחמת ששת הימים, והוביל את צליחת תעלת סואץ במלחמת יום הכיפורים. שרון נודע גם כמי שקידם את מפעל ההתנחלויות. הוא נבחר לראשות הממשלה ב-2001, ובכהונתו יזם והוציא לפועל את תוכנית ההתנתקות מרצועת עזה ב-2005. בנובמבר 2005 פרש מהליכוד והקים את מפלגת קדימה, אך ב-4 בינואר 2006 לקה בשבץ מוחי קשה שהותיר אותו במצב סיעודי עד פטירתו ב-2014.',
+    sources: [
+      {t:'Encyclopaedia Britannica', u:'https://www.britannica.com/biography/Ariel-Sharon'},
+      {t:'NPR', u:'https://www.npr.org/2014/01/15/5132166/reports-ariel-sharon-whose-life-and-career-shaped-israeli-history-dies'},
+      {t:'EBSCO Research Starters', u:'https://www.ebsco.com/research-starters/military-history-and-science/ariel-sharon'}
+    ]
+  },
+  'אהוד אולמרט': {
+    bio: 'אהוד אולמרט (נולד ליד בנימינה, 1945) הוא עורך דין ומדינאי, ראש הממשלה השנים-עשר של ישראל. הוריו היו חברי האצ"ל, והוא נבחר לכנסת כבר ב-1973 מטעם הליכוד — אחד הצעירים שנבחרו אי-פעם. בין 1993 ל-2003 כיהן כראש עיריית ירושלים, לאחר שהביס את ראש העיר הוותיק טדי קולק. ב-2003 חזר לפוליטיקה הארצית כסגן ראש הממשלה בממשלת שרון. עם שבץ שרון בינואר 2006 הפך לראש ממשלה בפועל, וניצח בבחירות באותה שנה בראש מפלגת קדימה. בכהונתו (2006–2009) הוביל את ישראל במלחמת לבנון השנייה. לימים הורשע בפרשות שחיתות וריצה עונש מאסר.',
+    sources: [
+      {t:'Encyclopaedia Britannica', u:'https://www.britannica.com/biography/Ehud-Olmert'},
+      {t:'The Times of Israel', u:'https://www.timesofisrael.com/a-look-at-ehud-olmerts-political-career/'},
+      {t:'Jewish Virtual Library', u:'https://jewishvirtuallibrary.org/ehud-olmert'}
+    ]
+  },
+  'נפתלי בנט': {
+    bio: 'נפתלי בנט (נולד בחיפה, 1972) הוא יזם הייטק ומדינאי, ראש הממשלה השלושה-עשר של ישראל. בשירותו הצבאי שירת ביחידות העילית סיירת מטכ"ל ומגלן, ולאחר מכן השלים תואר במשפטים. בעולם ההייטק הקים את חברת Cyota שנמכרה ב-2005 בכ-145 מיליון דולר, והיה למנכ"ל סטארט-אפ נוסף שנמכר אף הוא. דרכו הפוליטית החלה ב-2006 כראש מטהו של נתניהו, ובהמשך הנהיג את מפלגת ימינה. לאחר מערכת בחירות רביעית בתוך שנתיים, הצטרף ב-2021 ל"ממשלת השינוי" הרחבה — קואליציה חסרת תקדים של ימין, שמאל ומפלגה ערבית — והפך לראש ממשלה ברוטציה עם יאיר לפיד. הוא היה ראש הממשלה הראשון החובש כיפה. הקואליציה השברירית התפרקה כעבור כשנה.',
+    sources: [
+      {t:'Encyclopaedia Britannica', u:'https://www.britannica.com/biography/Naftali-Bennett'},
+      {t:'Jewish Virtual Library', u:'https://jewishvirtuallibrary.org/naftali-bennett'},
+      {t:'CNN', u:'https://www.cnn.com/2021/06/14/middleeast/naftali-bennett-israel-profile-update-intl-cmd/index.html'}
+    ]
+  },
+  'יאיר לפיד': {
+    bio: 'יאיר לפיד (נולד בתל אביב, 1963) הוא עיתונאי לשעבר ומדינאי, ראש הממשלה הארבעה-עשר של ישראל. לפני כניסתו לפוליטיקה היה מגיש טלוויזיה, כותב ושחקן מוכר, ופרסם ספרים רבים. בתחילת 2012 פרש מהעיתונאות והקים את מפלגת "יש עתיד", שהתמקדה במעמד הביניים, בשוויון בנטל ובחינוך. המפלגה הפתיעה בבחירות 2013, ולפיד כיהן כשר האוצר. הוא היה מהאדריכלים המרכזיים של "ממשלת השינוי" ב-2021, כיהן כשר החוץ, וב-1 ביולי 2022 נכנס לתפקיד ראש הממשלה כראש ממשלת מעבר, עד דצמבר 2022. לאחר מכן עמד בראש האופוזיציה.',
+    sources: [
+      {t:'Encyclopaedia Britannica', u:'https://www.britannica.com/biography/Yair-Lapid'},
+      {t:'Jewish Virtual Library', u:'https://jewishvirtuallibrary.org/yair-lapid'},
+      {t:'gov.il — משרד ראש הממשלה', u:'https://www.gov.il/en/pages/lapid'}
+    ]
+  },
+  'חיים ויצמן': {
+    bio: 'חיים ויצמן (נולד במוטל שבאימפריה הרוסית, 1874; נפטר ברחובות, 1952) היה כימאי דגול ומנהיג ציוני, ונשיאה הראשון של מדינת ישראל. כמדען פיתח תהליך תסיסה לייצור אצטון שסייע לבריטים במלחמת העולם הראשונה, והוא נחשב מאבות הביוטכנולוגיה. במשך עשורים עמד בראש ההסתדרות הציונית העולמית, ומעמדו וקשריו תרמו לקבלת הצהרת בלפור (1917). עם הקמת המדינה נבחר ב-1949 לנשיא הראשון — תפקיד ייצוגי ברובו — וגייס תרומות עתק למען המדינה הצעירה ולמדע. על שמו קרוי מכון ויצמן למדע ברחובות. ויצמן נחשב לאחד ממעצבי דרכה המדינית של התנועה הציונית.',
+    sources: [
+      {t:'Encyclopaedia Britannica', u:'https://www.britannica.com/biography/Chaim-Weizmann'},
+      {t:'הספרייה הלאומית של ישראל', u:'https://www.nli.org.il/en/discover/israel/figures/chaim-weizmann'},
+      {t:'Jewish Virtual Library', u:'https://jewishvirtuallibrary.org/chaim-weizmann'}
+    ]
+  },
+  'יצחק בן-צבי': {
+    bio: 'יצחק בן-צבי (נולד בפולטבה שבאוקראינה, 1884; נפטר בירושלים, 1963) היה ממנהיגי תנועת העבודה, חוקר והיסטוריון, ונשיאה השני של ישראל. בצעירותו היה פעיל ציוני-סוציאליסטי, סייע בהקמת ארגון "השומר" להגנת היישובים (1908) וייסד בירושלים בית ספר תיכון עברי. הוא היה מחותמי מגילת העצמאות ב-1948 ונבחר לכנסת. ב-1952 נבחר לנשיא, וכיהן בתפקיד עד מותו ב-1963 — כהונת הנשיאות הארוכה ביותר בתולדות המדינה. בן-צבי היה גם חוקר נודע של קהילות ישראל ועדות המזרח, וייסד את המכון לחקר קהילות ישראל (מכון בן-צבי). הוא נודע באורח חייו הצנוע.',
+    sources: [
+      {t:'Encyclopaedia Britannica', u:'https://www.britannica.com/biography/Itzhak-Ben-Zvi'},
+      {t:'CIE — Center for Israel Education', u:'https://israeled.org/yitzhak-ben-zvi-passes-away/'},
+      {t:'Encyclopedia.com', u:'https://www.encyclopedia.com/religion/encyclopedias-almanacs-transcripts-and-maps/ben-zvi-shimshelevich-izhak'}
+    ]
+  },
+  'זלמן שזר': {
+    bio: 'זלמן שזר (נולד שניאור זלמן רובשוב במיר שברוסיה, 1889; נפטר ב-1974) היה עיתונאי, חוקר, סופר ומדינאי, ונשיאה השלישי של ישראל. הוא גדל במשפחת חב"ד, פנה לעיתונות ולמד היסטוריה ופילוסופיה באוניברסיטאות בגרמניה. ב-1924 השתקע בתל אביב והיה ממקימי העיתון "דבר" של תנועת העבודה, ואף ערך אותו. בממשלה הראשונה כיהן כשר החינוך והתרבות. ב-21 במאי 1963 בחרה בו הכנסת לנשיא, הוא נבחר שוב ב-1968 ופרש ב-1973. שזר היה גם משורר וסופר פורה, ועל שמו קרוי "מרכז זלמן שזר" לחקר תולדות עם ישראל.',
+    sources: [
+      {t:'Encyclopaedia Britannica', u:'https://www.britannica.com/biography/Zalman-Shazar'},
+      {t:'CIE — Center for Israel Education', u:'https://israeled.org/zalman-shazar-elected-israels-third-president/'},
+      {t:'הספרייה הלאומית של ישראל', u:'https://www.nli.org.il/en/a-topic/987007267936305171'}
+    ]
+  },
+  'אפרים קציר': {
+    bio: 'אפרים קציר (קצ׳לסקי) (נולד בקייב, 1916; נפטר ב-2009) היה ביופיזיקאי דגול ומדען, ונשיאה הרביעי של ישראל. הוא עלה לארץ בילדותו, למד באוניברסיטה העברית, ולימים עמד בראש מחלקת הביופיזיקה במכון ויצמן למדע. קציר היה מומחה עולמי לחקר חלבונים, והישראלי הראשון שנבחר לאקדמיה הלאומית למדעים של ארה"ב. ב-1973 נבחר בידי הכנסת לנשיא. סמוך לסוף כהונתו, בנובמבר 1977, נפלה בחלקו הזכות לארח את נשיא מצרים אנואר סאדאת בביקור הרשמי הראשון של מנהיג ערבי בישראל. עם תום כהונתו ב-1978 שב להוראה ולמחקר מדעי.',
+    sources: [
+      {t:'Encyclopaedia Britannica', u:'https://www.britannica.com/biography/Ephraim-Katzir'},
+      {t:'Encyclopedia.com', u:'https://www.encyclopedia.com/religion/encyclopedias-almanacs-transcripts-and-maps/katzir-katchalski-ephraim'},
+      {t:'Ukrainian Jewish Encounter', u:'https://ukrainianjewishencounter.org/en/ephraim-katzir-katchalski-1916-2009/'}
+    ]
+  },
+  'יצחק נבון': {
+    bio: 'יצחק נבון (נולד בירושלים, 1921; נפטר ב-2015) היה מדינאי וסופר, ונשיאה החמישי של ישראל. הוא נולד למשפחה ספרדית ותיקה בירושלים, ובמלחמת העצמאות עמד בראש המחלקה הערבית של ה"הגנה" בעיר. לאחר מכן שימש מזכירו המדיני של שר החוץ משה שרת ומנהל לשכת ראש הממשלה בימי בן-גוריון ושרת. ב-1978 נבחר בידי הכנסת לנשיא — הנשיא הראשון ממוצא ספרדי והראשון שנולד בארץ ישראל. נבון היה גם איש תרבות שכתב את המחזה המוזיקלי "בוסתן ספרדי", ופעל לשימור מורשת הלאדינו. לאחר כהונתו שב לפוליטיקה וכיהן כשר החינוך.',
+    sources: [
+      {t:'Encyclopedia.com', u:'https://www.encyclopedia.com/religion/encyclopedias-almanacs-transcripts-and-maps/navon-yitzhak'},
+      {t:'The Times of Israel', u:'https://www.timesofisrael.com/yitzhak-navon-israels-fifth-president-dies-at-94/'},
+      {t:'Jewish Virtual Library', u:'https://jewishvirtuallibrary.org/yitzhak-navon'}
+    ]
+  },
+  'חיים הרצוג': {
+    bio: 'חיים הרצוג (נולד בבלפסט שבאירלנד, 1918; נפטר ב-1997) היה איש צבא, משפטן ומדינאי, ונשיאה השישי של ישראל. הוא היה בנו של הרב הראשי יצחק אייזיק הרצוג, עלה לארץ ב-1935, ובצה"ל הגיע לדרגת אלוף ועמד פעמיים בראש אגף המודיעין. לאחר כיבוש יהודה ושומרון במלחמת ששת הימים (1967) מונה למושל הצבאי הראשון של האזור, ונודע גם כפרשן צבאי בכיר. כשגריר ישראל באו"ם (1975–1978) הוביל את המאבק נגד החלטת האו"ם שהשוותה ציונות לגזענות, ובנאומו קרע את נוסח ההחלטה. ב-1983 נבחר לנשיא וכיהן שתי כהונות עד 1993. הוא היה גם סופר שכתב על תולדות ישראל.',
+    sources: [
+      {t:'Encyclopaedia Britannica', u:'https://www.britannica.com/biography/Chaim-Herzog'},
+      {t:'CIE — Center for Israel Education', u:'https://israeled.org/chaim-herzog-1918-1997/'},
+      {t:'עמותת יד חיים הרצוג', u:'https://yadchaimherzog.org.il/en/the-story/'}
+    ]
+  },
+  'עזר ויצמן': {
+    bio: 'עזר ויצמן (נולד בתל אביב, 1924; נפטר ב-2005) היה מפקד צבאי ומדינאי, ונשיאה השביעי של ישראל. הוא היה אחיינו של הנשיא הראשון חיים ויצמן, ובמלחמת העולם השנייה שירת כטייס בחיל האוויר המלכותי הבריטי. ויצמן היה מהקצינים המייסדים של חיל האוויר הישראלי, וכמפקד החיל מ-1958 הוביל את בנייתו ואת המודרניזציה שלו — תשתית להצלחתו במלחמת ששת הימים. ב-1977 מונה לשר הביטחון ומילא תפקיד מרכזי במשא ומתן לשלום עם מצרים שהוביל להסכמי קמפ דייוויד. הוא כיהן כנשיא בשנים 1993–2000, והתפטר על רקע חקירה בעניין כספים ומצב בריאותי.',
+    sources: [
+      {t:'Encyclopaedia Britannica', u:'https://www.britannica.com/biography/Ezer-Weizman'},
+      {t:'CIE — Center for Israel Education', u:'https://israeled.org/ezer-weizman-elected/'},
+      {t:'הספרייה הלאומית של ישראל', u:'https://blog.nli.org.il/en/ezer_weizman/'}
+    ]
+  },
+  'משה קצב': {
+    bio: 'משה קצב (נולד ביזד שבאיראן, 1945) הוא פוליטיקאי, ונשיאה השמיני של ישראל. משפחתו עלתה לישראל ב-1951 והתיישבה בקריית מלאכי, שם נבחר בגיל 24 לראש העיר הצעיר במדינה. כחבר ותיק בליכוד כיהן כחבר כנסת וכשר בתיקים שונים, ובשנת 2000 נבחר לנשיא לאחר שגבר במפתיע על שמעון פרס — הנשיא הראשון מטעם הליכוד. קצב כיהן עד שהתפטר ב-2007 על רקע חשדות פליליים. בדצמבר 2010 הורשע בשני מקרי אונס ובעבירות נוספות, ובמרץ 2011 נגזרו עליו שבע שנות מאסר — תקדים חסר אח ורע של ראש מדינה לשעבר שנשפט והורשע בישראל. הוא שוחרר ב-2016.',
+    sources: [
+      {t:'Encyclopedia.com', u:'https://www.encyclopedia.com/politics/dictionaries-thesauruses-pictures-and-press-releases/katsav-moshe-1945'},
+      {t:'Al Jazeera', u:'https://www.aljazeera.com/news/2009/3/8/profile-moshe-katsav-2'},
+      {t:'NBC News', u:'https://www.nbcnews.com/id/wbna40849923'}
+    ]
+  },
+  'ראובן ריבלין': {
+    bio: 'ראובן (רובי) ריבלין (נולד בירושלים, 1939) הוא משפטן ומדינאי, ונשיאה העשירי של ישראל. הוא בן למשפחה ירושלמית ותיקה ששורשיה בעיר מראשית המאה ה-19. לאחר שירות כקצין מודיעין למד משפטים באוניברסיטה העברית. כחבר הליכוד נבחר לראשונה לכנסת ב-1988, כיהן כשר התקשורת, ופעמיים כיושב-ראש הכנסת — תפקיד שבו נודע בהגנתו על עצמאות הפרלמנט ועל זכויות מיעוטים. ב-2014 נבחר לנשיא בתמיכה רחבה וכיהן עד 2021. בכהונתו נשא נאום מכונן על "ארבעת השבטים" של החברה הישראלית — חילונים, דתיים, חרדים וערבים — וקרא לאחדות ולכבוד הדדי.',
+    sources: [
+      {t:'מכון ויצמן למדע', u:'https://www.weizmann.ac.il/sites/scientific-council/honorary-phd/president-reuven-ruvi-rivlin'},
+      {t:'CIE — Center for Israel Education', u:'https://israeled.org/reuven-rivlin-1939/'},
+      {t:'The Times of Israel', u:'https://www.timesofisrael.com/the-presidency-that-was-reuven-rivlins-seven-years-in-office/'}
+    ]
+  },
+  'יצחק הרצוג': {
+    bio: 'יצחק (בוז׳י) הרצוג (נולד בתל אביב, 1960) הוא משפטן ומדינאי, ונשיאה האחד-עשר והמכהן של ישראל. הוא בן למשפחה מהמיוחסות בישראל — בנו של הנשיא חיים הרצוג ונכדו של הרב הראשי יצחק אייזיק הרצוג. הרצוג בנה את הקריירה הפוליטית במפלגת העבודה, כיהן כמזכיר הממשלה בימי אהוד ברק, ונכנס לכנסת ב-2003. הוא כיהן בשורת תפקידי שרים, עמד בראש מפלגת העבודה והאופוזיציה מ-2013, ובשנים 2018–2021 שימש יושב-ראש הסוכנות היהודית. ביוני 2021 נבחר לנשיא בתמיכה רחבה במיוחד — 87 חברי כנסת — ונכנס לתפקידו ב-7 ביולי 2021.',
+    sources: [
+      {t:'נשיא המדינה (president.gov.il)', u:'https://www.president.gov.il/en/president/'},
+      {t:'הסוכנות היהודית', u:'https://www.jewishagency.org/isaac-herzog-bio/'},
+      {t:'Encyclopaedia Britannica', u:'https://www.britannica.com/biography/Isaac-Herzog'}
+    ]
+  },
+  'יעקב דורי': {
+    bio: 'יעקב דורי (נולד יעקב דוסטרובסקי באוקראינה, 1899; נפטר ב-1973) היה הרמטכ"ל הראשון של צה"ל. בנעוריו עלתה משפחתו לארץ, ובמלחמת העולם הראשונה התנדב לגדוד העברי בצבא הבריטי; לאחר מכן למד הנדסה באירופה. ב-1939 מונה לרמטכ"ל ה"הגנה" ופעל להפיכתה מארגון מגן מבוזר לצבא מסודר. עם הקמת צה"ל ב-1948 נעשה לרמטכ"ל הראשון והנהיג את הצבא במלחמת העצמאות, חרף מחלה שליוותה אותו. לאחר פרישתו כיהן שנים רבות כנשיא הטכניון בחיפה (1951–1965).',
+    sources: [
+      {t:'צה"ל — רמטכ"לים בעבר (idf.il)', u:'https://www.idf.il/en/mini-sites/past-chiefs-of-staff/lt-gen-yaacov-dori-1948-1949/'},
+      {t:'Jewish Telegraphic Agency', u:'https://www.jta.org/archive/gen-yaakov-dori-first-chief-of-staff-of-israels-armed-forces-dead-at-73'},
+      {t:'Encyclopedia.com', u:'https://www.encyclopedia.com/religion/encyclopedias-almanacs-transcripts-and-maps/dori-dostrovsky-yaakov'}
+    ]
+  },
+  'יגאל ידין': {
+    bio: 'יגאל ידין (נולד בירושלים, 1917; נפטר ב-1984) היה איש צבא וארכאולוג דגול, הרמטכ"ל השני של צה"ל. הוא היה חבר ב"הגנה", שימש כראש אגף המבצעים במלחמת העצמאות והיה אחראי לחלק מההכרעות המרכזיות במהלכה. בשנים 1949–1952 כיהן כרמטכ"ל ועיצב את צה"ל בשנותיו הראשונות. לאחר פרישתו פנה למחקר ארכאולוגי ונודע בחפירותיו בחצור, במגילות ים המלח ובמצדה, וזכה בפרס ישראל. בשלהי שנות ה-70 שב לחיים הציבוריים והנהיג את תנועת ד"ש, וכיהן כסגן ראש הממשלה (1977–1981).',
+    sources: [
+      {t:'Encyclopaedia Britannica', u:'https://www.britannica.com/biography/Yigael-Yadin'},
+      {t:'הספרייה הלאומית של ישראל', u:'https://blog.nli.org.il/en/yigael_yadin/'},
+      {t:'Encyclopedia.com', u:'https://www.encyclopedia.com/religion/encyclopedias-almanacs-transcripts-and-maps/yadin-sukenik-yigael'}
+    ]
+  },
+  'מרדכי מקלף': {
+    bio: 'מרדכי מקלף (נולד במוצא שליד ירושלים, 1920; נפטר ב-1978) היה הרמטכ"ל השלישי של צה"ל. בילדותו, במאורעות 1929, נרצחה כמעט כל משפחתו בהתקפה מהכפר הסמוך קלוניא, והוא ניצל בקפיצה מחלון. הוא הצטרף לפלוגות הנוער של ה"הגנה", שירת ב"פלוגות הלילה המיוחדות" ובצבא הבריטי במלחמת העולם השנייה. במלחמת העצמאות לחם בחטיבת כרמלי והשתתף במבצע חירם לשחרור הגליל. ב-1952, בגיל 32 בלבד, מונה לרמטכ"ל לתקופה של שנה, ובמהלכה הטיל על אריאל שרון להקים את יחידת הקומנדו (יחידה 101). לאחר שירותו ניהל את מפעלי ים המלח.',
+    sources: [
+      {t:'צה"ל — רמטכ"לים בעבר (idf.il)', u:'https://www.idf.il/en/mini-sites/past-chiefs-of-staff/lt-gen-mordechai-maklef-1952-1953/'},
+      {t:'The Jewish Press', u:'https://jewishpress.com/mordechai-maklef-and-david-ben-gurion/'}
+    ]
+  },
+  'משה דיין': {
+    bio: 'משה דיין (נולד בדגניה, 1915, וגדל בנהלל; נפטר ב-1981) היה מצביא ומדינאי, הרמטכ"ל הרביעי של צה"ל ואחד מסמליה של ישראל. ב-1941, בקרב נגד צרפת של וישי בסוריה, איבד את עינו השמאלית, ומאז חבש את הרטייה השחורה שהפכה לסימן ההיכר שלו. כרמטכ"ל (1953–1958) עיצב את תפיסת הפעולה ההתקפית של צה"ל. ערב מלחמת ששת הימים (1967) מונה לשר הביטחון והוביל יחד עם הרמטכ"ל רבין את הניצחון, אך ספג ביקורת קשה על המחדל במלחמת יום הכיפורים (1973). לימים, כשר החוץ בממשלת בגין, היה מאדריכלי הסכמי קמפ דייוויד.',
+    sources: [
+      {t:'Encyclopaedia Britannica', u:'https://www.britannica.com/biography/Moshe-Dayan'},
+      {t:'צה"ל — רמטכ"לים בעבר (idf.il)', u:'https://www.idf.il/en/mini-sites/past-chiefs-of-staff/lt-gen-moshe-dayan-1953-1958/'},
+      {t:'Jewish Virtual Library', u:'https://jewishvirtuallibrary.org/moshe-dayan'}
+    ]
+  },
+  'חיים לסקוב': {
+    bio: 'חיים לסקוב (נולד בבריסוב שברוסיה, 1919; נפטר ב-1982) היה הרמטכ"ל החמישי של צה"ל. הוא עלה לארץ ב-1925, הצטרף בנעוריו ל"הגנה" ושירת ב"פלוגות הלילה המיוחדות", ובמלחמת העולם השנייה לחם כקצין בבריגדה היהודית באיטליה. למרות שלא היה טייס, מונה למפקד חיל האוויר, ולאחר מכן למפקד חיל השריון. כרמטכ"ל (1958–1961) התמקד בבניין כוחה של צה"ל, ובתקופתו נרכשו הצוללת הראשונה ומטוסי "סופר מיסטר". לאחר פרישתו עמד בראש רשות הנמלים, ולימים מונה לנציב קבילות החיילים הראשון.',
+    sources: [
+      {t:'צה"ל — רמטכ"לים בעבר (idf.il)', u:'https://www.idf.il/en/mini-sites/past-chiefs-of-staff/lt-gen-haim-laskov-1958-1961/'},
+      {t:'Jewish Virtual Library', u:'https://jewishvirtuallibrary.org/haim-laskov'}
+    ]
+  },
+  'צבי צור': {
+    bio: 'צבי (צ׳רה) צור (נולד באוקראינה, 1923; נפטר ב-2004) היה הרמטכ"ל השישי של צה"ל. הוא עלה לארץ ב-1925, הצטרף ל"הגנה" ב-1939, ובמלחמת העצמאות לחם בחטיבת גבעתי, בין השאר בקרבות על הדרך לירושלים ובחזית הדרום. בהמשך עמד בראש אגף כוח האדם, פיקד על פיקוד המרכז וכיהן כסגן הרמטכ"ל. כרמטכ"ל (1961–1963) פעל בתקופה של רוגע יחסי בגבולות, וניצל אותה לחיזוק תורת הלחימה, כוח האדם והציוד של צה"ל. לאחר פרישתו ניהל את חברת מקורות, ובמלחמת יום הכיפורים שימש עוזר בכיר לשר הביטחון משה דיין.',
+    sources: [
+      {t:'צה"ל — רמטכ"לים בעבר (idf.il)', u:'https://www.idf.il/en/mini-sites/past-chiefs-of-staff/lt-gen-tzvi-tzur-1961-1963/'},
+      {t:'Wilson Center', u:'https://www.wilsoncenter.org/tzvi-tzur'}
+    ]
+  },
+  'חיים בר-לב': {
+    bio: 'חיים בר-לב (נולד בווינה, 1924; נפטר ב-1994) היה מצביא ומדינאי, הרמטכ"ל השמיני של צה"ל. הוא עלה לארץ ב-1939, שירת בפלמ"ח, ובמלחמת העצמאות פיקד על כוחות בחטיבת הנגב; במבצע סיני הוביל חטיבת שריון עד תעלת סואץ. כרמטכ"ל (1968–1972) עמד בראש צה"ל בתקופת מלחמת ההתשה, ובתקופתו נבנה "קו בר-לב" — מערך הביצורים לאורך תעלת סואץ. במלחמת יום הכיפורים הוחזר לשירות פעיל ופיקד על החזית מול מצרים. בהמשך כיהן כשר וכחבר כנסת מטעם מפלגת העבודה, וכשגריר ישראל ברוסיה.',
+    sources: [
+      {t:'צה"ל — רמטכ"לים בעבר (idf.il)', u:'https://www.idf.il/en/mini-sites/past-chiefs-of-staff/lt-gen-chaim-bar-lev-1968-1972/'},
+      {t:'Encyclopedia.com', u:'https://www.encyclopedia.com/religion/encyclopedias-almanacs-transcripts-and-maps/bar-lev-originally-brotzlewsky-haim'}
+    ]
+  },
+  'דוד אלעזר': {
+    bio: 'דוד ("דדו") אלעזר (נולד בסרייבו, 1925; נפטר ב-1976) היה הרמטכ"ל התשיעי של צה"ל. הוא עלה לארץ ב-1940 במסגרת עליית הנוער, הצטרף לפלמ"ח ולחם בחטיבת הראל על הדרך לירושלים. לאחר מכן עבר לחיל השריון, ובמלחמת ששת הימים, כמפקד פיקוד הצפון, הוביל את כיבוש רמת הגולן. כרמטכ"ל (1972–1974) עמד בראש צה"ל במלחמת יום הכיפורים; ועדת אגרנט המליצה על סיום כהונתו עקב המחדל, והוא התפטר. הוא נפטר מהתקף לב ב-1976, ועל שמו קרוי "מרכז דדו" לחשיבה צבאית.',
+    sources: [
+      {t:'צה"ל — רמטכ"לים בעבר (idf.il)', u:'https://www.idf.il/en/mini-sites/past-chiefs-of-staff/lt-gen-david-elazar-1972-1974/'},
+      {t:'Encyclopaedia Britannica', u:'https://www.britannica.com/biography/David-Elazar'},
+      {t:'Jewish Virtual Library', u:'https://www.jewishvirtuallibrary.org/david-quot-dado-quot-elazar'}
+    ]
+  },
+  'מרדכי גור': {
+    bio: 'מרדכי ("מוטה") גור (נולד בירושלים, 1930; נפטר ב-1995) היה מצביא ומדינאי, הרמטכ"ל העשירי של צה"ל. את רוב הקריירה הצבאית עשה בחטיבת הצנחנים והפך לאחד מסמליה. במלחמת ששת הימים (1967) פיקד על חטיבת הצנחנים שכבשה את העיר העתיקה בירושלים, וקריאתו "הר הבית בידינו!" הפכה לאחד הרגעים המכוננים. כרמטכ"ל (1974–1978) שיקם את צה"ל לאחר מלחמת יום הכיפורים, פיקד על מבצע החילוץ באנטבה (1976) ועל מבצע ליטני (1978). לאחר שירותו כיהן כחבר כנסת וכשר מטעם מפלגת העבודה.',
+    sources: [
+      {t:'Jewish Virtual Library', u:'https://jewishvirtuallibrary.org/mordechai-motta-gur'},
+      {t:'Encyclopedia.com', u:'https://www.encyclopedia.com/religion/encyclopedias-almanacs-transcripts-and-maps/gur-gorban-mordecai'},
+      {t:'The Jerusalem Post', u:'https://www.jpost.com/israel-news/culture/the-life-of-mordechai-motta-gur-from-those-who-knew-him-410607'}
+    ]
+  },
+  'רפאל איתן': {
+    bio: 'רפאל ("רפול") איתן (נולד באפולה, 1929, וגדל בתל עדשים; נפטר ב-2004) היה מצביא ומדינאי, הרמטכ"ל האחד-עשר של צה"ל. הוא החל את דרכו הצבאית בגיל 16 בפלמ"ח. כרמטכ"ל (1978–1983) ייסד את תוכנית "תלפיות" המצטיינת ואת מיזם "נערי רפול" לבני נוער ממצוקה. בתפקידו פיקד על כוחות צה"ל במלחמת לבנון הראשונה (1982), וועדת כהן מתחה עליו ביקורת בעניין הטבח בסברה ושתילה. לאחר שירותו הקים את מפלגת צומת, וכיהן כחבר כנסת, כשר החקלאות וכסגן ראש הממשלה. הוא נספה בטביעה בנמל אשדוד ב-2004.',
+    sources: [
+      {t:'צה"ל — רמטכ"לים בעבר (idf.il)', u:'https://www.idf.il/en/mini-sites/past-chiefs-of-staff/lt-gen-rafael-eitan-1978-1983/'},
+      {t:'Encyclopedia.com', u:'https://www.encyclopedia.com/religion/encyclopedias-almanacs-transcripts-and-maps/eitan-raphael'},
+      {t:'CIE — Center for Israel Education', u:'https://israeled.org/gen-rafael-eitan-is-born/'}
+    ]
+  },
+  'משה לוי': {
+    bio: 'משה לוי (נולד בתל אביב למשפחה יוצאת עיראק, 1936; נפטר ב-2008) היה הרמטכ"ל השנים-עשר של צה"ל, והראשון ממוצא מזרחי בתפקיד. בשל גובהו הרב כונה "משה וחצי". הוא התגייס ב-1954 לחטיבת גולני, עבר לצנחנים, ובמבצע סיני (1956) צנח במעבר המיתלה. כרמטכ"ל (1983–1987) פיקד על נסיגת צה"ל מלבנון (1985) ועל הקמת רצועת הביטחון בדרום לבנון, וסייע בהקמת מפקדת זרוע היבשה ובהקמת חטיבות גבעתי ונח"ל. לאחר פרישתו שב לביתו בקיבוץ בית אלפא.',
+    sources: [
+      {t:'צה"ל — רמטכ"לים בעבר (idf.il)', u:'https://www.idf.il/en/mini-sites/past-chiefs-of-staff/lt-gen-moshe-levi-1983-1987/'},
+      {t:'Encyclopedia.com', u:'https://www.encyclopedia.com/religion/encyclopedias-almanacs-transcripts-and-maps/levi-moshe'},
+      {t:'CIE — Center for Israel Education', u:'https://israeled.org/gen-moshe-levi-dies/'}
+    ]
+  },
+  'דן שומרון': {
+    bio: 'דן שומרון (נולד בקיבוץ אשדות יעקב, 1937; נפטר ב-2008) היה הרמטכ"ל השלושה-עשר של צה"ל. הוא התגייס לצנחנים, ובמלחמת ששת הימים היה מהראשונים להגיע לתעלת סואץ וזכה בעיטור המופת. הוא נודע כמתכנן ומפקד הכוח הקרקעי במבצע אנטבה (1976), שבו חולצו למעלה ממאה חטופים במחיר נפגעים מועט. כראש פיקוד הדרום פיקח על נסיגת צה"ל מסיני לאחר הסכם השלום עם מצרים. כרמטכ"ל (1987–1991) הוביל את צה"ל באינתיפאדה הראשונה ובמלחמת המפרץ.',
+    sources: [
+      {t:'Haaretz', u:'https://www.haaretz.com/ex-chief-of-staff-dan-shomron-entebbe-commander-dies-at-70-1.240156'},
+      {t:'The Jerusalem Post', u:'https://www.jpost.com/magazine/the-legacy-dan-shomron-469514'},
+      {t:'Ynetnews', u:'https://www.ynetnews.com/articles/0,7340,L-3511488,00.html'}
+    ]
+  },
+  'אמנון ליפקין-שחק': {
+    bio: 'אמנון ליפקין-שחק (נולד ב-1944; נפטר ב-2012) היה מצביא ומדינאי, הרמטכ"ל החמישה-עשר של צה"ל ומהחיילים המעוטרים בתולדותיו. הוא שירת בצנחנים וזכה פעמיים בעיטור העוז — על תפקודו בקרב כראמה ועל פיקודו במבצע "אביב נעורים" בביירות. ב-1991 מונה לסגן הרמטכ"ל תחת אהוד ברק, וב-1995 ירש אותו כרמטכ"ל. בכהונתו (1995–1998) פיקד על מבצע "ענבי זעם" (1996) והיה מעורב במשא ומתן עם הפלסטינים. לאחר שירות בן 36 שנה פרש, הצטרף למפלגת המרכז וכיהן כשר.',
+    sources: [
+      {t:'צה"ל — רמטכ"לים בעבר (idf.il)', u:'https://www.idf.il/en/mini-sites/past-chiefs-of-staff/lt-gen-amnon-lipkin-shahak-1995-1998/'},
+      {t:'Jewish Virtual Library', u:'https://www.jewishvirtuallibrary.org/amnon-lipkin-shahak'},
+      {t:'The Times of Israel', u:'https://www.timesofisrael.com/former-idf-chief-lipkin-shahak-dies-in-jerusalem-hospital-aged-68/'}
+    ]
+  },
+  'שאול מופז': {
+    bio: 'שאול מופז (נולד בטהראן שבאיראן, 1948) הוא מצביא ומדינאי, הרמטכ"ל השישה-עשר של צה"ל. משפחתו עלתה לישראל ב-1957. הוא התנדב ב-1966 לחטיבת הצנחנים, לחם במלחמת ששת הימים ובמלחמת יום הכיפורים, ושימש סגן מפקד סיירת מטכ"ל והשתתף במבצע אנטבה. לאחר שפיקד על פיקוד הדרום, מונה לרמטכ"ל (1998–2002), ובכהונתו פיקח על היציאה מרצועת הביטחון בלבנון (2000) ועל המאבק באינתיפאדה השנייה. לאחר פרישתו כיהן כשר הביטחון, וכן הנהיג את מפלגת קדימה.',
+    sources: [
+      {t:'צה"ל — רמטכ"לים בעבר (idf.il)', u:'https://www.idf.il/en/mini-sites/past-chiefs-of-staff/lt-gen-shaul-mofaz-1998-2002/'},
+      {t:'Jewish Virtual Library', u:'https://www.jewishvirtuallibrary.org/shaul-mofaz'},
+      {t:'Encyclopedia.com', u:'https://www.encyclopedia.com/religion/encyclopedias-almanacs-transcripts-and-maps/mofaz-shaul'}
+    ]
+  },
+  'משה יעלון': {
+    bio: 'משה ("בוגי") יעלון (נולד בקריית חיים, 1950) הוא מצביא ומדינאי, הרמטכ"ל השבעה-עשר של צה"ל. בנעוריו (בשם סמילנסקי) היה פעיל בתנועת העבודה. הוא שירת כ-37 שנה בצה"ל, בין השאר כמפקד סיירת מטכ"ל וכראש אגף המודיעין, ועלה לדרגת רב-אלוף וכיהן כרמטכ"ל בשנים 2002–2005, בעיקר בתקופת המאבק בטרור של האינתיפאדה השנייה. לאחר שירותו פנה לפוליטיקה במסגרת הליכוד, כיהן כשר הביטחון (2013–2016), ובהמשך ייסד מסגרות פוליטיות נוספות.',
+    sources: [
+      {t:'Jewish Virtual Library', u:'https://jewishvirtuallibrary.org/moshe-quot-bogie-quot-ya-alon'},
+      {t:'Carnegie Council', u:'https://www.carnegiecouncil.org/people/moshe-yaalon'},
+      {t:'The Washington Institute', u:'https://www.washingtoninstitute.org/experts/moshe-yaalon'}
+    ]
+  },
+  'דן חלוץ': {
+    bio: 'דן חלוץ (נולד בתל אביב, 1948) הוא הרמטכ"ל השמונה-עשר של צה"ל, והראשון שהגיע לתפקיד מחיל האוויר. הוא התגייס ב-1966 לקורס טיס והפך לטייס קרב; במלחמת יום הכיפורים הפיל שלושה מטוסי אויב בעשרות גיחות מבצעיות. בשנים 2000–2004 פיקד על חיל האוויר. כרמטכ"ל (2005–2007) עמד בראש צה"ל במלחמת לבנון השנייה (2006); לאחר המלחמה, על רקע הביקורת על התנהלותה, התפטר מתפקידו בינואר 2007 — הקצין הבכיר ביותר שהתפטר בעקבותיה.',
+    sources: [
+      {t:'Jewish Virtual Library', u:'https://jewishvirtuallibrary.org/dan-halutz'},
+      {t:'The Jerusalem Post', u:'https://www.jpost.com/israel-news/defense-news/article-898201'},
+      {t:'Ynetnews', u:'https://www.ynetnews.com/article/3353329'}
+    ]
+  },
+  'גבי אשכנזי': {
+    bio: 'גבי אשכנזי (נולד במושב חגור, 1954) הוא מצביא ומדינאי, הרמטכ"ל התשעה-עשר של צה"ל. הוא בן לאב ניצול שואה מבולגריה ולאם ילידת סוריה, התגייס ב-1972 לחטיבת גולני, לחם במלחמת יום הכיפורים והשתתף במבצע אנטבה. לאחר שפיקד על חטיבת גולני ועל פיקוד הצפון, וכיהן כמנכ"ל משרד הביטחון, מונה לרמטכ"ל בעקבות התפטרות חלוץ. בכהונתו (2007–2011) הוביל את שיקום צה"ל לאחר מלחמת לבנון השנייה ופיקד על מבצע "עופרת יצוקה" (2008–2009). לימים נכנס לפוליטיקה וכיהן כשר החוץ.',
+    sources: [
+      {t:'צה"ל — רמטכ"לים בעבר (idf.il)', u:'https://www.idf.il/en/mini-sites/past-chiefs-of-staff/lt-gen-gabi-ashkenazi-2007-2011/'},
+      {t:'Jewish Virtual Library', u:'https://jewishvirtuallibrary.org/gabi-ashkenazi'},
+      {t:'Ynetnews', u:'https://www.ynetnews.com/articles/0,7340,L-3362535,00.html'}
+    ]
+  },
+  'בני גנץ': {
+    bio: 'בני גנץ (נולד בכפר אחים, 1959) הוא מצביא ומדינאי, הרמטכ"ל העשרים של צה"ל. הוא בן לאם ניצולת שואה, התגייס ב-1977, ולאורך הקריירה פיקד בין השאר על יחידת שלדג, על חטיבת הצנחנים ועל פיקוד הצפון, ושימש סגן הרמטכ"ל ונספח צה"ל בארה"ב. כרמטכ"ל (2011–2015) הוביל את צה"ל בשלושה מבצעים בעזה — "עמוד ענן" (2012) ו"צוק איתן" (2014). לאחר שירותו נכנס לפוליטיקה, הקים את מפלגת "כחול לבן" (לימים "המחנה הממלכתי"), וכיהן כראש הממשלה החלופי וכשר הביטחון.',
+    sources: [
+      {t:'Encyclopaedia Britannica', u:'https://www.britannica.com/biography/Benny-Gantz'},
+      {t:'Jewish Virtual Library', u:'https://jewishvirtuallibrary.org/benjamin-quot-benny-quot-gantz'},
+      {t:'CIE — Center for Israel Education', u:'https://israeled.org/benny-gantz-1959/'}
+    ]
+  },
+  'גדי איזנקוט': {
+    bio: 'גדי איזנקוט (נולד בטבריה למשפחה יוצאת מרוקו, 1960) הוא מצביא ומדינאי, הרמטכ"ל העשרים ואחד של צה"ל. הוא התגייס ב-1978 לחטיבת גולני ועלה בה בדרגות ובתפקידי פיקוד. כראש פיקוד הצפון ניסח את "תפיסת הדאחייה" בנוגע להפעלת כוח מול תשתיות האויב. כרמטכ"ל (2015–2019) פיקד בין השאר על מבצע "מגן צפוני" לחשיפת מנהרות חיזבאללה. לאחר פרישתו נכנס לפוליטיקה במסגרת "המחנה הממלכתי", וכיהן בתקופת המלחמה שלאחר 7 באוקטובר 2023 כחבר בקבינט המלחמה.',
+    sources: [
+      {t:'Jewish Virtual Library', u:'https://jewishvirtuallibrary.org/gadi-eisenkot'},
+      {t:'The Times of Israel', u:'https://www.timesofisrael.com/maj-gen-gadi-eizenkot-to-be-named-21st-commander-of-idf/'},
+      {t:'The Washington Institute', u:'https://www.washingtoninstitute.org/experts/gadi-eisenkot'}
+    ]
+  },
+  'אביב כוכבי': {
+    bio: 'אביב כוכבי (נולד ב-1964) הוא הרמטכ"ל העשרים ושניים של צה"ל. הוא שירת בחטיבת הצנחנים, פיקד עליה ועל עוצבות ופיקודים, וכיהן כראש אגף המודיעין וכסגן הרמטכ"ל. כרמטכ"ל (2019 עד ינואר 2023) שם דגש על הגברת הקטלניות, השימוש במודיעין ותפיסת "ההכרעה", בתקופה של אתגרים בגבולות עזה ולבנון ומול איראן. לאחר אירועי 7 באוקטובר 2023 הביע נכונות שהחלטותיו בתקופת כהונתו ייבדקו במסגרת תחקירי הכישלון.',
+    sources: [
+      {t:'The Times of Israel', u:'https://www.timesofisrael.com/aviv-kochavi-set-to-take-over-as-idfs-22nd-chief-of-staff/'},
+      {t:'משרד החוץ (mfa.gov.il)', u:'https://mfa.gov.il/MFA/AboutIsrael/State/Personalities/Pages/Aviv-Kochavi.aspx'},
+      {t:'The Jerusalem Post', u:'https://www.jpost.com/israel-news/aviv-kochavi-the-idf-chief-of-staff-in-a-political-minefield-654565'}
+    ]
+  },
+  'הרצי הלוי': {
+    bio: 'הרצי הלוי הוא הרמטכ"ל העשרים ושלושה של צה"ל. הוא בנה קריירה צבאית ארוכה ובכירה, ובין השאר שירת בסיירת מטכ"ל, עמד בראש אגף המודיעין ופיקד על פיקוד הדרום. הוא נכנס לתפקיד הרמטכ"ל בינואר 2023, וכשנה לאחר מכן הוביל את צה"ל במלחמה שפרצה בעקבות מתקפת הפתע של חמאס ב-7 באוקטובר 2023. בינואר 2025 הודיע על התפטרותו מתוך נטילת אחריות לכישלון צה"ל ב-7 באוקטובר, וסיים את תפקידו במרץ 2025 — הקצין הבכיר ביותר שהתפטר על רקע אותם אירועים.',
+    sources: [
+      {t:'The Times of Israel', u:'https://www.timesofisrael.com/taking-responsibility-for-oct-7-failures-idf-chief-and-head-of-southern-command-resign/'},
+      {t:'CNN', u:'https://www.cnn.com/2025/01/21/middleeast/israeli-military-chief-of-staff-resigns-intl'},
+      {t:'The Jerusalem Post', u:'https://www.jpost.com/breaking-news/article-838583'}
+    ]
+  },
+  'אייל זמיר': {
+    bio: 'אייל זמיר (נולד באילת, 1966) הוא הרמטכ"ל העשרים וארבעה והמכהן של צה"ל. הוא התגייס ב-1984 לחיל השריון, פיקד על חטיבת השריון ה-7 ועל אוגדות, ושימש המזכיר הצבאי של ראש הממשלה (2012–2015), מפקד פיקוד הדרום, סגן הרמטכ"ל ומנכ"ל משרד הביטחון. הוא נכנס לתפקיד הרמטכ"ל ב-5 במרץ 2025, לאחר התפטרות הרצי הלוי, ומוביל את צה"ל בהמשך המלחמה. זמיר הוא הרמטכ"ל הראשון מחיל השריון מאז דוד אלעזר בשנות ה-70, והמבוגר ביותר שנכנס לתפקיד.',
+    sources: [
+      {t:'The Times of Israel', u:'https://www.timesofisrael.com/cabinet-confirms-eyal-zamir-as-israeli-armys-24th-chief-of-staff/'},
+      {t:'JNS — Jewish News Syndicate', u:'https://www.jns.org/new-era-for-idf-leadership-eyal-zamir-confirmed-as-chief-of-staff/'},
+      {t:'The Media Line', u:'https://themedialine.org/top-stories/who-is-eyal-zamir-israels-next-idf-chief-of-staff/'}
+    ]
+  }
+};
+
+/* ===================== HELPERS ===================== */
+function ageAt(birth, date){
+  let a = date.getFullYear() - birth.getFullYear();
+  const m = date.getMonth() - birth.getMonth();
+  if (m < 0 || (m === 0 && date.getDate() < birth.getDate())) a--;
+  return a;
+}
+
+function formatTerm(start, end){
+  const s = new Date(start + 'T00:00:00');
+  const sStr = months[s.getMonth()] + ' ' + s.getFullYear();
+  if (!end) return sStr + ' – היום';
+  const e = new Date(end + 'T00:00:00');
+  return sStr + ' – ' + months[e.getMonth()] + ' ' + e.getFullYear();
+}
+
+function ageText(birth, start, end){
+  const today = new Date();
+  const startD = new Date(start + 'T00:00:00');
+  const endD = end ? new Date(end + 'T00:00:00') : today;
+  let aEnd = ageAt(birth, endD);
+  if (aEnd < 0) aEnd = 0;
+  if (startD <= birth){
+    return aEnd > 0 ? ('מלידתך ועד גיל ' + aEnd) : 'בשנת חייך הראשונה';
+  }
+  let aStart = ageAt(birth, startD);
+  if (aStart < 0) aStart = 0;
+  if (aStart === aEnd) return 'בערך בגיל ' + aStart;
+  return 'מגיל ' + aStart + ' עד ' + aEnd;
+}
+
+function initials(name){
+  return name.split(/[\s-]+/).slice(0,2).map(w => w.charAt(0)).join(' ');
+}
+
+function el(tag, cls, html){
+  const e = document.createElement(tag);
+  if (cls) e.className = cls;
+  if (html != null) e.innerHTML = html;
+  return e;
+}
+
+// אחוז מחיי המשתמש שבו האיש כיהן בתפקידו (חפיפת הכהונה עם הטווח לידה→היום)
+function lifePercent(birth, today, start, end){
+  const s = new Date(start + 'T00:00:00').getTime();
+  const e = (end ? new Date(end + 'T00:00:00') : today).getTime();
+  const oStart = Math.max(birth.getTime(), s);
+  const oEnd = Math.min(today.getTime(), e);
+  const overlap = Math.max(0, oEnd - oStart);
+  const life = today.getTime() - birth.getTime();
+  return life > 0 ? (overlap / life) * 100 : 0;
+}
+
+function fmtPct(p){
+  if (p > 0 && p < 0.1) return '<0.1%';
+  let s = p.toFixed(1);
+  if (s.endsWith('.0')) s = s.slice(0, -2);
+  return s + '%';
+}
+
+function statTile(num, lbl){
+  return '<div class="stat"><div class="num">' + num + '</div><div class="lbl">' + lbl + '</div></div>';
+}
+
+/* ===================== RENDER ===================== */
+function buildCard(item, birth, today, ordinalText){
+  const card = el('li', 'card' + (item.end === null ? ' live' : ''));
+
+  const avatar = el('div', 'avatar');
+  avatar.setAttribute('data-initials', initials(item.name));
+  const img = document.createElement('img');
+  img.loading = 'lazy';
+  img.alt = item.name;
+  img.src = item.img;
+  img.onerror = function(){ this.remove(); };
+  avatar.appendChild(img);
+
+  const info = el('div', 'info');
+  const name = el('div', 'name');
+  name.appendChild(document.createTextNode(item.name));
+  if (item.end === null) name.appendChild(el('span', 'badge-live', item.gender === 'f' ? 'מכהנת כיום' : 'מכהן כיום'));
+  info.appendChild(name);
+
+  const metaText = ordinalText || item.party || '';
+  if (metaText) info.appendChild(el('div', 'meta accent', metaText));
+  info.appendChild(el('div', 'term', formatTerm(item.start, item.end)));
+  info.appendChild(el('div', 'age', ageText(birth, item.start, item.end)));
+
+  const pct = lifePercent(birth, today, item.start, item.end);
+  const pctWrap = el('div', 'pct');
+  const bar = el('div', 'pct-bar');
+  const span = document.createElement('span');
+  span.style.width = Math.min(100, pct).toFixed(1) + '%';
+  bar.appendChild(span);
+  pctWrap.appendChild(bar);
+  pctWrap.appendChild(el('div', 'pct-label', '<b>' + fmtPct(pct) + '</b> מחייך'));
+  info.appendChild(pctWrap);
+
+  card.appendChild(avatar);
+  card.appendChild(info);
+  card.appendChild(el('div', 'go', '‹'));
+
+  card.tabIndex = 0;
+  card.setAttribute('role', 'button');
+  card.setAttribute('aria-label', 'פרטים על ' + item.name);
+  const open = () => openModal(item, metaText, birth, today);
+  card.addEventListener('click', open);
+  card.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); open(); }
+  });
+  return card;
+}
+
+function buildBlock(key, birthStr, birth, today){
+  const block = DATA[key];
+  const items = block.list
+    .map((it, i) => Object.assign({ ord: i + 1 }, it))
+    .filter(it => it.end === null || it.end >= birthStr)
+    .sort((a, b) => a.start < b.start ? -1 : 1);
+
+  if (items.length === 0) return { node: null, items: [] };
+
+  const section = el('section', 'block ' + key);
+  section.setAttribute('data-key', key);
+  const head = el('div', 'block-head');
+  head.appendChild(el('span', 'ic', block.icon));
+  head.appendChild(el('h2', null, block.title));
+  head.appendChild(el('span', 'count', items.length + (items.length === 1 ? ' כהונה' : ' כהונות')));
+  section.appendChild(head);
+
+  const ul = el('ul', 'timeline');
+  items.forEach(it => {
+    const ord = block.ordinal ? (block.singular + ' ה-' + it.ord) : null;
+    ul.appendChild(buildCard(it, birth, today, ord));
+  });
+  section.appendChild(ul);
+  return { node: section, items: items };
+}
+
+/* ===================== CONTROLLER ===================== */
+const form = document.getElementById('form');
+const input = document.getElementById('bd');
+const errBox = document.getElementById('err');
+const results = document.getElementById('results');
+const summaryBox = document.getElementById('summary');
+const highlightsBox = document.getElementById('highlights');
+const noteBox = document.getElementById('note');
+const tabsEl = document.getElementById('tabs');
+
+const todayStr = new Date().toISOString().slice(0, 10);
+input.max = todayStr;
+
+let activeTab = 'pm';
+
+function setActiveTab(key){
+  activeTab = key;
+  document.querySelectorAll('#tabs .tab').forEach(t =>
+    t.classList.toggle('active', t.dataset.key === key));
+  document.querySelectorAll('#results section.block').forEach(s =>
+    s.classList.toggle('hidden', s.getAttribute('data-key') !== key));
+}
+
+// ----- profile modal -----
+const modal = document.getElementById('modal');
+
+function openModal(item, metaText, birth, today){
+  document.getElementById('m-name').textContent = item.name;
+  document.getElementById('m-role').textContent = metaText || '';
+
+  const ph = document.getElementById('m-photo');
+  ph.setAttribute('data-initials', initials(item.name));
+  ph.innerHTML = '';
+  const im = document.createElement('img');
+  im.alt = item.name; im.src = item.img;
+  im.onerror = function(){ this.remove(); };
+  ph.appendChild(im);
+
+  const facts = document.getElementById('m-facts');
+  facts.innerHTML = '';
+  const addFact = (t) => facts.appendChild(el('span', 'fact', t));
+  addFact('כהונה: ' + formatTerm(item.start, item.end));
+  addFact(ageText(birth, item.start, item.end));
+  addFact(fmtPct(lifePercent(birth, today, item.start, item.end)) + ' מחייך');
+  if (item.end === null) addFact(item.gender === 'f' ? 'מכהנת כיום' : 'מכהן כיום');
+
+  const b = BIOS[item.name];
+  const bioEl = document.getElementById('m-bio');
+  const srcEl = document.getElementById('m-sources');
+  if (b && b.bio){
+    bioEl.textContent = b.bio;
+    srcEl.innerHTML = '<h4>מקורות</h4><ul>' +
+      b.sources.map(s => '<li><a href="' + s.u + '" target="_blank" rel="noopener">' + s.t + '</a></li>').join('') +
+      '</ul>';
+    srcEl.style.display = '';
+  } else {
+    bioEl.textContent = 'התקציר המורחב והמקורות עבור ' + item.name + ' יתווספו בקרוב.';
+    srcEl.style.display = 'none';
+  }
+
+  modal.classList.remove('hidden');
+  requestAnimationFrame(() => modal.classList.add('show'));
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal(){
+  modal.classList.remove('show');
+  document.body.style.overflow = '';
+  setTimeout(() => modal.classList.add('hidden'), 200);
+}
+
+modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+modal.querySelector('.modal-close').addEventListener('click', closeModal);
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal();
+});
+
+form.addEventListener('submit', function(e){
+  e.preventDefault();
+  errBox.textContent = '';
+  const val = input.value;
+
+  if (!val){ errBox.textContent = 'נא להזין תאריך לידה.'; return; }
+  if (val > todayStr){ errBox.textContent = 'תאריך הלידה לא יכול להיות בעתיד.'; return; }
+
+  const birth = new Date(val + 'T00:00:00');
+  if (isNaN(birth.getTime())){ errBox.textContent = 'תאריך לא תקין.'; return; }
+  const today = new Date();
+
+  // build the three categories
+  results.innerHTML = '';
+  tabsEl.innerHTML = '';
+  const blocks = {};
+  ['pm', 'cos', 'pres'].forEach(key => {
+    const b = buildBlock(key, val, birth, today);
+    blocks[key] = b;
+    if (b.node) results.appendChild(b.node);
+  });
+
+  // tab menu — pick one category at a time
+  ['pm', 'cos', 'pres'].forEach(key => {
+    const b = blocks[key];
+    if (!b.node) return;
+    const btn = el('button', 'tab');
+    btn.type = 'button';
+    btn.dataset.key = key;
+    btn.innerHTML = '<span>' + DATA[key].icon + '</span><span>' + DATA[key].title +
+      '</span><span class="tcount">' + b.items.length + '</span>';
+    btn.addEventListener('click', () => setActiveTab(key));
+    tabsEl.appendChild(btn);
+  });
+  tabsEl.classList.remove('hidden');
+  if (!blocks[activeTab] || !blocks[activeTab].node) activeTab = 'pm';
+  setActiveTab(activeTab);
+
+  // summary stat box
+  const birthHe = birth.getDate() + ' ב' + months[birth.getMonth()] + ' ' + birth.getFullYear();
+  const elecCount = ELECTIONS.filter(d => d >= val && d <= todayStr).length;
+  summaryBox.innerHTML =
+    '<div class="intro">נולדת ב-' + birthHe + '</div>' +
+    '<div class="stats">' +
+      statTile(ageAt(birth, today), 'גיל') +
+      statTile(blocks.pm.items.length, 'ראשי ממשלה') +
+      statTile(blocks.cos.items.length, 'רמטכ"לים') +
+      statTile(blocks.pres.items.length, 'נשיאים') +
+    '</div>';
+  summaryBox.classList.remove('hidden');
+
+  // highlights box: longest-serving per category (sum of their terms within your life) + parliamentary stats
+  function longestServing(items){
+    const byName = {};
+    items.forEach(it => { byName[it.name] = (byName[it.name] || 0) + lifePercent(birth, today, it.start, it.end); });
+    let best = null;
+    Object.keys(byName).forEach(n => { if (!best || byName[n] > best.pct) best = { name: n, pct: byName[n] }; });
+    return best;
+  }
+  const hlRow = (ic, label, best) => best ?
+    ('<div class="hl-row"><span class="hl-ic">' + ic + '</span>' +
+     '<div class="hl-main"><div class="hl-label">' + label + '</div>' +
+     '<div class="hl-name">' + best.name + '</div></div>' +
+     '<span class="hl-pct">' + fmtPct(best.pct) + '</span></div>') : '';
+  const knessetCount = elecCount + (val > ELECTIONS[0] ? 1 : 0);
+  highlightsBox.innerHTML =
+    '<h3>הסיכום שלך</h3>' +
+    hlRow('🏛️', 'ראש הממשלה שכיהן הכי הרבה זמן מחייך', longestServing(blocks.pm.items)) +
+    hlRow('🎖️', 'הרמטכ"ל שכיהן הכי הרבה זמן מחייך', longestServing(blocks.cos.items)) +
+    hlRow('⭐', 'הנשיא שכיהן הכי הרבה זמן מחייך', longestServing(blocks.pres.items)) +
+    '<div class="hl-stats">' +
+      '<div class="hl-stat"><b>' + knessetCount + '</b>כנסות במהלך חייך</div>' +
+      '<div class="hl-stat"><b>' + elecCount + '</b>מערכות בחירות במהלך חייך</div>' +
+    '</div>';
+  highlightsBox.classList.remove('hidden');
+
+  // founding note
+  if (val < FOUNDING){
+    noteBox.textContent = 'מדינת ישראל הוקמה ב-14 במאי 1948 — מוצגים כל המנהיגים מאז הקמתה.';
+    noteBox.classList.remove('hidden');
+  } else {
+    noteBox.classList.add('hidden');
+  }
+
+  summaryBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
+});
+</script>
+</body>
+</html>

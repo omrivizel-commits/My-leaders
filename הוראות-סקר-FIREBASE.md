@@ -27,7 +27,8 @@ service cloud.firestore {
       allow read: if true;
       allow create: if request.resource.data.party is string
                     && request.resource.data.party.size() < 60;
-      allow update, delete: if false;
+      allow update: if false;
+      allow delete: if isAdmin();
     }
   }
 }
@@ -48,7 +49,8 @@ service cloud.firestore {
 5. שמור, ועשה commit + push ל‑GitHub.
 
 ## שלב 5 — הפעלה
-1. כנס לאתר עם הכתובת: `https://omrivizel-commits.github.io/My-leaders/?admin`
+1. כנס לאתר עם הכתובת הסודית: `https://omrivizel-commits.github.io/My-leaders/?admin=omri-2026`
+   (רק כתובת זו חושפת את כפתור 🔐. אחרי התחברות ראשונה הוא יופיע לך אוטומטית גם בלי הכתובת.)
 2. לחץ על כפתור 🔐 (למעלה) → התחבר עם האימייל והסיסמה משלב 3.
 3. תראה את **לוח הניהול** עם מספר ההצבעות וכפתור **🚀 פרסם לציבור**.
 4. עד שתלחץ "פרסם" — אף אחד חוץ ממך לא רואה את הסקר.
